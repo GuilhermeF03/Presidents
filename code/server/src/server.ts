@@ -33,7 +33,6 @@ const sessionMiddleware = session({
 });
 
 async function main() {
-  // express implementation
   const app = express();
 
   // Setup middlewares

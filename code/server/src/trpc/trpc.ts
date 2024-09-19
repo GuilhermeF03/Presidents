@@ -3,12 +3,9 @@ import type { CreateExpressContextOptions } from '@trpc/server/adapters/express'
 
 export const createContext = ({ req, res }: CreateExpressContextOptions) => {
   const getUser = () => {
-    if (req.headers.authorization !== 'secret') {
-      return null;
-    }
-    return {
-      name: 'alex',
-    };
+    if (req.headers.authorization !== 'secret') return null;
+
+    return { name: 'alex' };
   };
 
   return {
