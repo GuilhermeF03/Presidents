@@ -1,7 +1,6 @@
 import { initTRPC } from '@trpc/server';
 import type { CreateExpressContextOptions } from '@trpc/server/adapters/express';
 
-
 export const createContext = ({ req, res }: CreateExpressContextOptions) => {
   const getUser = () => {
     if (req.headers.authorization !== 'secret') {
