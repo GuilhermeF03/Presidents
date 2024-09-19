@@ -1,2 +1,5 @@
-# Game of the Eye
- A site for the 'game of the eye' traditional portuguese card game
+# Presidents P2P
+ A website for playing the card game "Presidents" with friends online. It is a *work in progress*.
+
+## How to play
+
