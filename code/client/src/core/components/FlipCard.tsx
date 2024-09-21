@@ -22,7 +22,7 @@ const FlipCard = () => {
   };
 
   return (
-    <div className="h-screen centered">
+    <div className="h-full centered">
       <div onClick={handleFlip} className={`relative card ${activeCard ? 'cardFlip' : ''}`}>
         {/* front */}
         <div className="front">
