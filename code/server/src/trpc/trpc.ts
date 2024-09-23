@@ -2,24 +2,30 @@ import { initTRPC } from '@trpc/server';
 import type { CreateExpressContextOptions } from '@trpc/server/adapters/express';
 import type { CoreServices } from '@/services/coreServices';
 
-export const trpcContext =
-  (services: CoreServices) =>
-  ({ req, res }: CreateExpressContextOptions) => {
-    const getUser = () => {
-      if (req.headers.authorization !== 'secret') return null;
+type InjectedContext<T = {}> = {
+  injection: { services: CoreServices };
+} & T;
 
-      return { name: 'alex' };
-    };
-
-    return {
-      services,
-      req,
-      res,
-      user: getUser(),
-    };
+export const createInjectedContext =
+  <T extends (...args: any[]) => InjectedContext>(services: CoreServices, handler: T) =>
+  (...args: Parameters<T>): InjectedContext => {
+    return handler(services, ...args);
   };
-type Context = Awaited<ReturnType<typeof trpcContext>>;
 
-const t = initTRPC.context<Context>().create();
-export const router = t.router;
+/**
+ * Create a TRPC context that will be used by the TRPC routers
+ */
+export const trpcContext = (services: CoreServices) =>
+  createInjectedContext(services, ({ req, res }: CreateExpressContextOptions) => {
+    return {
+      injection: {
+        services,
+      },
+    };
+  });
+type AppContext = Awaited<ReturnType<typeof trpcContext>>;
+
+const t = initTRPC.context<AppContext>().create();
+
+export const { router, createCallerFactory } = t;
 export const publicProcedure = t.procedure;

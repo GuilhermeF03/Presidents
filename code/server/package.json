@@ -14,22 +14,24 @@
     "@types/cors": "^2.8.17",
     "@types/express": "^4.17.21",
     "@types/express-session": "^1.18.0",
+    "@types/jest": "^29.5.13",
     "@types/uuid": "^10.0.0",
     "eslint": "^9.11.0",
     "globals": "^15.9.0",
+    "jest": "^29.7.0",
     "prettier": "3.3.3",
-    "typescript-eslint": "^8.6.0"
+    "typescript-eslint": "^8.7.0"
   },
   "peerDependencies": {
     "typescript": "^5.6.2"
   },
   "dependencies": {
-    "@trpc/server": "^11.0.0-rc.522",
+    "@trpc/server": "^11.0.0-rc.528",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "express-session": "^1.18.0",
-    "knip": "^5.30.2",
+    "knip": "^5.30.5",
     "uuid": "^10.0.0",
     "zod": "^3.23.8"
   }

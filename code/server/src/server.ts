@@ -1,14 +1,13 @@
-import * as trpcExpress from '@trpc/server/adapters/express';
-import express from 'express';
-import { trpcContext } from './trpc/trpc.ts';
-import { rootRouter } from './controllers/root.ts';
 import cors from 'cors';
-import session from 'express-session';
-import config from './config.ts';
+import express from 'express';
+import * as trpcExpress from '@trpc/server/adapters/express';
 
-import { coreServices, type CoreServices } from './services/coreServices.ts';
+import config from './config.ts';
+import { trpcContext } from './trpc/trpc.ts';
 import type { CoreRepo } from './repos/types';
+import { rootRouter } from './controllers/root.ts';
 import { memCore } from './repos/memory/memCore.ts';
+import { coreServices, type CoreServices } from './services/coreServices.ts';
 
 export type AppRouter = typeof rootRouter;
 
@@ -19,11 +18,8 @@ async function main() {
   console.log('args', args);
 
   // setup dependencies
-
   const db: CoreRepo = memCore;
   const services: CoreServices = coreServices(db);
-
-  const context = trpcContext(services);
 
   // setup middlewares
   const logMiddleWare: express.Handler = (req, _res, next) => {
@@ -31,6 +27,8 @@ async function main() {
     next();
   };
 
+  // setup TRPC
+  const context = trpcContext(services);
   const trpcMiddleware = trpcExpress.createExpressMiddleware({
     router: rootRouter,
     createContext: context,
@@ -53,14 +51,13 @@ async function main() {
   const app = express();
 
   // Setup middlewares
-  app.use(cors(config.SERVER_OPTIONS.cors));
+  app.use(cors(/*config.SERVER_OPTIONS.cors*/));
   app.use(logMiddleWare);
   //app.use(sessionMiddleware);
-
   app.use('/trpc', trpcMiddleware);
 
-  app.listen(4321, () => {
-    console.log('listening on port 4321');
+  app.listen(config.PORT, () => {
+    console.log(`listening on ${config.ORIGIN}`);
   });
 }
 

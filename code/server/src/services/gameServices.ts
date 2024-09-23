@@ -1,7 +1,13 @@
 import type { GameRepo } from '@/repos/types';
 
-type GameServices = {};
+type GameServices = {
+  create: () => Promise<string>;
+};
 
-const gameServices = (gameRepo: GameRepo): GameServices => ({});
+const gameServices = (gameRepo: GameRepo): GameServices => ({
+  create: async () => {
+    return 'michael';
+  },
+});
 
 export default gameServices;

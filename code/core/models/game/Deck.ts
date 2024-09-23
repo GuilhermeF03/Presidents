@@ -16,9 +16,8 @@ class Deck {
         }
     }
 
-    draw() {
-        return this.cards.pop();
-    }
+    draw = () => this.cards.pop();
+    
 }
 
 export { Deck };

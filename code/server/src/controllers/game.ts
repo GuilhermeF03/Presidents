@@ -6,11 +6,13 @@ const gameProcedure = publicProcedure.input(z.object({ gameId: z.string().uuid()
 const playerProcedure = gameProcedure.input(z.object({ playerId: z.string().uuid() }));
 
 export const gameRouter = router({
-  create: publicProcedure.query(({ ctx }) => {
+  create: publicProcedure.meta({ description: 'Create a new game' }).query(async ({ ctx }) => {
     // Create a new game
-    const gameId = ctx.services.game;
+    const { services } = ctx.injection;
+    const gameId = await services.game.create();
     return gameId;
   }),
+
   join: gameProcedure.mutation(({ input }) => {
     // Join a game
     return input;
