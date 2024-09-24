@@ -1,0 +1,10 @@
+.cardBody {
+  @apply flex items-center justify-center bg-yellow-500 border-black border-8 rounded-xl transition-all duration-500 ease-in-out;
+  @apply w-[90%] max-w-[15rem] h-[40vh] max-h-[21rem];
+  @apply text-2xl md:text-3xl hover:text-4xl font-bold text-center text-black;
+  /* Use scale on hover instead of fixed size */
+}
+
+.cardBody:hover {
+  @apply scale-[1.05]; /* Adjust scale on hover */
+}

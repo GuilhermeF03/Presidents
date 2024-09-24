@@ -1,12 +1,12 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useState } from 'react';
-import { trpc, useTRPC } from './utils/trpc';
+import { trpc, useTRPC as useTRPCClient } from './utils/trpc';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Landing } from './pages/landing/Landing.tsx';
 
 export function App() {
   const [queryClient] = useState(() => new QueryClient());
-  const [trpcClient] = useTRPC();
+  const [trpcClient] = useTRPCClient();
 
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>

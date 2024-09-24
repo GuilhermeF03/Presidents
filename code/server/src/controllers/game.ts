@@ -1,21 +1,25 @@
 import { publicProcedure, router } from '../trpc/trpc';
 import { z } from 'zod';
 import { ZodCard } from '@core/models/game/Card';
+import { ZodGameOpInput, ZodPlayerOpInput } from '@core/models/input/types';
+import { httpWrap } from './utils';
 
-const gameProcedure = publicProcedure.input(z.object({ gameId: z.string().uuid() }));
-const playerProcedure = gameProcedure.input(z.object({ playerId: z.string().uuid() }));
+const playerProcedure = publicProcedure.input(ZodPlayerOpInput);
+const gameProcedure = playerProcedure.input(ZodGameOpInput);
 
 export const gameRouter = router({
-  create: publicProcedure.meta({ description: 'Create a new game' }).query(async ({ ctx }) => {
+  create: playerProcedure.query(async ({ ctx, input }) => {
     // Create a new game
     const { services } = ctx.injection;
-    const gameId = await services.game.create();
-    return gameId;
+
+    return httpWrap(async () => await services.game.create(input));
   }),
 
-  join: gameProcedure.mutation(({ input }) => {
+  join: gameProcedure.mutation(({ ctx, input }) => {
     // Join a game
-    return input;
+    const { services } = ctx.injection;
+
+    return httpWrap(async () => await services.game.join(input));
   }),
 
   drawTo: playerProcedure.mutation(({ input }) => {
@@ -24,5 +28,5 @@ export const gameRouter = router({
     return input;
   }),
 
-  play: playerProcedure.input(z.object({ card: ZodCard })).mutation(({ input }) => {}),
+  play: gameProcedure.input(z.object({ card: ZodCard })).mutation(({ input }) => {}),
 });
