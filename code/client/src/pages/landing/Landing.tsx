@@ -1,21 +1,22 @@
-import Card from '@/core/components/Cards/Card';
+import InteractiveCard from '@/core/components/Cards/InteractiveCard';
 import Footer from '@/core/components/Footer';
 import NavBar from '@/core/components/NavBar';
+import { Flex } from '@chakra-ui/react';
 
 export function Landing() {
   return (
-    <div className="min-h-screen max-h-screen w-screen flex flex-col">
-      {/* Header */}
+    <Flex className="min-h-screen max-h-screen w-screen" direction="column" h="100vh">
       <NavBar />
-
-      {/* Body */}
-      <div className="flex flex-col md:flex-row items-center justify-center bg-green-500 grow p-8 md:p-16 gap-8 md:gap-56">
-        <Card>New Game</Card>
-        <Card>Join Game</Card>
-      </div>
-
-      {/* Footer */}
+      <Flex
+        className="bg-green-500 grow p-8 md:p-16 gap-8 md:gap-56 h-full"
+        direction="row"
+        align={'center'}
+        justifyContent={'center'}
+      >
+        <InteractiveCard>New Game</InteractiveCard>
+        <InteractiveCard>Join Game</InteractiveCard>
+      </Flex>
       <Footer />
-    </div>
+    </Flex>
   );
 }
