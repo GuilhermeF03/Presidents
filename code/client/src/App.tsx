@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { trpc, useTRPC as useTRPCClient } from './utils/trpc';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Landing } from './pages/landing/Landing.tsx';
+import { ChakraProvider } from '@chakra-ui/react';
 
 export function App() {
   const [queryClient] = useState(() => new QueryClient());
@@ -11,11 +12,13 @@ export function App() {
   return (
     <trpc.Provider client={trpcClient} queryClient={queryClient}>
       <QueryClientProvider client={queryClient}>
-        <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Landing />} />
-          </Routes>
-        </BrowserRouter>
+        <ChakraProvider>
+          <BrowserRouter>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+            </Routes>
+          </BrowserRouter>
+        </ChakraProvider>
       </QueryClientProvider>
     </trpc.Provider>
   );

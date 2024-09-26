@@ -4,13 +4,14 @@ import { Card, CardBody, CardProps as CProps } from '@chakra-ui/react';
 
 type CardProps = {
   children?: React.ReactNode;
-  className?: string;
 } & CProps;
 
-const InteractiveCard = ({ children = null, className = '', ...rest }: CardProps) => {
+const InteractiveCard = ({ children = null, ...rest }: CardProps) => {
   return (
-    <Card align={'center'} className={twMerge(styles.cardBody, className)} {...rest}>
-      <CardBody alignContent={'center'}>{children}</CardBody>
+    <Card align={'center'} {...rest} __css={''} className={twMerge(styles.cardBody, rest.className)}>
+      <CardBody height="100%" maxWidth={'100%'} alignContent={'center'}>
+        {children}
+      </CardBody>
     </Card>
   );
 };
