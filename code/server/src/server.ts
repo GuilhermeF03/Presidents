@@ -9,8 +9,6 @@ import { rootRouter } from './controllers/root.ts';
 import { memCore } from './repos/memory/memCore.ts';
 import { coreServices, type CoreServices } from './services/coreServices.ts';
 
-export type AppRouter = typeof rootRouter;
-
 async function main() {
   // parse arguments
   const args = Bun.argv;

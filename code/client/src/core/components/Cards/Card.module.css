@@ -1,7 +1,7 @@
 .cardBody {
-  @apply items-center justify-center bg-yellow-500 border-black border-8 rounded-xl transition-all duration-500 ease-in-out cursor-pointer;
-  @apply w-[90%] max-w-[15rem] h-[40vh] max-h-[21rem];
-  @apply text-2xl md:text-3xl hover:text-4xl font-bold text-center text-black;
+  @apply cursor-pointer items-center justify-center rounded-xl border-8 border-black bg-yellow-500 transition-all duration-500 ease-in-out;
+  @apply h-[40vh] max-h-[21rem] w-[90%] max-w-[15rem];
+  @apply text-center text-2xl font-bold text-black hover:text-4xl md:text-3xl;
   /* Use scale on hover instead of fixed size */
 }
 

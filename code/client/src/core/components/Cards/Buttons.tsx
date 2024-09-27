@@ -33,7 +33,7 @@ export function BaseButton({
         borderColor: hoverBorderColor,
       }}
       borderWidth={4}
-      className={'text-xl p-2 rounded-lg font-bold'}
+      className={'rounded-lg p-2 text-xl font-bold'}
       {...rest}
     >
       {rest.children}

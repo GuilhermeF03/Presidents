@@ -8,11 +8,11 @@ export default function Footer() {
   return (
     <Flex
       direction="row"
-      className="p-4 md:p-8 items-center justify-center h-auto md:h-[10%] w-full bg-blue-500 grow-0"
+      className="h-auto w-full grow-0 items-center justify-center bg-blue-500 p-4 md:h-[10%] md:p-8"
     >
       {/* GitHub Link */}
       <Link
-        className="text-base md:text-xl text-white hover:text-sky-100"
+        className="text-base text-white hover:text-sky-100 md:text-xl"
         href="https://github.com/GuilhermeF03/Presidents"
         isExternal
       >
@@ -23,15 +23,18 @@ export default function Footer() {
       </Link>
 
       {/* About Button */}
-      <InteractiveCard
+      {/* <InteractiveCard
+      width={['4','12']}
+      height={['4','12']}
+      fontSize={{base: '1rem',md: '1.25rem',}}
         className="
-        w-8 h-8 text-base hover:scale-110 hover:text-lg border-[5px] rounded-full
-        md:w-16 md:h-16 md:text-xl hover:md:text-3xl right-4
+        hover:scale-110 hover:text-lg border-[5px] rounded-full
+        hover:md:text-3xl right-4
         "
         position={'absolute'}
       >
         <FontAwesomeIcon icon={faQuestion} />
-      </InteractiveCard>
+      </InteractiveCard> */}
     </Flex>
   );
 }

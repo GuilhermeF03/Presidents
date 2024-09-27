@@ -1,11 +1,11 @@
 import { createTRPCReact } from '@trpc/react-query';
 import { httpBatchLink } from '@trpc/client';
-import type { AppRouter } from '@server/server';
+import type { AppRouter } from '@server/controllers/root';
 import { useState } from 'react';
 
 export const trpc = createTRPCReact<AppRouter>();
 
-export const useTRPC = () => {
+export const useTRPCClient = () => {
   return useState(() =>
     trpc.createClient({
       links: [
