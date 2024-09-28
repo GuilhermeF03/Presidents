@@ -6,7 +6,8 @@
     "dev": "bun --watch src/server.ts",
     "start": "bun src/server.ts",
     "knip": "knip",
-    "format": "prettier --write . && eslint ."
+    "format": "bunx biome check --fix .",
+    "lint": "bunx biome lint --write ."
   },
   "devDependencies": {
     "@eslint/js": "^9.11.1",
@@ -26,6 +27,7 @@
     "typescript": "^5.6.2"
   },
   "dependencies": {
+    "@biomejs/biome": "1.9.2",
     "@trpc/server": "^10.45.2",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",

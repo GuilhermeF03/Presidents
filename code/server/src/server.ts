@@ -1,13 +1,13 @@
+import * as trpcExpress from '@trpc/server/adapters/express';
 import cors from 'cors';
 import express from 'express';
-import * as trpcExpress from '@trpc/server/adapters/express';
 
 import config from './config.ts';
-import { trpcContext } from './trpc/trpc.ts';
-import type { CoreRepo } from './repos/types';
 import { rootRouter } from './controllers/root.ts';
 import { memCore } from './repos/memory/memCore.ts';
-import { coreServices, type CoreServices } from './services/coreServices.ts';
+import type { CoreRepo } from './repos/types';
+import { type CoreServices, coreServices } from './services/coreServices.ts';
+import { trpcContext } from './trpc/trpc.ts';
 
 async function main() {
   // parse arguments

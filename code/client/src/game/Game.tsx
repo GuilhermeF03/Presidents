@@ -1,3 +1,3 @@
 export function Game() {
-  return <div></div>;
+  return <div />;
 }

@@ -1,8 +1,8 @@
+import { Flex, HStack, Link, Text } from '@chakra-ui/react';
+import { faGithub } from '@fortawesome/free-brands-svg-icons';
 import { faQuestion } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import InteractiveCard from './Cards/InteractiveCard';
-import { Flex, Text, Link, HStack } from '@chakra-ui/react';
-import { faGithub } from '@fortawesome/free-brands-svg-icons';
 
 export default function Footer() {
   return (

@@ -1,6 +1,6 @@
+import { type CardProps as CProps, Card, CardBody } from '@chakra-ui/react';
 import { twMerge } from 'tailwind-merge';
 import styles from './Card.module.css';
-import { Card, CardBody, CardProps as CProps } from '@chakra-ui/react';
 
 type CardProps = {
   children?: React.ReactNode;

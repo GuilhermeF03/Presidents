@@ -1,14 +1,14 @@
 import {
+  type InputProps as IProps,
   Input,
-  InputAddonProps,
+  type InputAddonProps,
   InputGroup,
   InputLeftElement,
   InputRightElement,
-  InputProps as IProps,
   theme,
 } from '@chakra-ui/react';
+import type { ReactNode } from 'react';
 import { twMerge } from 'tailwind-merge';
-import { ReactNode } from 'react';
 
 type InputProps = IProps;
 

@@ -6,11 +6,11 @@ type GameServices = {
   join: (input: GameOpInput) => Promise<string>;
 };
 
-const gameServices = (gameRepo: GameRepo): GameServices => ({
+const gameServices = (_gameRepo: GameRepo): GameServices => ({
   create: async input => {
     return input.playerId;
   },
-  join: async input => {
+  join: async _input => {
     return '';
   },
 });

@@ -1,4 +1,11 @@
-import { Button, ButtonProps as BProps, ColorProps, BorderProps, BackgroundProps, theme } from '@chakra-ui/react';
+import {
+  type ButtonProps as BProps,
+  type BackgroundProps,
+  type BorderProps,
+  Button,
+  type ColorProps,
+  theme,
+} from '@chakra-ui/react';
 
 type ButtonProps = BProps & {
   normalTextColor?: ColorProps['textColor'];

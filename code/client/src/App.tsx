@@ -1,10 +1,12 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { useState } from 'react';
-import { trpc, useTRPCClient } from './utils/trpc';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Landing } from './landing/ui/Landing.tsx';
 import { ChakraProvider } from '@chakra-ui/react';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { StrictMode, useState } from 'react';
+import { createRoot } from 'react-dom/client';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Game } from './game/Game.tsx';
+import { Landing } from './landing/ui/Landing.tsx';
+import { trpc, useTRPCClient } from './utils/trpc';
+import './index.css';
 
 export function App() {
   const [queryClient] = useState(() => new QueryClient());
@@ -29,3 +31,19 @@ export function App() {
     </trpc.Provider>
   );
 }
+
+function main() {
+  const root = document.getElementById('root');
+
+  if (!root) {
+    console.error('No root element found');
+    return;
+  }
+  createRoot(root).render(
+    <StrictMode>
+      <App />
+    </StrictMode>
+  );
+}
+
+void main();

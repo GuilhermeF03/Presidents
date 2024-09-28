@@ -1,7 +1,7 @@
 import BaseError from '@/model/Error';
 import { TRPCError } from '@trpc/server';
 
-const httpWrap = async <T extends any>(operation: () => Promise<T>) => {
+const httpWrap = async <T>(operation: () => Promise<T>) => {
   try {
     return await operation();
   } catch (error) {

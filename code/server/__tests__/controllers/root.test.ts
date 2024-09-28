@@ -1,5 +1,5 @@
-import { createCaller } from '../../src/controllers/root';
 import type { CoreServices } from '@/services/coreServices';
+import { createCaller } from '../../src/controllers/root';
 import { trpcContext as createTestContext } from './utils';
 
 test('add and get post', async () => {

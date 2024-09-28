@@ -1,6 +1,6 @@
+import type { CoreServices } from '@/services/coreServices';
 import { initTRPC } from '@trpc/server';
 import type { CreateExpressContextOptions } from '@trpc/server/adapters/express';
-import type { CoreServices } from '@/services/coreServices';
 
 type InjectedContext<T = {}> = {
   injection: { services: CoreServices };
