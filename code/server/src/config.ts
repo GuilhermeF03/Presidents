@@ -3,7 +3,7 @@ import { config } from 'dotenv';
 
 config();
 
-const PORT = parseInt(process.env.PORT || '8080');
+const PORT = Number.parseInt(process.env.PORT || '8080');
 const ORIGIN = process.env.ORIGIN?.split(',') ?? [`http://localhost:${PORT}`];
 
 const SERVER_OPTIONS = {

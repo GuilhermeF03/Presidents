@@ -8,7 +8,7 @@ const playerProcedure = publicProcedure.input(ZodPlayerOpInput);
 const gameProcedure = playerProcedure.input(ZodGameOpInput);
 
 export const gameRouter = router({
-  create: playerProcedure.query(async ({ ctx, input }) => {
+  create: playerProcedure.mutation(async ({ ctx, input }) => {
     // Create a new game
     const { services } = ctx.injection;
 

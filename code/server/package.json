@@ -12,9 +12,6 @@
   "devDependencies": {
     "@eslint/js": "^9.11.1",
     "@types/bun": "latest",
-    "@types/cors": "^2.8.17",
-    "@types/express": "^4.17.21",
-    "@types/express-session": "^1.18.0",
     "@types/jest": "^29.5.13",
     "@types/uuid": "^10.0.0",
     "eslint": "^9.11.1",
@@ -28,13 +25,13 @@
   },
   "dependencies": {
     "@biomejs/biome": "1.9.2",
+    "@hono/trpc-server": "^0.3.2",
     "@trpc/server": "^10.45.2",
-    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.21.0",
-    "express-session": "^1.18.0",
+    "hono": "^4.6.3",
     "knip": "^5.30.6",
     "uuid": "^10.0.0",
     "zod": "^3.23.8"
-  }
+  },
+  "packageManager": "pnpm@9.1.0+sha256.22e36fba7f4880ecf749a5ca128b8435da085ecd49575e7fb9e64d6bf4fad394"
 }

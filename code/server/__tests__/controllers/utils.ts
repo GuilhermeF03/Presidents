@@ -1,9 +1,7 @@
 import type { CoreServices } from '@/services/coreServices';
 import { createInjectedContext } from '@/trpc/trpc';
 
-interface CreateContextOptions {
-  // session: Session | null
-}
+type CreateContextOptions = {};
 
 export const trpcContext = (services: CoreServices) =>
   createInjectedContext(services, () => {
