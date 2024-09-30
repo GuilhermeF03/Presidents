@@ -2,7 +2,6 @@ import type { Card } from '@core/models/game/Card';
 import { Deck } from '@core/models/game/Deck';
 import type { Hand } from '@core/models/game/Player';
 import { type ActiveGameState, type GameState, type PendingGameState, Role } from '@core/models/game/State';
-import { isEnumMember } from 'typescript';
 import { v4 as uuid } from 'uuid';
 import type { GameRepo } from '../types';
 
@@ -152,53 +151,7 @@ const memGame: GameRepo = {
     games[gameId] = activeGameState;
   },
 
-  play: async input => {
-    const { gameId, playerId, card } = input;
-    if (!gameExists(gameId)) throw new Error('Game does not exist');
-    if (!playerInGame(playerId)) throw new Error('Player is not in a game');
-
-    const gameState = games[gameId];
-    if (gameState.state !== 'active') throw new Error('Game is not in active state');
-
-    const hand = getPlayerHand(gameId, playerId);
-    if (hand.type === 'Role') throw new Error('Player has already finished the game');
-
-    const playerHand = hand.hand;
-    const cardIndex = playerHand.cards.findIndex(c => c.rank === card.rank && c.suit === card.suit);
-    if (cardIndex === -1) throw new Error('Player does not have the card in their hand');
-
-    // Remove the card from the player's hand and add it to the pile
-    const playedCard = playerHand.cards.splice(cardIndex, 1)[0];
-
-    gameState.pile.push(playedCard);
-
-    // Check if the player has finished the game - if so, assign them a role
-    if (playerHand.cards.length === 0) {
-      let _role = '';
-      if (gameState.president === '') {
-        gameState.president = playerId;
-        _role = 'president';
-      } else if (gameState.vicePresident === '') {
-        gameState.vicePresident = playerId;
-        _role = 'vicePresident';
-      } else if (gameState.viceScum === '') {
-        gameState.viceScum = playerId;
-        _role = 'viceScum';
-      } else if (gameState.scum === '') {
-        gameState.scum = playerId;
-        _role = 'scum';
-      } else {
-        _role = 'person';
-      }
-    }
-    // Check if the round is over
-    if (gameState.pile.length === 52) {
-      // Reset the pile and increment the round
-      gameState.pile = [];
-      gameState.round++;
-      gameState.turn = 0;
-    }
-  },
+  play: async input => {},
 };
 
 export default memGame;

@@ -14,14 +14,14 @@ const gameProcedure = playerProcedure.input(ZodGameOpInput);
 // Router
 export const gameRouter = router({
   // Create a new Game
-  create: playerProfileProcedure.mutation(async ({ ctx, input: playerInfo }) => {
+  create: playerProfileProcedure.output(z.string().uuid()).mutation(async ({ ctx, input: playerInfo }) => {
     const { services } = ctx.injection;
 
-    return wrapHttpRequest(async () => await services.game.create(playerInfo));
+    return await wrapHttpRequest(async () => await services.game.create(playerInfo));
   }),
 
   // Join a game
-  join: playerProfileProcedure.input(ZodGameOpInput).mutation(({ ctx, input }) => {
+  join: playerProfileProcedure.input(ZodGameOpInput).output(z.void()).mutation(({ ctx, input }) => {
     const { services } = ctx.injection;
 
     return wrapHttpRequest(async () => await services.game.join(input));

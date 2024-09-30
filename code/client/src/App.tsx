@@ -3,10 +3,11 @@ import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StrictMode, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Game } from './game/Game.tsx';
-import { Landing } from './landing/ui/Landing.tsx';
+import { Game } from './pages/game/Game.tsx';
+import { Landing } from './pages/landing/Landing.tsx';
 import { trpc, useTRPCClient } from './trpc/trpc.ts';
 import './index.css';
+import { ServicesProvider } from './services/ServiceContext.tsx';
 
 export function App() {
   const [queryClient] = useState(() => new QueryClient());
@@ -19,13 +20,15 @@ export function App() {
         {/* Add Chakra Ui theming support */}
         <ChakraProvider>
           {/* App Routes */}
-          <BrowserRouter>
-            {/* Probably add a context - must check React Query capabilities as Provider */}
-            <Routes>
-              <Route path="/" element={<Landing />} /> {/* Landing Page */}
-              <Route path="/game/:gameId" element={<Game />} /> {/* Game Page */}
-            </Routes>
-          </BrowserRouter>
+          <ServicesProvider>
+            <BrowserRouter>
+              {/* Probably add a context - must check React Query capabilities as Provider */}
+              <Routes>
+                <Route path="/" element={<Landing />} /> {/* Landing Page */}
+                <Route path="/game/:gameId" element={<Game />} /> {/* Game Page */}
+              </Routes>
+            </BrowserRouter>
+          </ServicesProvider>
         </ChakraProvider>
       </QueryClientProvider>
     </trpc.Provider>
@@ -36,7 +39,7 @@ function main() {
   const root = document.getElementById('root');
 
   if (!root) throw new Error('No root element found');
-  
+
   createRoot(root).render(
     <StrictMode>
       <App />

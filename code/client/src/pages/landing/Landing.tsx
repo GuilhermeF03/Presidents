@@ -1,18 +1,31 @@
-import { BaseButton } from '@/core/components/Cards/Buttons';
-import InteractiveCard from '@/core/components/Cards/InteractiveCard';
-import Footer from '@/core/components/Footer';
-import { IconInput } from '@/core/components/Inputs';
-import NavBar from '@/core/components/NavBar';
+import { BaseButton } from '@/components/Cards/Buttons';
+import InteractiveCard from '@/components/Cards/InteractiveCard';
+import Footer from '@/components/Footer';
+import { IconInput } from '@/components/Inputs';
+import NavBar from '@/components/NavBar';
+import { trpc } from '@/trpc/trpc';
 import { Flex, Stack } from '@chakra-ui/react';
 import { faArrowUpRightFromSquare, faLink } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useNavigate } from 'react-router-dom';
+import { useCreateGame, useJoinGame } from '../../services/landingServices';
 
 export function Landing() {
   const navigate = useNavigate();
 
+  const createGameMutation = trpc.game.create.useMutation();
+
   const handleNewGame = () => {
-    navigate('/game/new');
+    createGameMutation.mutate({
+      playerId: '123',
+      name: '',
+      pic: '',
+    });
+    //navigate('/game/new');
+  };
+  const handleJoinGame = () => {
+    useJoinGame('123', '456');
+    //navigate('/game/join');
   };
 
   return (
@@ -25,7 +38,7 @@ export function Landing() {
         justifyContent={'center'}
       >
         {/* New Game Card */}
-        <InteractiveCard>New Game</InteractiveCard>
+        <InteractiveCard onClick={handleNewGame}>New Game</InteractiveCard>
 
         {/* Join Game Card */}
         <InteractiveCard>
@@ -38,7 +51,7 @@ export function Landing() {
               icon={<FontAwesomeIcon icon={faLink} />}
             />
             {/* Join Game button*/}
-            <BaseButton className="text-xl rounded-lg p2">
+            <BaseButton className="text-xl rounded-lg p2" onClick={handleJoinGame}>
               <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
             </BaseButton>
           </Stack>
