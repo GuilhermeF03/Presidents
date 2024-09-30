@@ -5,7 +5,7 @@ import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { Game } from './game/Game.tsx';
 import { Landing } from './landing/ui/Landing.tsx';
-import { trpc, useTRPCClient } from './utils/trpc';
+import { trpc, useTRPCClient } from './trpc/trpc.ts';
 import './index.css';
 
 export function App() {
@@ -35,10 +35,8 @@ export function App() {
 function main() {
   const root = document.getElementById('root');
 
-  if (!root) {
-    console.error('No root element found');
-    return;
-  }
+  if (!root) throw new Error('No root element found');
+  
   createRoot(root).render(
     <StrictMode>
       <App />

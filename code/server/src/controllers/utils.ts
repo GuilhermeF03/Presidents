@@ -1,7 +1,12 @@
 import BaseError from '@/model/Error';
 import { TRPCError } from '@trpc/server';
 
-const httpWrap = async <T>(operation: () => Promise<T>) => {
+/**
+ * Wrap an HTTP request with error handling
+ * @param operation  The operation to perform
+ * @returns The result of the operation or an error
+ */
+const wrapHttpRequest = async <T>(operation: () => Promise<T>) => {
   try {
     return await operation();
   } catch (error) {
@@ -15,4 +20,4 @@ const httpWrap = async <T>(operation: () => Promise<T>) => {
   }
 };
 
-export { httpWrap };
+export { wrapHttpRequest };

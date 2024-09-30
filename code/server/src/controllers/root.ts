@@ -1,6 +1,7 @@
 import { createCallerFactory, publicProcedure, router } from '../trpc/trpc.ts';
 import { gameRouter } from './game.ts';
 
+// Router
 export const rootRouter = router({
   hello: publicProcedure.query(() => {
     return 'hello world';
@@ -9,5 +10,4 @@ export const rootRouter = router({
 });
 
 export type AppRouter = typeof rootRouter;
-
 export const createCaller = createCallerFactory(rootRouter); // usefull for testing

@@ -1,10 +1,5 @@
-import * as process from 'node:process';
-import { config } from 'dotenv';
-
-config();
-
-const PORT = Number.parseInt(process.env.PORT || '8080');
-const ORIGIN = process.env.ORIGIN?.split(',') ?? [`http://localhost:${PORT}`];
+const PORT = Number.parseInt(Bun.env.PORT || '8080');
+const ORIGIN = Bun.env.ORIGIN?.split(',') ?? [`http://localhost:${PORT}`];
 
 const SERVER_OPTIONS = {
   cors: {

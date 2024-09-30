@@ -1,12 +1,12 @@
-import e from "express";
 import { Rank, Suit, type Card } from "./Card";
 
 class Deck {
     cards: Card[];
-    constructor() {
-        this.cards = Object.values(Suit).flatMap(suit =>
-            Object.values(Rank).map(rank => ({ suit, rank }) as Card)
-        );
+    constructor(cards: Card[] = []) {
+
+        this.cards = (cards.length > 0) 
+        ? cards 
+        : Object.values(Suit).flatMap(suit => Object.values(Rank).map(rank => ({ suit, rank }) as Card));
     }
 
     shuffle() {
@@ -16,8 +16,7 @@ class Deck {
         }
     }
 
-    draw = () => this.cards.pop();
-    
+    draw = () => this.cards.pop()
 }
 
 export { Deck };

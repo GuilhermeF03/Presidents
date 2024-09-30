@@ -1,17 +1,26 @@
+import type { GamePipeline } from '@/pipeline.types';
 import type { GameRepo } from '@/repos/types';
-import type { GameOpInput, PlayerOpInput } from '@core/models/input/types';
+import type { GameOpInput } from '@core/models/game/Input';
 
-type GameServices = {
-  create: (input: PlayerOpInput) => Promise<string>;
-  join: (input: GameOpInput) => Promise<string>;
-};
+export interface GameServices extends GamePipeline {}
 
-const gameServices = (_gameRepo: GameRepo): GameServices => ({
+const gameServices = (gameRepo: GameRepo): GameServices => ({
   create: async input => {
-    return input.playerId;
+    const id = await gameRepo.create(input);
+    return id;
   },
-  join: async _input => {
-    return '';
+  join: async input => {
+    const gameId = await gameRepo.join(input);
+    return gameId;
+  },
+  leave: async input => {
+    return await gameRepo.leave(input);
+  },
+  play: async input => {
+    return await gameRepo.play(input);
+  },
+  start: function (_input: GameOpInput): Promise<void> {
+    throw new Error('Function not implemented.');
   },
 });
 

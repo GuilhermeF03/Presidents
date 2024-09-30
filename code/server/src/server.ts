@@ -1,7 +1,6 @@
-import { cors } from 'hono/cors';
-
 import { trpcServer } from '@hono/trpc-server';
 import { Hono, type MiddlewareHandler } from 'hono';
+import { cors } from 'hono/cors';
 import { rootRouter } from './controllers/root.ts';
 import { memCore } from './repos/memory/memCore.ts';
 import type { CoreRepo } from './repos/types';

@@ -3,32 +3,30 @@ import { initTRPC } from '@trpc/server';
 import type { FetchCreateContextFnOptions } from '@trpc/server/adapters/fetch';
 import type { Context } from 'hono';
 
-type InjectedContext<T = {}> = {
+export type InjectedContext<T = {}> = {
   injection: { services: CoreServices };
 } & T;
 
-type TrpcContextHandler = (opts: FetchCreateContextFnOptions, c: Context) => InjectedContext;
+export type TrpcContextHandler<T> = (opts: FetchCreateContextFnOptions, c: Context) => T;
 
 /**
  * A higher-order function to create the injected context using services and a handler.
  */
 export const createInjectedContext =
-  <T extends TrpcContextHandler>(handler: T) =>
-  (opts: FetchCreateContextFnOptions, c: Context): InjectedContext => {
-    return handler(opts, c);
+  <T = void>(services: CoreServices, handler: TrpcContextHandler<T>) =>
+  (opts: FetchCreateContextFnOptions, c: Context): InjectedContext<T> => {
+    return {
+      ...handler(opts, c),
+      injection: {
+        services,
+      },
+    };
   };
 
 /**
  * Create a TRPC context that will be used by the TRPC routers.
  */
-export const trpcContext = (services: CoreServices) =>
-  createInjectedContext((_opts, _c) => {
-    return {
-      injection: {
-        services,
-      },
-    };
-  });
+export const trpcContext = (services: CoreServices) => createInjectedContext(services, () => ({}));
 
 type AppContext = Awaited<ReturnType<typeof trpcContext>>;
 

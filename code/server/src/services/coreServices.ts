@@ -1,8 +1,9 @@
 import type { CoreRepo } from '@/repos/types';
+import type { CorePipeline } from '../pipeline.types';
 import gameServices from './gameServices';
 
-export const coreServices = (repo: CoreRepo) => ({
-  game: gameServices(repo),
-});
+export interface CoreServices extends CorePipeline {}
 
-export type CoreServices = ReturnType<typeof coreServices>;
+export const coreServices = (repo: CoreRepo): CoreServices => ({
+  game: gameServices(repo.game),
+});

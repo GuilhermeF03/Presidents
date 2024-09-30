@@ -9,7 +9,6 @@ const ZodRank = z.nativeEnum(Rank);
 const ZodCard = z.object({
   suit: ZodSuit,
   rank: ZodRank,
-  state: z.union([z.literal('p'), z.string().uuid()]),
 });
 type Card = z.infer<typeof ZodCard>;
 

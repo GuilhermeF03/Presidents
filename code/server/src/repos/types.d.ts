@@ -1,5 +1,4 @@
-export type CoreRepo = {
-  game: GameRepo;
-};
+import type { CorePipeline, GamePipeline } from '../pipeline.types';
 
-export type GameRepo = {};
+export interface CoreRepo extends CorePipeline {}
+export interface GameRepo extends GamePipeline {}
