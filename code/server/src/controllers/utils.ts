@@ -19,7 +19,6 @@ const wrapHttpRequest = async <T>(operation: () => Promise<T>): Promise<T> => {
       });
     }
   }
-  
 };
 
 export { wrapHttpRequest };

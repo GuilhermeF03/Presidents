@@ -151,7 +151,7 @@ const memGame: GameRepo = {
     games[gameId] = activeGameState;
   },
 
-  play: async input => {},
+  play: async _input => {},
 };
 
 export default memGame;

@@ -21,11 +21,14 @@ export const gameRouter = router({
   }),
 
   // Join a game
-  join: playerProfileProcedure.input(ZodGameOpInput).output(z.void()).mutation(({ ctx, input }) => {
-    const { services } = ctx.injection;
+  join: playerProfileProcedure
+    .input(ZodGameOpInput)
+    .output(z.void())
+    .mutation(({ ctx, input }) => {
+      const { services } = ctx.injection;
 
-    return wrapHttpRequest(async () => await services.game.join(input));
-  }),
+      return wrapHttpRequest(async () => await services.game.join(input));
+    }),
 
   // Start a SSE subscription
   enter: gameProcedure.subscription(({ ctx, input }) => {

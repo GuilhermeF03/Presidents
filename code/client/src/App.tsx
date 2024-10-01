@@ -1,13 +1,15 @@
-import { ChakraProvider } from '@chakra-ui/react';
+import { ChakraProvider, Flex } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { StrictMode, useState } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
-import { Game } from './pages/game/Game.tsx';
-import { Landing } from './pages/landing/Landing.tsx';
-import { trpc, useTRPCClient } from './trpc/trpc.ts';
+import { Game } from './pages/game/Game';
+import { Landing } from './pages/landing/Landing';
+import { trpc, useTRPCClient } from './trpc/trpc';
 import './index.css';
-import { ServicesProvider } from './services/ServiceContext.tsx';
+import Footer from './components/Footer';
+import NavBar from './components/NavBar';
+import { ServicesProvider } from './contexts/ServicesProvider';
 
 export function App() {
   const [queryClient] = useState(() => new QueryClient());
@@ -19,15 +21,29 @@ export function App() {
       <QueryClientProvider client={queryClient}>
         {/* Add Chakra Ui theming support */}
         <ChakraProvider>
-          {/* App Routes */}
+          {/* Add Services Provider */}
           <ServicesProvider>
-            <BrowserRouter>
-              {/* Probably add a context - must check React Query capabilities as Provider */}
-              <Routes>
-                <Route path="/" element={<Landing />} /> {/* Landing Page */}
-                <Route path="/game/:gameId" element={<Game />} /> {/* Game Page */}
-              </Routes>
-            </BrowserRouter>
+            {/* App Routes */}
+            <Flex className="w-screen max-h-screen min-h-screen" direction="column" h="100vh">
+              <NavBar />
+
+              {/** App Body */}
+              <Flex
+                className="h-full gap-8 p-8 bg-green-500 grow md:gap-56 md:p-16"
+                direction="row"
+                align={'center'}
+                justifyContent={'center'}
+              >
+                <BrowserRouter>
+                  {/* Probably add a context - must check React Query capabilities as Provider */}
+                  <Routes>
+                    <Route path="/" element={<Landing />} /> {/* Landing Page */}
+                    <Route path="/game/:gameId" element={<Game />} /> {/* Game Page */}
+                  </Routes>
+                </BrowserRouter>
+              </Flex>
+              <Footer />
+            </Flex>
           </ServicesProvider>
         </ChakraProvider>
       </QueryClientProvider>
