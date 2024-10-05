@@ -1,157 +1,104 @@
-import type { Card } from '@core/models/game/Card';
-import { Deck } from '@core/models/game/Deck';
-import type { Hand } from '@core/models/game/Player';
-import { type ActiveGameState, type GameState, type PendingGameState, Role } from '@core/models/game/State';
-import { v4 as uuid } from 'uuid';
+import { PlayerNotFoundError } from '@/repos/errors/notFound';
+import type { Hand, Profile } from '@core/model/game/Player';
+import { ActiveGameState, type GameState, type PendingGameState } from '@core/model/game/State';
+import { GameNotFoundError } from '../errors/notFound';
 import type { GameRepo } from '../types';
+import { isRole, newActiveGame, newPendingGame, newPlayer } from '../utils';
 
-const games: Record<string, GameState> = {};
+const memGame = (): GameRepo => {
+  const games: Record<string, GameState> = {};
 
-/**
- * Checks if a player is in any game
- * @argument playerId - the id of the player
- */
-export const playerInGame = (playerId: string) => {
-  return Object.values(games).some(game => playerId in game.players);
-};
-
-export const gameExists = (gameId: string) => {
-  return gameId in games;
-};
-
-/**
- * Returns the hand of a player in a game, or its role if the player has already finished the game
- * @param gameId
- * @param playerId
- * @returns
- */
-const getPlayerHand = (gameId: string, playerId: string) => {
-  const gameState = games[gameId];
-  const playerInfo = gameState.players[playerId];
-
-  return getPlayerInfo(playerInfo);
-};
-
-const getPlayerInfo = (info: Hand | Role): { hand: Hand; type: 'Hand' } | { role: Role; type: 'Role' } => {
-  if (Array.isArray(info))
-    return {
-      hand: info as Hand,
-      type: 'Hand',
-    };
-  return {
-    role: info as Role,
-    type: 'Role',
-  };
-};
-
-const dealCards = (players: Hand[], cards: Card[]) => {
-  const numPlayers = players.length;
-  let p = 0;
-  while (cards.length > 0) {
-    const card = cards.pop();
-    if (!card) break;
-    players[p++ % numPlayers].cards.push(card);
-  }
-};
-
-const memGame: GameRepo = {
-  // Create a new game
-  create: async input => {
-    const { playerId } = input;
-    if (playerInGame(playerId)) throw new Error('Player is already in a game');
-
-    // Player is not in any game - create a new game
-    const gameId = uuid();
-
-    const playerHand: Hand = { ...input, cards: [] };
-    const gameState: PendingGameState = {
-      id: gameId,
-      players: {
-        [playerId]: playerHand,
-      },
-      state: 'pending',
-    };
-
-    games[gameId] = gameState;
-    return gameId;
-  },
-
-  // Join a game
-  join: async input => {
-    const { playerId, gameId } = input;
-    if (playerInGame(playerId)) throw new Error('Player is already in a game');
-    if (!gameExists(gameId)) throw new Error('Game does not exist');
-
-    const gameState = games[gameId];
-    if (gameState.state !== 'pending') throw new Error('Game is not in pending state');
-
-    const playerHand: Hand = { ...input, cards: [] };
-    gameState.players[playerId] = playerHand;
-  },
-
-  leave: async input => {
-    const { playerId, gameId } = input;
-    if (!playerInGame(playerId)) throw new Error('Player is not in a game');
-    if (!gameExists(gameId)) throw new Error('Game does not exist');
-
-    const gameState = games[gameId];
-    if (gameState.state === 'active') {
-      const hand = getPlayerHand(gameId, playerId);
-      if (hand.type == 'Role') throw new Error('Player has already finished the game');
-
-      // Player is in the middle of a game - remove them from the game and split their cards between the remaining players
-
-      const playerHand = hand.hand;
-      const players = Object.entries(gameState.players)
-        .filter(([id, hand]) => id !== playerId && getPlayerInfo(hand).type == 'Hand')
-        .map(([, hand]) => hand as Hand);
-
-      // Distribute the cards in the player's hand to the remaining players
-      dealCards(players, playerHand.cards);
+  const getPlayerDetails: GameRepo['getPlayerDetails'] = async userId => {
+    for (const gameId in games) {
+      const game = games[gameId];
+      const player = game.players[userId];
+      if (player) return player;
     }
-    delete gameState.players[playerId];
-  },
+    throw new PlayerNotFoundError(userId);
+  };
 
-  start: async input => {
+  const getPlayer: GameRepo['getPlayer'] = async (userId: string) => (await getPlayerDetails(userId)) as Profile;
+
+  const updatePlayer: GameRepo['updatePlayer'] = async (gameId, details) => {
+    const game = await getGame(gameId);
+    game.players[details.playerId] = details;
+  };
+
+  const playerIs: GameRepo['playerIs'] = async (playerId, role) => {
+    const { state } = await getPlayerDetails(playerId);
+    return isRole(state) && state === role;
+  };
+
+  const playerIsHost: GameRepo['playerIsHost'] = async (gameId, playerId) => {
+    const game = await getGame(gameId);
+    return game.host === playerId;
+  };
+
+  const getGame: GameRepo['getGame'] = async (gameId: string) => {
+    const game = games[gameId];
+    if (!game) throw new GameNotFoundError(gameId);
+    return game;
+  };
+
+  const addPlayerToGame: GameRepo['addPlayerToGame'] = async input => {
     const { gameId, playerId } = input;
-    if (!gameExists(gameId)) throw new Error('Game does not exist');
-    if (!playerInGame(playerId)) throw new Error('Player is not in a game');
+    const game = (await getGame(gameId)) as PendingGameState;
 
-    // Check if the player is the game owner
-    const gameState = games[gameId];
-    if (gameState.state !== 'pending') throw new Error('Game is not in pending state');
+    game.players[playerId] = newPlayer(input);
+  };
 
-    if (Object.keys(gameState.players)[0] !== playerId) throw new Error('Player is not the game owner');
+  const createGame: GameRepo['createGame'] = async input => {
+    const { gameId } = input;
 
-    // Create a new deck and shuffle it
-    const deck = new Deck();
-    deck.shuffle();
+    games[gameId] = newPendingGame(gameId, input);
+  };
 
-    // Deal the cards to the players
-    const players = Object.entries(gameState.players)
-      .filter(([_id, hand]) => getPlayerInfo(hand).type == 'Hand')
-      .map(([_id, hand]) => hand as Hand);
+  const joinGame: GameRepo['joinGame'] = async input => {
+    const { gameId, playerId } = input;
+    const game = (await getGame(gameId)) as PendingGameState;
+    game.players[playerId] = newPlayer(input);
+  };
 
-    dealCards(players, deck.cards);
+  const leaveGame: GameRepo['leaveGame'] = async input => {
+    const { gameId, playerId } = input;
+    const game = await getGame(gameId);
+    await getPlayer(playerId); // Ensure player exists
+    delete game.players[playerId];
+  };
 
-    // Set the game state to active
-    const activeGameState: ActiveGameState = {
-      ...gameState,
-      deck,
-      pile: [],
-      round: 0,
-      turn: 0,
-      president: '',
-      vicePresident: '',
-      viceScum: '',
-      scum: '',
-      state: 'active',
-    };
+  const playCard: GameRepo['playCard'] = async input => {
+    const { gameId, playerId, card } = input;
+    const game = (await getGame(gameId)) as ActiveGameState;
+    const player = await getPlayerDetails(playerId);
 
-    games[gameId] = activeGameState;
-  },
+    game.pile.push(card);
 
-  play: async _input => {},
+    const state = player.state as Hand;
+    state.cards = state.cards.filter(c => c !== card);
+    player.state = state;
+
+    game.players[playerId] = player;
+  };
+
+  const startGame: GameRepo['startGame'] = async gameId => {
+    const game = (await getGame(gameId)) as PendingGameState;
+    games[gameId] = newActiveGame(game);
+  };
+
+  return {
+    getPlayerDetails,
+    getPlayer,
+    updatePlayer,
+    playerIs,
+    playerIsHost,
+    getGame,
+    addPlayerToGame,
+    createGame,
+    joinGame,
+    leaveGame,
+    playCard,
+    startGame,
+  };
 };
 
 export default memGame;

@@ -11,6 +11,12 @@ export const useTRPCClient = () => {
       links: [
         httpBatchLink({
           url: 'http://localhost:4321/trpc',
+          fetch(url, options) {
+            return fetch(url, {
+              ...options,
+              credentials: 'include',
+            });
+          },
         }),
       ],
     })

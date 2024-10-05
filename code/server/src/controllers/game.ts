@@ -1,60 +1,70 @@
-import { ZodCard } from '@core/models/game/Card';
-import { ZodGameOpInput, ZodPlayerOpInput } from '@core/models/game/Input';
-import { ZodProfile } from '@core/models/game/Player';
-import { observable } from '@trpc/server/observable';
+import { ZodCard } from '@core/model/game/card';
+import { ZodID } from '@core/model/game/misc';
+import { ZodProfile } from '@core/model/game/Player';
+import type { GameInput, GameProfileInput } from '@core/model/game/inputs';
+import type { Context } from 'hono';
 import { z } from 'zod';
 import { publicProcedure, router } from '../trpc/trpc';
-import { wrapHttpRequest } from './utils';
-
-// Procedures
-const playerProfileProcedure = publicProcedure.input(ZodProfile);
-const playerProcedure = publicProcedure.input(ZodPlayerOpInput);
-const gameProcedure = playerProcedure.input(ZodGameOpInput);
+import { getParsedCookie, wrapHttpRequest } from './utils';
 
 // Router
 export const gameRouter = router({
   // Create a new Game
-  create: playerProfileProcedure.output(z.string().uuid()).mutation(async ({ ctx, input: playerInfo }) => {
+  create: publicProcedure.output(ZodID).mutation(async ({ ctx }) => {
     const { services } = ctx.injection;
+    const profile = getParsedCookie(ctx.c, 'profile', ZodProfile);
 
-    return await wrapHttpRequest(async () => await services.game.create(playerInfo));
+    return await wrapHttpRequest(async () => await services.game.createGame(profile));
   }),
 
   // Join a game
-  join: playerProfileProcedure
-    .input(ZodGameOpInput)
-    .output(z.void())
-    .mutation(({ ctx, input }) => {
-      const { services } = ctx.injection;
+  join: publicProcedure.output(z.void()).mutation(({ ctx }) => {
+    const { services } = ctx.injection;
+    const input = getGameProfileInput(ctx.c);
 
-      return wrapHttpRequest(async () => await services.game.join(input));
-    }),
+    return wrapHttpRequest(async () => await services.game.joinGame(input));
+  }),
 
   // Start a SSE subscription
-  enter: gameProcedure.subscription(({ ctx, input }) => {
-    const { services } = ctx.injection;
-
-    return {};
+  enter: publicProcedure.subscription(({ ctx, input }) => {
+    return { ctx, input };
   }),
 
   // Leave a game
-  leave: gameProcedure.mutation(({ ctx, input }) => {
+  leave: publicProcedure.mutation(({ ctx }) => {
     const { services } = ctx.injection;
+    const input = getGameOpInput(ctx.c);
 
-    return wrapHttpRequest(async () => await services.game.leave(input));
+    return wrapHttpRequest(async () => await services.game.leaveGame(input));
   }),
 
   // Start a game
-  start: gameProcedure.mutation(({ ctx, input }) => {
+  start: publicProcedure.mutation(({ ctx }) => {
     const { services } = ctx.injection;
+    const gameOp = getGameOpInput(ctx.c);
 
-    return wrapHttpRequest(async () => await services.game.start(input));
+    return wrapHttpRequest(async () => await services.game.startGame(gameOp));
   }),
 
   // Play a card
-  play: gameProcedure.input(z.object({ card: ZodCard })).mutation(({ ctx, input }) => {
+  play: publicProcedure.input(ZodCard).mutation(({ ctx, input }) => {
     const { services } = ctx.injection;
 
-    return wrapHttpRequest(async () => await services.game.play(input));
+    const playCardInput = getGameOpInput(ctx.c);
+
+    return wrapHttpRequest(async () => await services.game.playCard({ ...playCardInput, card: input }));
   }),
 });
+
+// Helpers
+const getGameOpInput = (ctx: Context): GameInput => {
+  const game = getParsedCookie(ctx, 'game', ZodID);
+  const profile = getParsedCookie(ctx, 'profile', ZodProfile);
+  return { gameId: game, playerId: profile.playerId };
+};
+
+const getGameProfileInput = (ctx: Context): GameProfileInput => {
+  const game = getParsedCookie(ctx, 'game', ZodID);
+  const profile = getParsedCookie(ctx, 'profile', ZodProfile);
+  return { gameId: game, ...profile };
+};

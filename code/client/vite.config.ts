@@ -3,6 +3,7 @@ import autoprefixer from 'autoprefixer';
 import tailwind from 'tailwindcss';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
+import config from './src/config';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -11,5 +12,9 @@ export default defineConfig({
     postcss: {
       plugins: [tailwind, autoprefixer],
     },
+  },
+  server: {
+    port: config.PORT,
+    origin: config.ORIGIN,
   },
 });
