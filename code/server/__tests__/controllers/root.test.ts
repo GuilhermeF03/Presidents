@@ -17,7 +17,7 @@ describe('Game Management', () => {
   describe('Creating a game', () => {
     test('should create a new game', async () => {
       const id = uuid();
-      const createGame = await caller.game.create({ playerId: id });
+      const createGame = await caller.game.createGame()
       expect(createGame).toBeDefined();
     });
 

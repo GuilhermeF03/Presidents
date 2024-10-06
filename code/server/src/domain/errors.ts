@@ -3,7 +3,7 @@ import { TRPCError } from '@trpc/server';
 /**
  * BaseError class - must be extended by all module-specific errors such as ServerError, DatabaseError, etc.
  */
-abstract class BaseError extends TRPCError {
+export abstract class BaseError extends TRPCError {
   constructor(message: string, code?: TRPCError['code']) {
     super({
       code: code || 'INTERNAL_SERVER_ERROR',
