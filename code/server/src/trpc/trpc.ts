@@ -3,7 +3,7 @@ import { initTRPC } from '@trpc/server';
 import type { FetchCreateContextFnOptions } from '@trpc/server/adapters/fetch';
 import type { Context } from 'hono';
 
-export type InjectedContext<T = {}> = {
+export type InjectedContext<T> = {
   c: Context;
   injection: { services: CoreServices };
 } & T;

@@ -1,7 +1,7 @@
 import { HStack, Stack } from '@chakra-ui/react';
-import { BaseButton } from '@components/Cards/Buttons';
-import InteractiveCard from '@components/Cards/InteractiveCard';
 import { IconInput } from '@components/Inputs';
+import { BaseButton } from '@components/cards/Buttons';
+import InteractiveCard from '@components/cards/InteractiveCard';
 import { faArrowUpRightFromSquare, faLink } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useProfileContext } from '@hooks/useProfileContext';

@@ -4,12 +4,12 @@ import { Hono, type MiddlewareHandler } from 'hono';
 import { cors } from 'hono/cors';
 import config from './config.ts';
 import { errorHandler } from './controllers/errorRouter.ts';
-import { rootRouter } from './controllers/root.ts';
-import { memCore } from './repos/memory/memCore.ts';
+import { rootRouter } from './controllers/rootRouter.ts';
+import { memCore } from './repos/memory/memCoreRepo.ts';
 import type { CoreRepo } from './repos/types';
-import { trpcContext } from './trpc/trpc.ts';
-import type { CoreServices } from './services/types';
 import { coreServices } from './services/coreServices.ts';
+import type { CoreServices } from './services/types';
+import { trpcContext } from './trpc/trpc.ts';
 
 async function main() {
   // parse arguments
@@ -18,7 +18,7 @@ async function main() {
   console.log('args', args);
 
   // setup dependencies
-  const db: CoreRepo = memCore;
+  const db: CoreRepo = memCore();
   const services: CoreServices = coreServices(db);
 
   // setup middlewares

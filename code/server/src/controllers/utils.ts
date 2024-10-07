@@ -12,11 +12,10 @@ export const wrapHttpRequest = async <T>(operation: () => Promise<T>): Promise<T
   } catch (error) {
     if (error instanceof BaseError) {
       throw error;
-    } else {
-      throw new TRPCError({
-        code: 'INTERNAL_SERVER_ERROR',
-        message: 'An unexpected error occurred',
-      });
     }
+    throw new TRPCError({
+      code: 'INTERNAL_SERVER_ERROR',
+      message: 'An unexpected error occurred',
+    });
   }
 };

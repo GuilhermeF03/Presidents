@@ -1,4 +1,4 @@
-import type { AppRouter } from '@server/controllers/root';
+import type { AppRouter } from '@server/controllers/rootRouter';
 import { httpBatchLink } from '@trpc/client';
 import { createTRPCReact } from '@trpc/react-query';
 import { useState } from 'react';

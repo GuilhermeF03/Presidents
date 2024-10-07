@@ -1,5 +1,5 @@
-import { gameServices } from '@services/gameServices';
-import { landingServices } from '@services/landingServices';
+import { gameServices } from '@pages/game/gameServices';
+import { landingServices } from '@pages/landing/landingServices';
 import { ReactElement } from 'react';
 import { ServicesContext } from './ServicesContext';
 

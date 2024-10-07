@@ -1,9 +1,8 @@
 import { trpc } from '@/trpc/trpc';
-import { PlayerOpInput } from '@core/models/game/Input';
-import { Profile } from '@core/models/game/Player';
+import { Profile } from '@core/model/game/Player';
 
 export const useCreateGame = (profile: Profile) => {
-  const { mutateAsync: _mutate, ...rest } = trpc.game.create.useMutation();
+  const { mutateAsync: _mutate, ...rest } = trpc.game.createGame.useMutation();
   return {
     ...rest,
     mutate: async () => await _mutate(profile),
@@ -11,7 +10,7 @@ export const useCreateGame = (profile: Profile) => {
 };
 
 export const useJoinGame = (profile: Profile) => {
-  const { mutateAsync: _mutate, ...rest } = trpc.game.join.useMutation();
+  const { mutateAsync: _mutate, ...rest } = trpc.game.joinGame.useMutation();
   return {
     ...rest,
     mutate: async (gameId: string) => await _mutate({ gameId, ...profile }),

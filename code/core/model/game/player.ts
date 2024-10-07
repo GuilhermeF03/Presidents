@@ -6,7 +6,7 @@ import { EncodedImage, ZodID } from './misc';
 export const ZodProfile = z.object({
   playerId: ZodID,
   name: z.string(),
-  pic: EncodedImage
+  picture: EncodedImage
 });
 export type Profile = z.infer<typeof ZodProfile>;
 

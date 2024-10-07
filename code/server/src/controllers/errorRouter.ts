@@ -1,4 +1,4 @@
-import { type AnyRouter, type ProcedureType, TRPCError, type inferRouterContext } from '@trpc/server';
+import type { AnyRouter, ProcedureType, TRPCError, inferRouterContext } from '@trpc/server';
 
 type ErrorHandlerFunction<TRouter extends AnyRouter, TRequest> = (opts: {
   error: TRPCError;

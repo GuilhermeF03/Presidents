@@ -17,7 +17,7 @@ export default function (gameRepo: GameRepo): GameServices {
    * @param input - The input object containing:
    * - playerId: The ID of the player creating the game
    * - playerName: The name of the player creating the game
-   * - pic: The picture of the player creating the game, in base64 format
+   * - picture: The picture of the player creating the game, in base64 format
    * @returns The ID of the created game
    */
   const createGame: GameServices['createGame'] = async input => {
@@ -37,7 +37,7 @@ export default function (gameRepo: GameRepo): GameServices {
    * - gameId: The ID of the game to join
    * - playerId: The ID of the player joining the game
    * - playerName: The name of the player joining the game
-   * - pic: The picture of the player joining the game, in base64
+   * - picture: The picture of the player joining the game, in base64
    * @returns void
    * @throws GameNotFoundError - If the game does not exist
    * @throws GameNotPendingError - If the game is not in a pending state

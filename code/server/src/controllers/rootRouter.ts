@@ -1,5 +1,5 @@
 import { createCallerFactory, publicProcedure, router } from '../trpc/trpc.ts';
-import { gameRouter } from './game.ts';
+import { gameRouter } from './gameRouter.ts';
 
 // Router
 export const rootRouter = router({

@@ -1,6 +1,6 @@
 import { PlayerNotFoundError } from '@/repos/errors/notFound';
 import type { Hand, Profile } from '@core/model/game/Player';
-import { ActiveGameState, type GameState, type PendingGameState } from '@core/model/game/State';
+import type { ActiveGameState, GameState, PendingGameState } from '@core/model/game/State';
 import { GameNotFoundError } from '../errors/notFound';
 import type { GameRepo } from '../types';
 import { isRole, newActiveGame, newPendingGame, newPlayer } from '../utils';

@@ -1,4 +1,4 @@
-import { Profile } from '@core/models/game/Player';
+import { Profile } from '@core/model/game/Player';
 import Cookies from 'js-cookie';
 import { ReactElement, useState } from 'react';
 import { ProfileContext } from './ProfileContext';
@@ -10,7 +10,7 @@ type ProfileProviderProps = {
 export const ProfileProvider = ({ children }: ProfileProviderProps) => {
   const [profile, setProfile] = useState(() => {
     const cookieData = Cookies.get('profile');
-    return cookieData ? (JSON.parse(cookieData) as Profile) : { pic: '', name: '', playerId: '' };
+    return cookieData ? (JSON.parse(cookieData) as Profile) : ({ picture: '', name: '', playerId: '' } as Profile);
   });
 
   return (

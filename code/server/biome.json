@@ -1,11 +1,11 @@
 {
   "$schema": "https://biomejs.dev/schemas/1.9.2/schema.json",
-  "vcs": { 
-    "enabled": false 
+  "vcs": {
+    "enabled": false
   },
-  "files": { 
-    "ignoreUnknown": false, 
-    "ignore": [] 
+  "files": {
+    "ignoreUnknown": false,
+    "ignore": []
   },
   "formatter": {
     "enabled": true,
@@ -18,8 +18,8 @@
     "bracketSpacing": true,
     "ignore": ["**/node_modules/", "**/dist/"]
   },
-  "organizeImports": { 
-    "enabled": true 
+  "organizeImports": {
+    "enabled": true
   },
   "linter": {
     "enabled": true,

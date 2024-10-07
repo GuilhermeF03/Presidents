@@ -1,6 +1,6 @@
 import type { Deck } from '@core/model/game/Deck';
 import type { GamePlayerInfo, Hand, Profile } from '@core/model/game/Player';
-import { ActiveGameState, FinishedGameState, PendingGameState, Role } from '@core/model/game/State';
+import { type ActiveGameState, type FinishedGameState, type PendingGameState, Role } from '@core/model/game/State';
 
 export const isRole = (state: Hand | Role): state is Role => {
   return (state as Role) in Role;

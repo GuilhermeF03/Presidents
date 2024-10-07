@@ -1,6 +1,6 @@
 import type { Deck } from '@core/model/game/Deck';
 import type { GameProfileInput } from '@core/model/game/Input';
-import { type GameState, Role } from '@core/model/game/State';
+import type { GameState, Role } from '@core/model/game/State';
 import type { GamePlayerInfo, Profile } from '@core/model/game/player';
 import type { CorePipeline, GamePipeline } from '../pipeline.types';
 
@@ -58,7 +58,7 @@ export interface GameRepo extends GamePipeline {
    * - gameId: The ID of the game
    * - playerId: The ID of the player
    * - playerName: The name of the player
-   * - pic: The picture of the player, in base64 format
+   * - picture: The picture of the player, in base64 format
    **/
   addPlayerToGame: (input: GameProfileInput) => Promise<void>;
 
@@ -68,7 +68,7 @@ export interface GameRepo extends GamePipeline {
    * - gameId: The ID of the game
    * - playerId: The ID of the player
    * - playerName: The name of the player
-   * - pic: The picture of the player, in base64 format
+   * - picture: The picture of the player, in base64 format
    **/
   createGame: (input: GameProfileInput) => Promise<void>;
 
@@ -78,7 +78,7 @@ export interface GameRepo extends GamePipeline {
    * - gameId: The ID of the game
    * - playerId: The ID of the player
    * - playerName: The name of the player
-   * - pic: The picture of the player, in base64 format
+   * - picture: The picture of the player, in base64 format
    **/
   startGame: (gameId: string) => Promise<void>;
 }
