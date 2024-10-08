@@ -1,11 +1,9 @@
 import { ZodProfile } from '@core/model/game/Player';
 import { ZodCard } from '@core/model/game/card';
-import { type GameInput, type GameProfileInput, ZodGameInput, ZodGameProfileInput } from '@core/model/game/inputs';
+import { ZodGameInput, ZodGameProfileInput } from '@core/model/game/inputs';
 import { ZodID } from '@core/model/game/misc';
-import type { Context } from 'hono';
 import { z } from 'zod';
 import { publicProcedure, router } from '../trpc/trpc';
-import { wrapHttpRequest } from './utils';
 
 // Template Procedures
 
@@ -19,15 +17,16 @@ export const gameRouter = router({
   // Create a new Game
   createGame: profileProcedure.output(ZodID).mutation(async ({ ctx, input }) => {
     const { services } = ctx.injection;
+    const result = await services.game.createGame(input);
 
-    return await wrapHttpRequest(async () => await services.game.createGame(input));
+    return result;
   }),
 
   // Join a game
-  joinGame: gameProfileProcedure.output(z.void()).mutation(({ ctx, input }) => {
+  joinGame: gameProfileProcedure.output(z.void()).mutation(async ({ ctx, input }) => {
     const { services } = ctx.injection;
 
-    return wrapHttpRequest(async () => await services.game.joinGame(input));
+    return await services.game.joinGame(input);
   }),
 
   // Start a SSE subscription
@@ -36,23 +35,23 @@ export const gameRouter = router({
   }),
 
   // Leave a game
-  leaveGame: gameOpProcedure.mutation(({ ctx, input }) => {
+  leaveGame: gameOpProcedure.mutation(async ({ ctx, input }) => {
     const { services } = ctx.injection;
 
-    return wrapHttpRequest(async () => await services.game.leaveGame(input));
+    return await services.game.leaveGame(input);
   }),
 
   // Start a game
-  startGame: gameOpProcedure.mutation(({ ctx, input }) => {
+  startGame: gameOpProcedure.mutation(async ({ ctx, input }) => {
     const { services } = ctx.injection;
 
-    return wrapHttpRequest(async () => await services.game.startGame(input));
+    return await services.game.startGame(input);
   }),
 
   // Play a card
-  play: playCardProcedure.mutation(({ ctx, input }) => {
+  play: playCardProcedure.mutation(async ({ ctx, input }) => {
     const { services } = ctx.injection;
 
-    return wrapHttpRequest(async () => await services.game.playCard(input));
+    return await services.game.playCard(input);
   }),
 });

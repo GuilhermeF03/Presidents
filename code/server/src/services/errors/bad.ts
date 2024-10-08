@@ -1,10 +1,10 @@
-import { BadRequestError } from '@/controllers/ControllerError';
 import { GAME_CONSTANTS } from '@/domain/GameConstants.ts';
+import { BadRequestError } from '@/domain/errors';
 import type { GameState } from '@core/model/game/State';
 
 class InvalidGameStateError extends BadRequestError {
   constructor(
-    public invalidState?: GameState['state'],
+    public invalidState?: 'PENDING' | 'ACTIVE' | 'FINISHED',
     message?: string
   ) {
     super(message ?? `Invalid game state ${invalidState ? `: ${invalidState}` : ''}`);

@@ -1,12 +1,12 @@
 import { z } from 'zod';
 import { ZodRole } from './State';
 import { ZodCard } from './card';
-import { EncodedImage, ZodID } from './misc';
+import { ZodID } from './misc';
 
 export const ZodProfile = z.object({
   playerId: ZodID,
   name: z.string(),
-  picture: EncodedImage
+  picture: z.string().base64()
 });
 export type Profile = z.infer<typeof ZodProfile>;
 
