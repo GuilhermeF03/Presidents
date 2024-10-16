@@ -1,5 +1,5 @@
 import type { AppRouter } from '@server/controllers/rootRouter';
-import { httpBatchLink } from '@trpc/client';
+import { httpBatchLink, splitLink, unstable_httpBatchStreamLink } from '@trpc/client';
 import { createTRPCReact } from '@trpc/react-query';
 import { useState } from 'react';
 
@@ -18,6 +18,15 @@ export const useTRPCClient = () => {
             });
           },
         }),
+        splitLink({
+          condition: (op) => op.type === 'subscription',
+          true: unstable_httpBatchStreamLink({
+            url: 'http://localhost:4321/trpc',
+          }),
+          false: httpBatchLink({
+            url: 'http://localhost:4321/trpc',
+          }),
+        })
       ],
     })
   );

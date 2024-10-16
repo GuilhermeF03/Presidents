@@ -5,6 +5,8 @@ import { ZodID } from '@core/model/game/misc';
 import { transformTRPCResponse } from '@trpc/server/shared';
 import { z } from 'zod';
 import { publicProcedure, router } from '../trpc/trpc';
+import { observable } from '@trpc/server/observable';
+import { EventEmitter, on } from 'events';
 
 // Template Procedures
 
@@ -12,6 +14,8 @@ const profileProcedure = publicProcedure.input(ZodProfile);
 const gameProfileProcedure = publicProcedure.input(ZodGameProfileInput);
 const gameOpProcedure = publicProcedure.input(ZodGameInput);
 const playCardProcedure = gameOpProcedure.input(z.object({ card: ZodCard }));
+
+const ee = new EventEmitter();
 
 // Router
 export const gameRouter = router({
@@ -31,8 +35,15 @@ export const gameRouter = router({
   }),
 
   // Start a SSE subscription
-  enterGame: publicProcedure.subscription(({ ctx, input }) => {
-    return { ctx, input };
+  enterGame: gameOpProcedure.subscription(async function* ({ ctx, input }) {
+    const { services } = ctx.injection;
+
+    //await services.game.enterGame(input);
+
+    for await (const [data] of on(ee, 'add')) {
+      const post = data;
+      yield post;
+    }
   }),
 
   // Leave a game
