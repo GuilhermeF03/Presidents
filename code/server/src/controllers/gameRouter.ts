@@ -2,6 +2,7 @@ import { ZodProfile } from '@core/model/game/Player';
 import { ZodCard } from '@core/model/game/card';
 import { ZodGameInput, ZodGameProfileInput } from '@core/model/game/inputs';
 import { ZodID } from '@core/model/game/misc';
+import { transformTRPCResponse } from '@trpc/server/shared';
 import { z } from 'zod';
 import { publicProcedure, router } from '../trpc/trpc';
 
@@ -38,20 +39,20 @@ export const gameRouter = router({
   leaveGame: gameOpProcedure.mutation(async ({ ctx, input }) => {
     const { services } = ctx.injection;
 
-    return await services.game.leaveGame(input);
+    await services.game.leaveGame(input);
   }),
 
   // Start a game
   startGame: gameOpProcedure.mutation(async ({ ctx, input }) => {
     const { services } = ctx.injection;
 
-    return await services.game.startGame(input);
+    await services.game.startGame(input);
   }),
 
   // Play a card
-  play: playCardProcedure.mutation(async ({ ctx, input }) => {
+  playCard: playCardProcedure.mutation(async ({ ctx, input }) => {
     const { services } = ctx.injection;
 
-    return await services.game.playCard(input);
+    await services.game.playCard(input);
   }),
 });
