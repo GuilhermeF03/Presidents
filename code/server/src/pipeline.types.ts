@@ -12,6 +12,6 @@ export interface GamePipeline {
   joinGame: (input: GameProfileInput) => Promise<void>;
   leaveGame: (input: GameInput) => Promise<void>;
   startGame: (input: GameInput) => Promise<void>;
-  enterGame: (input: GameInput) => Promise<Observable<any, TRPCError>>;
+  enterGame: (input: GameInput) => Promise<Observable<T, TRPCError>>;
   playCard: (input: PlayCardInput) => Promise<void>;
 }

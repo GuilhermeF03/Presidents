@@ -1,6 +1,8 @@
 import type { CoreRepo } from '../types';
-import memGame from './memGameRepo';
+import { memGame } from './memGameRepo';
+import { memPlayer } from './memPlayerRepo';
 
 export const memCore = (): CoreRepo => ({
-  game: memGame(),
+  gameRepo: memGame(),
+  playerRepo: memPlayer(),
 });

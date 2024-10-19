@@ -2,7 +2,7 @@ import { trpcServer } from '@hono/trpc-server';
 import { serve } from 'bun';
 import { Hono, type MiddlewareHandler } from 'hono';
 import { cors } from 'hono/cors';
-import config from './config.ts';
+import { config } from './config.ts';
 import { errorHandler } from './controllers/errorRouter.ts';
 import { rootRouter } from './controllers/rootRouter.ts';
 import { memCore } from './repos/memory/memCoreRepo.ts';

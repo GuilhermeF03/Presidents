@@ -1,7 +1,7 @@
 import type { TRPCError } from '@trpc/server';
 import { type Observer, observable } from '@trpc/server/observable';
 
-const streams: Dict<Observer<any, TRPCError>> = {};
+const streams: Dict<Observer<T, TRPCError>> = {};
 
 // Services to send
 const _streamServices = () => {

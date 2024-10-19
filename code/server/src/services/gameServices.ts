@@ -1,31 +1,23 @@
 import { GAME_CONSTANTS } from '@/domain/GameConstants.ts';
-import type { GameRepo } from '@/repos/types';
+import type { CoreRepo } from '@/repos/types';
 import { InvalidGameStateError, InvalidNumberOfPlayersError } from '@/services/errors/bad';
 import { PlayerAlreadyInGameError } from '@/services/errors/conflict';
 import type { GameServices } from '@/services/types';
 import { Deck } from '@core/model/game/Deck';
 import type { Hand } from '@core/model/game/Player';
 import { ActiveGameState, PendingGameState } from '@core/model/game/State';
-import type { GameInput } from '@core/model/game/inputs';
 import { range } from 'lodash';
 import { v4 as uuid } from 'uuid';
 import { PlayerNotHostError } from './errors/auth';
 import { streamServices } from './streamServices';
 import { playerCount } from './utils';
 
-export default function (gameRepo: GameRepo): GameServices {
-  /**
-   * Create a new game
-   * @param input - The input object containing:
-   * - playerId: The ID of the player creating the game
-   * - playerName: The name of the player creating the game
-   * - picture: The picture of the player creating the game, in base64 format
-   * @returns The ID of the created game
-   */
+export function gameServices(repos: CoreRepo): GameServices {
   const createGame: GameServices['createGame'] = async input => {
     const { playerId } = input;
+    const { playerRepo, gameRepo } = repos;
 
-    if (await gameRepo.getPlayer(playerId)) throw new PlayerAlreadyInGameError();
+    if (await playerRepo.getPlayer(playerId)) throw new PlayerAlreadyInGameError();
 
     const gameId = uuid();
     await gameRepo.createGame({ gameId, ...input });
@@ -33,22 +25,11 @@ export default function (gameRepo: GameRepo): GameServices {
     return gameId;
   };
 
-  /**
-   * Join a game
-   * @param input - The input object containing:
-   * - gameId: The ID of the game to join
-   * - playerId: The ID of the player joining the game
-   * - playerName: The name of the player joining the game
-   * - picture: The picture of the player joining the game, in base64
-   * @returns void
-   * @throws GameNotFoundError - If the game does not exist
-   * @throws GameNotPendingError - If the game is not in a pending state
-   * @throws InvalidNumberOfPlayersError - If the game is full
-   */
   const joinGame: GameServices['joinGame'] = async input => {
     const { gameId, playerId } = input;
+    const { gameRepo, playerRepo } = repos;
 
-    if (await gameRepo.getPlayer(playerId)) throw new PlayerAlreadyInGameError(gameId);
+    if (await playerRepo.getPlayer(playerId)) throw new PlayerAlreadyInGameError(gameId);
 
     const game = await gameRepo.getGame(gameId);
 
@@ -59,44 +40,21 @@ export default function (gameRepo: GameRepo): GameServices {
     await gameRepo.addPlayerToGame(input);
   };
 
-  /**
-   * Enter a game
-   * @param input - The input object containing:
-   * - gameId: The ID of the game to enter
-   * - playerId: The ID of the player entering the game
-   * @returns void
-   * @throws GameNotFoundError - If the game does not exist
-   * @throws PlayerAlreadyInGameError - If the player is already in a game
-   * @throws GameNotPendingError - If the game is not in a pending state
-   */
   const enterGame: GameServices['enterGame'] = async input => {
-    return await streamServices.registerStream(input.playerId);
+    return streamServices.registerStream(input.playerId);
   };
 
   // In-game operations
 
-  /**
-   * Start a game
-   * @param input - The input object containing:
-   * - gameId: The ID of the game to start
-   * - playerId: The ID of the player starting the game
-   * @returns void
-   * @throws GameNotFoundError - If the game does not exist
-   * @throws PlayerNotFound - If the player is not in a game
-   * @throws GameNotPendingError - If the game is not in a pending state
-   * @throws InvalidNumberOfPlayersError - If the game does not have enough players
-   * @throws InvalidPlayerTurnError - If it is not the player's turn
-   * @throws InvalidGameStateError - If the game is not in a pending state
-   * @throws InvalidCardError - If the card is not valid
-   */
   const startGame: GameServices['startGame'] = async input => {
     const { gameId, playerId } = input;
+    const { playerRepo, gameRepo } = repos;
 
     const game = await gameRepo.getGame(gameId);
 
     if (!(game instanceof PendingGameState)) throw new InvalidGameStateError('PENDING');
 
-    if (!(await gameRepo.playerIsHost(gameId, playerId))) throw new PlayerNotHostError(playerId, gameId);
+    if (!(await playerRepo.playerIsHost(gameId, playerId))) throw new PlayerNotHostError(playerId, gameId);
 
     if (playerCount(game) < GAME_CONSTANTS.MIN_PLAYERS) throw new InvalidNumberOfPlayersError('Not enough players');
 
@@ -117,35 +75,14 @@ export default function (gameRepo: GameRepo): GameServices {
     await gameRepo.startGame(input);
   };
 
-  /**
-   * Leave a game
-   * @param input - The input object containing:
-   * - gameId: The ID of the game to leave
-   * - playerId: The ID of the player leaving the game
-   * @returns void
-   * @throws GameNotFoundError - If the game does not exist
-   * @throws PlayerAlreadyInGameError - If the player is not in a game
-   */
   const leaveGame: GameServices['leaveGame'] = async input => {
+    const { gameRepo } = repos;
     await gameRepo.leaveGame(input);
   };
 
-  /**
-   * Play a card
-   * @param input - The input object containing:
-   * - gameId: The ID of the game in which to play the card
-   * - playerId: The ID of the player playing the card
-   * - card: The card to play
-   * @returns void
-   * @throws GameNotFoundError - If the game does not exist
-   * @throws PlayerNotFound - If the player is not in a game
-   * @throws GameNotActiveError - If the game is not in an active state
-   * @throws InvalidCardError - If the card is not valid
-   * @throws InvalidPlayerTurnError - If it is not the player's turn
-   * @throws InvalidCardPlayError - If the card cannot be played
-   */
   const playCard: GameServices['playCard'] = async input => {
     const { gameId } = input;
+    const { gameRepo } = repos;
 
     const game = await gameRepo.getGame(gameId);
 
@@ -154,19 +91,7 @@ export default function (gameRepo: GameRepo): GameServices {
     return await gameRepo.playCard(input);
   };
 
-  /**
-   * Check if a player is in a game
-   * @param input - The input object containing:
-   * - playerId: The ID of the player to check
-   * @returns true if the player is in a game, false otherwise
-   * @returns
-   */
-  const playerIsInGame: GameServices['playerIsInGame'] = async ({ playerId }) => {
-    return (await gameRepo.getPlayer(playerId)) !== undefined;
-  };
-
   return {
-    playerIsInGame,
     createGame,
     joinGame,
     enterGame,

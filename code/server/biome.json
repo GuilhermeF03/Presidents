@@ -5,7 +5,7 @@
   },
   "files": {
     "ignoreUnknown": false,
-    "ignore": []
+    "ignore": ["./vitest.config.ts"]
   },
   "formatter": {
     "enabled": true,
@@ -35,6 +35,8 @@
         "useValidForDirection": "error"
       },
       "style": {
+        "noYodaExpression": "error",
+        "noDefaultExport": "error",
         "noVar": "error",
         "useConst": "error"
       },

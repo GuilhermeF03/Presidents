@@ -11,7 +11,7 @@ const SERVER_OPTIONS = {
   connectionStateRecovery: {}, // enable connection state recovery
 };
 
-export default {
+export const config = {
   PORT,
   ORIGIN,
   SERVER_OPTIONS,

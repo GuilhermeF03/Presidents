@@ -4,34 +4,14 @@ import type { ActiveGameState, GameState, PendingGameState } from '@core/model/g
 import { GameNotFoundError } from '../errors/notFound';
 import type { GameRepo } from '../types';
 import { isRole, newActiveGame, newPendingGame, newPlayer } from '../utils';
+import { memData } from './data';
 
-const memGame = (): GameRepo => {
-  const games: Record<string, GameState> = {};
-
-  const getPlayerDetails: GameRepo['getPlayerDetails'] = async userId => {
-    for (const gameId in games) {
-      const game = games[gameId];
-      const player = game.players[userId];
-      if (player) return player;
-    }
-    throw new PlayerNotFoundError(userId);
-  };
-
-  const getPlayer: GameRepo['getPlayer'] = async (userId: string) => (await getPlayerDetails(userId)) as Profile;
+export const memGame = (): GameRepo => {
+  const { games } = memData;
 
   const updatePlayer: GameRepo['updatePlayer'] = async (gameId, details) => {
     const game = await getGame(gameId);
     game.players[details.playerId] = details;
-  };
-
-  const playerHasRole: GameRepo['playerHasRole'] = async (playerId, role) => {
-    const { state } = await getPlayerDetails(playerId);
-    return isRole(state) && state === role;
-  };
-
-  const playerIsHost: GameRepo['playerIsHost'] = async (gameId, playerId) => {
-    const game = await getGame(gameId);
-    return game.host === playerId;
   };
 
   const getGame: GameRepo['getGame'] = async (gameId: string) => {
@@ -62,7 +42,6 @@ const memGame = (): GameRepo => {
   const leaveGame: GameRepo['leaveGame'] = async input => {
     const { gameId, playerId } = input;
     const game = await getGame(gameId);
-    await getPlayer(playerId); // Ensure player exists
     delete game.players[playerId];
   };
 
@@ -86,25 +65,19 @@ const memGame = (): GameRepo => {
     games[gameId] = newActiveGame(game);
   };
 
+  const playerIsHost: GameRepo['playerIsHost'] = async input => {
+    throw new Error('Not implemented yet!!');
+  };
+
   return {
-    // TODO - check if all these operations are necessary
-    // MAYBE - move to a different repo if these are mandatory
-
-    getPlayerDetails,
-    getPlayer,
-    updatePlayer,
-    playerHasRole,
-    playerIsHost,
-
     getGame,
     addPlayerToGame,
     createGame,
     joinGame,
-
+    playerIsHost,
+    updatePlayer,
     leaveGame,
     playCard,
     startGame,
   };
 };
-
-export default memGame;
