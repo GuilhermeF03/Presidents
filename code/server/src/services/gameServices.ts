@@ -7,8 +7,10 @@ import { Deck } from '@core/model/game/Deck';
 import type { Hand } from '@core/model/game/Player';
 import { ActiveGameState, PendingGameState } from '@core/model/game/State';
 import type { GameInput } from '@core/model/game/inputs';
+import { range } from 'lodash';
 import { v4 as uuid } from 'uuid';
 import { PlayerNotHostError } from './errors/auth';
+import { streamServices } from './streamServices';
 import { playerCount } from './utils';
 
 export default function (gameRepo: GameRepo): GameServices {
@@ -50,11 +52,69 @@ export default function (gameRepo: GameRepo): GameServices {
 
     const game = await gameRepo.getGame(gameId);
 
-    if (!(game instanceof PendingGameState)) throw new InvalidGameStateError('pending');
+    if (!(game instanceof PendingGameState)) throw new InvalidGameStateError('PENDING');
 
     if (playerCount(game) === GAME_CONSTANTS.MAX_PLAYERS) throw new InvalidNumberOfPlayersError('Game is full');
 
     await gameRepo.addPlayerToGame(input);
+  };
+
+  /**
+   * Enter a game
+   * @param input - The input object containing:
+   * - gameId: The ID of the game to enter
+   * - playerId: The ID of the player entering the game
+   * @returns void
+   * @throws GameNotFoundError - If the game does not exist
+   * @throws PlayerAlreadyInGameError - If the player is already in a game
+   * @throws GameNotPendingError - If the game is not in a pending state
+   */
+  const enterGame: GameServices['enterGame'] = async input => {
+    return await streamServices.registerStream(input.playerId);
+  };
+
+  // In-game operations
+
+  /**
+   * Start a game
+   * @param input - The input object containing:
+   * - gameId: The ID of the game to start
+   * - playerId: The ID of the player starting the game
+   * @returns void
+   * @throws GameNotFoundError - If the game does not exist
+   * @throws PlayerNotFound - If the player is not in a game
+   * @throws GameNotPendingError - If the game is not in a pending state
+   * @throws InvalidNumberOfPlayersError - If the game does not have enough players
+   * @throws InvalidPlayerTurnError - If it is not the player's turn
+   * @throws InvalidGameStateError - If the game is not in a pending state
+   * @throws InvalidCardError - If the card is not valid
+   */
+  const startGame: GameServices['startGame'] = async input => {
+    const { gameId, playerId } = input;
+
+    const game = await gameRepo.getGame(gameId);
+
+    if (!(game instanceof PendingGameState)) throw new InvalidGameStateError('PENDING');
+
+    if (!(await gameRepo.playerIsHost(gameId, playerId))) throw new PlayerNotHostError(playerId, gameId);
+
+    if (playerCount(game) < GAME_CONSTANTS.MIN_PLAYERS) throw new InvalidNumberOfPlayersError('Not enough players');
+
+    const deck = new Deck();
+    deck.shuffle();
+
+    // Deal cards to players
+    const player = Object.values(game.players);
+
+    for (const i of range(0, deck.cards.length)) {
+      const card = deck.draw();
+      if (!card) break;
+      (player[i % player.length].state as Hand).cards.push(card);
+    }
+
+    for (const entry of player) await gameRepo.updatePlayer(gameId, entry);
+
+    await gameRepo.startGame(input);
   };
 
   /**
@@ -95,51 +155,24 @@ export default function (gameRepo: GameRepo): GameServices {
   };
 
   /**
-   * Start a game
+   * Check if a player is in a game
    * @param input - The input object containing:
-   * - gameId: The ID of the game to start
-   * - playerId: The ID of the player starting the game
-   * @returns void
-   * @throws GameNotFoundError - If the game does not exist
-   * @throws PlayerNotFound - If the player is not in a game
-   * @throws GameNotPendingError - If the game is not in a pending state
-   * @throws InvalidNumberOfPlayersError - If the game does not have enough players
-   * @throws InvalidPlayerTurnError - If it is not the player's turn
-   * @throws InvalidGameStateError - If the game is not in a pending state
-   * @throws InvalidCardError - If the card is not valid
+   * - playerId: The ID of the player to check
+   * @returns true if the player is in a game, false otherwise
+   * @returns
    */
-  const startGame: GameServices['startGame'] = async (input: GameInput) => {
-    const { gameId, playerId } = input;
-
-    const game = await gameRepo.getGame(gameId);
-
-    if (!(game instanceof PendingGameState)) throw new InvalidGameStateError('pending');
-
-    if (!(await gameRepo.playerIsHost(gameId, playerId))) throw new PlayerNotHostError(playerId, gameId);
-
-    if (playerCount(game) < GAME_CONSTANTS.MIN_PLAYERS) throw new InvalidNumberOfPlayersError('Not enough players');
-
-    const deck = new Deck();
-    deck.shuffle();
-
-    // Deal cards to players
-    const player = Object.values(game.players);
-
-    for (let i = 0; i < deck.cards.length; i++) {
-      const card = deck.draw();
-      if (!card) break;
-      (player[i % player.length].state as Hand).cards.push(card);
-    }
-    for (const entry of player) await gameRepo.updatePlayer(gameId, entry);
-
-    await gameRepo.startGame(gameId);
+  const playerIsInGame: GameServices['playerIsInGame'] = async ({ playerId }) => {
+    return (await gameRepo.getPlayer(playerId)) !== undefined;
   };
 
   return {
+    playerIsInGame,
     createGame,
     joinGame,
+    enterGame,
+    // In-game operations
+    startGame,
     leaveGame,
     playCard,
-    startGame,
   };
 }

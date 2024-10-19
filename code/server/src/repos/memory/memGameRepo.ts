@@ -24,7 +24,7 @@ const memGame = (): GameRepo => {
     game.players[details.playerId] = details;
   };
 
-  const playerIs: GameRepo['playerIs'] = async (playerId, role) => {
+  const playerHasRole: GameRepo['playerHasRole'] = async (playerId, role) => {
     const { state } = await getPlayerDetails(playerId);
     return isRole(state) && state === role;
   };
@@ -80,21 +80,27 @@ const memGame = (): GameRepo => {
     game.players[playerId] = player;
   };
 
-  const startGame: GameRepo['startGame'] = async gameId => {
+  const startGame: GameRepo['startGame'] = async input => {
+    const { gameId } = input;
     const game = (await getGame(gameId)) as PendingGameState;
     games[gameId] = newActiveGame(game);
   };
 
   return {
+    // TODO - check if all these operations are necessary
+    // MAYBE - move to a different repo if these are mandatory
+
     getPlayerDetails,
     getPlayer,
     updatePlayer,
-    playerIs,
+    playerHasRole,
     playerIsHost,
+
     getGame,
     addPlayerToGame,
     createGame,
     joinGame,
+
     leaveGame,
     playCard,
     startGame,

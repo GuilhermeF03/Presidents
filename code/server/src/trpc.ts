@@ -34,5 +34,5 @@ type AppContext = Awaited<ReturnType<typeof trpcContext>>;
 
 const t = initTRPC.context<AppContext>().create();
 
-export const { router, createCallerFactory } = t;
+export const { router, createCallerFactory, mergeRouters } = t;
 export const publicProcedure = t.procedure;

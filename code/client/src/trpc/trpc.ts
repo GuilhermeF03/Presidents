@@ -19,14 +19,14 @@ export const useTRPCClient = () => {
           },
         }),
         splitLink({
-          condition: (op) => op.type === 'subscription',
+          condition: op => op.type === 'subscription',
           true: unstable_httpBatchStreamLink({
             url: 'http://localhost:4321/trpc',
           }),
           false: httpBatchLink({
             url: 'http://localhost:4321/trpc',
           }),
-        })
+        }),
       ],
     })
   );

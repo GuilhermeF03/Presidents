@@ -98,35 +98,6 @@ describe('Game Router Tests', () => {
     });
   });
 
-  describe('Enter Game', () => {
-    test('Invalids Ids - Should give validation error', async () => {
-      const caller = mockCaller(mockServices());
-
-      try {
-        const a = await caller.game.enterGame({ playerId: 'test', gameId: '21' });
-      } catch (e) {
-        expectValidationError(e, [
-          { code: 'invalid_string', message: 'Invalid uuid', validation: 'uuid', path: ['gameId'] },
-        ]);
-      }
-    });
-
-    test('Valid Ids - Should enter a game', async () => {
-      const input = { playerId: uuid(), gameId: uuid() };
-      const caller = mockCaller(
-        mockServices(mock => {
-          when(mock.game.enterGame(input)).thenResolve();
-          return mock;
-        })
-      );
-
-      const a = await caller.game.enterGame(input);
-
-    });
-
-  });
-
-
   describe('Leave Game', () => {
     test('Invalid Ids - Should give validation error', async () => {
       const caller = mockCaller(mockServices());

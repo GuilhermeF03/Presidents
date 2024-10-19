@@ -1,6 +1,5 @@
 import type { Profile } from '@core/model/game/Player';
 import type { GameInput, GameProfileInput, PlayCardInput } from '@core/model/game/inputs';
-import type { TRPCClientError } from '@trpc/client';
 import type { TRPCError } from '@trpc/server';
 import type { Observable } from '@trpc/server/observable';
 

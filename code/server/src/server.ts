@@ -9,7 +9,7 @@ import { memCore } from './repos/memory/memCoreRepo.ts';
 import type { CoreRepo } from './repos/types';
 import { coreServices } from './services/coreServices.ts';
 import type { CoreServices } from './services/types';
-import { trpcContext } from './trpc/trpc.ts';
+import { trpcContext } from './trpc.ts';
 
 async function main() {
   // parse arguments
@@ -30,7 +30,7 @@ async function main() {
 
   // setup TRPC
   const context = trpcContext(services);
-  const trpcMiddleware = trpcServer({
+  const trpcMiddleware: MiddlewareHandler = trpcServer({
     onError: errorHandler,
     router: rootRouter,
     createContext: context,
