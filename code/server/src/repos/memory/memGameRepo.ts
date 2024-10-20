@@ -16,7 +16,9 @@ export const memGame = (): GameRepo => {
 
   const getGame: GameRepo['getGame'] = async (gameId: string) => {
     const game = games[gameId];
-    if (!game) throw new GameNotFoundError(gameId);
+    if (!game) {
+      throw new GameNotFoundError(gameId);
+    }
     return game;
   };
 
@@ -65,7 +67,7 @@ export const memGame = (): GameRepo => {
     games[gameId] = newActiveGame(game);
   };
 
-  const playerIsHost: GameRepo['playerIsHost'] = async input => {
+  const playerIsHost: GameRepo['playerIsHost'] = async _input => {
     throw new Error('Not implemented yet!!');
   };
 

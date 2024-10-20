@@ -1,22 +1,22 @@
-import { ConflictError } from '@/domain/errors';
+import { ConflictError, type ErrorData } from '@/domain/errors';
 import type { Role } from '@core/model/game/State';
 
-class PlayerAlreadyInGameError extends ConflictError {
-  constructor(
-    public gameId?: string,
-    message?: string
-  ) {
-    super(message ?? `Player already in game ${gameId ? gameId : ''}`);
+export class PlayerAlreadyInGameError extends ConflictError<ErrorData> {
+  constructor(gameId?: string) {
+    const data = {
+      prop: 'gameId',
+      reason: `Player already in game ${gameId ? gameId : ''}.`,
+    };
+    super(data, 'Player already in game');
   }
 }
 
-class PlayerAlreadyFinishedError extends ConflictError {
-  constructor(
-    public role: Role,
-    message?: string
-  ) {
-    super(message ?? `Player already finished as ${role}`);
+export class PlayerAlreadyFinishedError extends ConflictError<ErrorData> {
+  constructor(role: Role) {
+    const data = {
+      prop: 'role',
+      reason: `Player already finished as ${role}`,
+    };
+    super(data, 'Player already finished');
   }
 }
-
-export { PlayerAlreadyFinishedError, PlayerAlreadyInGameError };

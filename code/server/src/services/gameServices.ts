@@ -1,6 +1,6 @@
 import { GAME_CONSTANTS } from '@/domain/GameConstants.ts';
 import type { CoreRepo } from '@/repos/types';
-import { InvalidGameStateError, InvalidNumberOfPlayersError } from '@/services/errors/bad';
+import * as BadRequestErrors from '@/services/errors/bad';
 import { PlayerAlreadyInGameError } from '@/services/errors/conflict';
 import type { GameServices } from '@/services/types';
 import { Deck } from '@core/model/game/Deck';
@@ -9,6 +9,7 @@ import { ActiveGameState, PendingGameState } from '@core/model/game/State';
 import { range } from 'lodash';
 import { v4 as uuid } from 'uuid';
 import { PlayerNotHostError } from './errors/auth';
+import { PlayerNotInGameError } from './errors/notFound';
 import { streamServices } from './streamServices';
 import { playerCount } from './utils';
 
@@ -17,7 +18,7 @@ export function gameServices(repos: CoreRepo): GameServices {
     const { playerId } = input;
     const { playerRepo, gameRepo } = repos;
 
-    if (await playerRepo.getPlayer(playerId)) throw new PlayerAlreadyInGameError();
+    if (await playerRepo.playerInGame(playerId)) throw new PlayerAlreadyInGameError();
 
     const gameId = uuid();
     await gameRepo.createGame({ gameId, ...input });
@@ -29,48 +30,60 @@ export function gameServices(repos: CoreRepo): GameServices {
     const { gameId, playerId } = input;
     const { gameRepo, playerRepo } = repos;
 
-    if (await playerRepo.getPlayer(playerId)) throw new PlayerAlreadyInGameError(gameId);
+    if (await playerRepo.playerInGame(playerId)) throw new PlayerAlreadyInGameError(gameId);
 
     const game = await gameRepo.getGame(gameId);
 
-    if (!(game instanceof PendingGameState)) throw new InvalidGameStateError('PENDING');
+    if (!(game instanceof PendingGameState)) throw new BadRequestErrors.InvalidGameStateError('PENDING');
 
-    if (playerCount(game) === GAME_CONSTANTS.MAX_PLAYERS) throw new InvalidNumberOfPlayersError('Game is full');
+    const playerNumber = playerCount(game);
+    if (playerNumber === GAME_CONSTANTS.MAX_PLAYERS) throw new BadRequestErrors.GameFullError();
 
-    await gameRepo.addPlayerToGame(input);
+    await gameRepo.addPlayer(input);
   };
 
   const enterGame: GameServices['enterGame'] = async input => {
+    const { playerRepo } = repos;
+    if (!playerRepo.playerInGame(input.playerId, input.gameId))
+      throw new PlayerNotInGameError(input.playerId, input.gameId);
+
+    if (streamServices.getStream(input.playerId)) throw new PlayerAlreadyInGameError(input.gameId);
+
     return streamServices.registerStream(input.playerId);
   };
 
   // In-game operations
-
   const startGame: GameServices['startGame'] = async input => {
     const { gameId, playerId } = input;
-    const { playerRepo, gameRepo } = repos;
+    const { gameRepo } = repos;
 
     const game = await gameRepo.getGame(gameId);
 
-    if (!(game instanceof PendingGameState)) throw new InvalidGameStateError('PENDING');
+    if (!(game instanceof PendingGameState)) throw new BadRequestErrors.InvalidGameStateError('PENDING');
 
-    if (!(await playerRepo.playerIsHost(gameId, playerId))) throw new PlayerNotHostError(playerId, gameId);
+    if (!(await gameRepo.isPlayerHost(gameId, playerId))) throw new PlayerNotHostError(playerId, gameId);
 
-    if (playerCount(game) < GAME_CONSTANTS.MIN_PLAYERS) throw new InvalidNumberOfPlayersError('Not enough players');
+    const nPlayers = playerCount(game);
+    if (nPlayers < GAME_CONSTANTS.MIN_PLAYERS)
+      throw new BadRequestErrors.InvalidNumberOfPlayersError(nPlayers, 'Not enough players');
 
     const deck = new Deck();
     deck.shuffle();
 
     // Deal cards to players
-    const player = Object.values(game.players);
+    const players = Object.values(game.players);
 
     for (const i of range(0, deck.cards.length)) {
       const card = deck.draw();
       if (!card) break;
-      (player[i % player.length].state as Hand).cards.push(card);
+
+      const hand = players[i % players.length].state as Hand;
+      hand.cards.push(card);
     }
 
-    for (const entry of player) await gameRepo.updatePlayer(gameId, entry);
+    for (const player of players) {
+      await gameRepo.updatePlayer(gameId, player);
+    }
 
     await gameRepo.startGame(input);
   };
@@ -81,12 +94,23 @@ export function gameServices(repos: CoreRepo): GameServices {
   };
 
   const playCard: GameServices['playCard'] = async input => {
-    const { gameId } = input;
-    const { gameRepo } = repos;
+    const { gameId, playerId, card } = input;
+    const { gameRepo, playerRepo } = repos;
 
     const game = await gameRepo.getGame(gameId);
 
-    if (!(game instanceof ActiveGameState)) throw new InvalidGameStateError();
+    if (!(game instanceof ActiveGameState)) {
+      throw new BadRequestErrors.InvalidGameStateError('ACTIVE');
+    }
+
+    const player = await playerRepo.getPlayerDetails(playerId);
+    const hand = player.state as Hand;
+
+    if (!hand.cards.includes(card)) {
+      throw new BadRequestErrors.InvalidCardError(card);
+    }
+
+    const _newHand = hand.cards.filter(c => c !== card);
 
     return await gameRepo.playCard(input);
   };

@@ -1,20 +1,25 @@
+import type { StreamData } from '@core/model/stream/events';
 import type { TRPCError } from '@trpc/server';
 import { type Observer, observable } from '@trpc/server/observable';
 
-const streams: Dict<Observer<T, TRPCError>> = {};
+const streams: Dict<Observer<StreamData, TRPCError>> = {};
 
 // Services to send
 const _streamServices = () => {
   const getStream = (userId: string) => {
     const stream = streams[userId];
-    if (!stream) throw new Error('Stream not found');
+    if (!stream) {
+      throw new Error('Stream not found');
+    }
     return stream;
   };
-  const registerStream = <T>(userId: string) => {
+  const registerStream = (userId: string) => {
     const stream = streams[userId];
-    if (stream) stream.complete();
+    if (stream) {
+      stream.complete();
+    }
 
-    return observable<T>(observer => {
+    return observable<StreamData>(observer => {
       streams[userId] = observer;
       return () => {
         console.log('Stream disconnected');
@@ -22,7 +27,7 @@ const _streamServices = () => {
       };
     });
   };
-  const sendEvent = <T>(userId: string, event: T) => {
+  const sendEvent = <T extends StreamData>(userId: string, event: T) => {
     const stream = getStream(userId);
     stream.next(event);
   };
@@ -34,7 +39,7 @@ const _streamServices = () => {
     const stream = getStream(userId);
     stream.complete();
   };
-  return { registerStream, sendEvent, sendError, sendComplete };
+  return { getStream, registerStream, sendEvent, sendError, sendComplete };
 };
 export type StreamServices = ReturnType<typeof _streamServices>;
 export const streamServices = _streamServices();

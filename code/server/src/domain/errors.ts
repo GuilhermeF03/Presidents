@@ -1,43 +1,50 @@
 import { TRPCError } from '@trpc/server';
 
-/**
- * BaseError class - must be extended by all module-specific errors such as ServerError, DatabaseError, etc.
- */
-export abstract class BaseError extends TRPCError {
-  constructor(message: string, code?: TRPCError['code']) {
+export type ErrorData<T = unknown> = {
+  prop: string;
+  reason: T;
+};
+
+export abstract class BaseError<T extends ErrorData> extends TRPCError {
+  constructor(
+    message: string,
+    code: TRPCError['code'],
+    readonly data: T
+  ) {
     super({
       code: code || 'INTERNAL_SERVER_ERROR',
       message,
+      cause: data,
     });
   }
 }
 
-export class UnauthorizedError extends BaseError {
-  constructor(message?: string) {
-    super(message ?? 'Unauthorized user', 'UNAUTHORIZED');
+export class UnauthorizedError<T extends ErrorData> extends BaseError<T> {
+  constructor(data: T, message?: string) {
+    super(message ?? 'Unauthorized user', 'UNAUTHORIZED', data);
   }
 }
 
-export class ForbiddenError extends BaseError {
-  constructor(message?: string) {
-    super(message ?? 'Forbidden', 'FORBIDDEN');
+export class ForbiddenError<T extends ErrorData> extends BaseError<T> {
+  constructor(data: T, message?: string) {
+    super(message ?? 'Forbidden', 'FORBIDDEN', data);
   }
 }
 
-export class BadRequestError extends BaseError {
-  constructor(message?: string) {
-    super(message ?? 'Bad request', 'BAD_REQUEST');
+export class BadRequestError<T extends ErrorData> extends BaseError<T> {
+  constructor(data: T, message?: string) {
+    super(message ?? 'Bad request', 'BAD_REQUEST', data);
   }
 }
 
-export class ConflictError extends BaseError {
-  constructor(message?: string) {
-    super(message ?? 'Conflict', 'CONFLICT');
+export class ConflictError<T extends ErrorData> extends BaseError<T> {
+  constructor(data: T, message?: string) {
+    super(message ?? 'Conflict', 'CONFLICT', data);
   }
 }
 
-export class NotFoundError extends BaseError {
-  constructor(message?: string) {
-    super(message ?? 'Not found', 'NOT_FOUND');
+export class NotFoundError<T extends ErrorData> extends BaseError<T> {
+  constructor(data: T, message?: string) {
+    super(message ?? 'Not found', 'NOT_FOUND', data);
   }
 }

@@ -13,7 +13,6 @@ const playCardProcedure = gameOpProcedure.input(z.object({ card: ZodCard }));
 
 // Router
 export const gameRouter = router({
-  // Create a new Game
   createGame: profileProcedure.output(ZodID).mutation(async ({ ctx, input }) => {
     const { services } = ctx.injection;
     const result = await services.game.createGame(input);
@@ -21,7 +20,6 @@ export const gameRouter = router({
     return result;
   }),
 
-  // Join a game
   joinGame: gameProfileProcedure.output(z.void()).mutation(async ({ ctx, input }) => {
     const { services } = ctx.injection;
     return await services.game.joinGame(input);

@@ -11,7 +11,9 @@ export const memPlayer = (): PlayerRepo => {
     for (const gameId in games) {
       const game = games[gameId];
       const player = game.players[userId];
-      if (player) return player;
+      if (player) {
+        return player;
+      }
     }
     throw new PlayerNotFoundError(userId);
   };

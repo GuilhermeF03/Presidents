@@ -1,8 +1,7 @@
-import type { CorePipeline, GamePipeline } from '@/pipeline.types';
-import type { GamePlayerInfo, Profile } from '@core/model/game/Player';
+import type { GamePipeline } from '@/pipeline.types';
+import type { GamePlayerInfo } from '@core/model/game/Player';
 import type { GameState, Role } from '@core/model/game/State';
 import type { GameProfileInput } from '@core/model/game/inputs';
-import type { Override } from '@core/utils';
 
 export type CoreRepo = {
   gameRepo: GameRepo;
@@ -10,15 +9,17 @@ export type CoreRepo = {
 };
 
 export type GameRepo = Omit<GamePipeline, 'enterGame' | 'createGame'> & {
-  getGame: (gameId: string) => Promise<GameState>;
-  addPlayerToGame: (input: GameProfileInput) => Promise<void>;
-  updatePlayer: (gameId: string, details: GamePlayerInfo) => Promise<void>;
   createGame: (input: GameProfileInput) => Promise<void>;
-  playerIsHost: (gameId: string, playerId: string) => Promise<boolean>;
+  getGame: (gameId: string) => Promise<GameState>;
+  deleteGame: (gameId: string) => Promise<void>;
+
+  addPlayer: (input: GameProfileInput) => Promise<void>;
+  updatePlayer: (gameId: string, details: GamePlayerInfo) => Promise<void>;
+  isPlayerHost: (gameId: string, playerId: string) => Promise<boolean>;
 };
 
 export type PlayerRepo = {
-  getPlayer: (userId: string) => Promise<Profile>;
+  playerInGame: (playerId: string, gameId?: string) => Promise<boolean>;
   getPlayerDetails: (userId: string) => Promise<GamePlayerInfo>;
   playerHasRole(playerId: string, role: Role): Promise<boolean>;
 };
