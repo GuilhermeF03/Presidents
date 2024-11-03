@@ -1,7 +1,8 @@
-import { trpc, useTRPCClient } from '@/trpc/trpc';
+import { Provider as SpectrumProvider, defaultTheme } from '@adobe/react-spectrum';
 import { ChakraProvider } from '@chakra-ui/react';
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { useState } from 'react';
+import { trpc, useTRPCClient } from '../trpc.ts';
 
 type AppProviderProps = {
   children: React.ReactNode;
@@ -24,7 +25,9 @@ export const AppProvider: React.FC<AppProviderProps> = ({ children }) => {
       {/* Add React Query Support for state management*/}
       <QueryClientProvider client={queryClient}>
         {/* Add Chakra Ui theming support */}
-        <ChakraProvider>{children}</ChakraProvider>
+        <ChakraProvider>
+          <SpectrumProvider theme={defaultTheme}>{children}</SpectrumProvider>
+        </ChakraProvider>
       </QueryClientProvider>
     </trpc.Provider>
   );

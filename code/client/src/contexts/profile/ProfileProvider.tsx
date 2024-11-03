@@ -1,6 +1,6 @@
-import { Profile } from '@core/model/game/Player';
+import type { Profile } from '@core/model/game/player.ts';
 import Cookies from 'js-cookie';
-import { ReactElement, useState } from 'react';
+import { type ReactElement, useState } from 'react';
 import { ProfileContext } from './ProfileContext';
 
 type ProfileProviderProps = {

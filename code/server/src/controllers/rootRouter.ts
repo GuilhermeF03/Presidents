@@ -1,4 +1,4 @@
-import { createCallerFactory, publicProcedure, router } from '../trpc.ts';
+import { createCallerFactory, publicProcedure, router } from '../trpc/trpc.ts';
 import { gameRouter } from './gameRouter.ts';
 
 // Router

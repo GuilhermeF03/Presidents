@@ -1,5 +1,5 @@
-import { trpc } from '@/trpc/trpc';
-import { Profile } from '@core/model/game/Player';
+import { trpc } from '@/trpc.ts';
+import { Profile } from '@core/model/game/player.ts';
 
 export const useCreateGame = (profile: Profile) => {
   const { mutateAsync: _mutate, ...rest } = trpc.game.createGame.useMutation();

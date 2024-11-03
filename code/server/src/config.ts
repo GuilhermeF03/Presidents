@@ -5,8 +5,9 @@ const ORIGIN = Bun.env.ORIGIN?.split(',') ?? [DEFAULT_SERVER_CONFIG.origin];
 
 const SERVER_OPTIONS = {
   cors: {
-    origin: '*',
-    credentials: true, // allow credentials (cookies),
+    origin: 'http://localhost:5432',
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    //credentials: true, // allow credentials (cookies),
   },
   connectionStateRecovery: {}, // enable connection state recovery
 };

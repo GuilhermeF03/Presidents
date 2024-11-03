@@ -1,5 +1,5 @@
-import { Profile } from '@core/models/game/Player';
-import { Dispatch, SetStateAction, createContext } from 'react';
+import type { Profile } from '@core/model/game/player.ts';
+import { type Dispatch, type SetStateAction, createContext } from 'react';
 
 type ProfileContextProps = {
   profile: Profile;

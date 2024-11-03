@@ -36,10 +36,8 @@
       },
       "style": {
         "noYodaExpression": "error",
-        "noDefaultExport": "error",
         "noVar": "error",
-        "useConst": "error",
-        "useNamingConvention": "error"
+        "useConst": "error"
       },
       "suspicious": {
         "noAsyncPromiseExecutor": "error",

@@ -1,5 +1,5 @@
 import type { CoreServices, GameServices } from '@/services/types';
-import { createInjectedContext } from '@/trpc';
+import { createInjectedContext } from '@/trpc/trpc.ts';
 import { TRPCError } from '@trpc/server';
 import type { FetchCreateContextFnOptions } from '@trpc/server/adapters/fetch';
 import type { Context } from 'hono';

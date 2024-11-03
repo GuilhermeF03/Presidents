@@ -1,4 +1,4 @@
-import { publicProcedure } from '@/trpc';
+import { publicProcedure } from '@/trpc/trpc.ts';
 import { ZodProfile } from '@core/model/game/Player';
 import { ZodCard } from '@core/model/game/card';
 import { ZodGameInput, ZodGameProfileInput } from '@core/model/game/inputs';

@@ -1,5 +1,6 @@
 import type { Profile } from '@core/model/game/Player';
 import type { GameInput, GameProfileInput, PlayCardInput } from '@core/model/game/inputs';
+import type { StreamEvent } from '@core/model/stream/events.ts';
 import type { TRPCError } from '@trpc/server';
 import type { Observable } from '@trpc/server/observable';
 
@@ -12,6 +13,6 @@ export interface GamePipeline {
   joinGame: (input: GameProfileInput) => Promise<void>;
   leaveGame: (input: GameInput) => Promise<void>;
   startGame: (input: GameInput) => Promise<void>;
-  enterGame: (input: GameInput) => Promise<Observable<T, TRPCError>>;
+  enterGame: (input: GameInput) => Promise<Observable<StreamEvent, TRPCError>>;
   playCard: (input: PlayCardInput) => Promise<void>;
 }

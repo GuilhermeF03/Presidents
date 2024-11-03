@@ -1,4 +1,4 @@
-import type { AppRouter } from '@server/controllers/rootRouter';
+import { AppRouter } from '@server/controllers/rootRouter.ts';
 import { httpBatchLink, splitLink, unstable_httpBatchStreamLink } from '@trpc/client';
 import { createTRPCReact } from '@trpc/react-query';
 import { useState } from 'react';
@@ -10,11 +10,11 @@ export const useTRPCClient = () => {
     trpc.createClient({
       links: [
         httpBatchLink({
-          url: 'http://localhost:4321/trpc',
+          url: 'http://localhost:4321/',
           fetch(url, options) {
             return fetch(url, {
               ...options,
-              credentials: 'include',
+              //credentials: 'include',
             });
           },
         }),

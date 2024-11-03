@@ -1,60 +1,60 @@
-import { HStack, Stack } from '@chakra-ui/react';
-import { IconInput } from '@components/Inputs';
+import { FormControl, HStack, Stack } from '@chakra-ui/react';
 import { BaseButton } from '@components/cards/Buttons';
 import InteractiveCard from '@components/cards/InteractiveCard';
+import { IconInput } from '@components/inputs/IconInput.tsx';
 import { faArrowUpRightFromSquare, faLink } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useProfileContext } from '@hooks/useProfileContext';
 import { useServicesContext } from '@hooks/useServiceContext';
+import { useCallback, useRef } from 'react';
 
 export function Landing() {
+  // Hooks
   const { landing } = useServicesContext();
-
   const { profile } = useProfileContext();
+  const joinGameCode = useRef<HTMLInputElement>(null);
 
+  // TRPC procedures
   const createGameMutation = landing.useCreateGame(profile);
-  const joinGameMutation = landing.useJoinGame(profile);
+  //const joinGameMutation = landing.useJoinGame(profile);
 
-  const handleNewGame = async () => {
-    createGameMutation?.mutate();
-    //navigate('/game/new');
-  };
+  const handleNewGame = useCallback(async () => {
+    console.log('Creating new game...');
+    const code: string = await createGameMutation?.mutate();
+    console.log('Game code: ', code);
 
-  const handleJoinGame = () => {
-    joinGameMutation?.mutate('123');
-    //navigate('/game/join');
-  };
+    // navigate('/game/new');
+  }, [createGameMutation]);
+
+  const handleJoinGame = useCallback(() => {
+    console.log(`Joining game with code: ${joinGameCode.current?.value}`);
+    // joinGameMutation?.mutate('123');
+    // navigate('/game/join');
+  }, []);
 
   return (
-    <HStack gap={'6rem'} className="items-center justify-center w-full">
-      {!profile ? (
-        <>
-          <InteractiveCard>Log In</InteractiveCard>
-        </>
-      ) : (
-        <>
-          {/* New Game Card */}
-          <InteractiveCard onClick={handleNewGame}>New Game</InteractiveCard>
+    <HStack spacing="6rem" align="center" justify="center" w="full">
+      {/* New Game Card */}
+      <InteractiveCard onClick={handleNewGame}>New Game</InteractiveCard>
 
-          {/* Join Game Card */}
-          <InteractiveCard>
-            <Stack gap={'1rem'} className="h-full m-4 justify-center">
-              {/* Code Input*/}
-              <IconInput
-                anchor="left"
-                type="number"
-                placeholder="Enter Game Code"
-                icon={<FontAwesomeIcon icon={faLink} />}
-              />
+      {/* Join Game Card */}
+      <InteractiveCard>
+        <Stack spacing="1rem" h="full" m="4" justify="center">
+          <FormControl>
+            <IconInput
+              anchor="left"
+              type="number"
+              placeholder="Enter Game Code"
+              icon={<FontAwesomeIcon icon={faLink} />}
+              ref={joinGameCode}
+            />
 
-              {/* Join Game button*/}
-              <BaseButton className="text-xl rounded-lg p2" onClick={handleJoinGame}>
-                <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
-              </BaseButton>
-            </Stack>
-          </InteractiveCard>
-        </>
-      )}
+            <BaseButton fontSize="xl" borderRadius="lg" p="2" onClick={handleJoinGame}>
+              <FontAwesomeIcon icon={faArrowUpRightFromSquare} />
+            </BaseButton>
+          </FormControl>
+        </Stack>
+      </InteractiveCard>
     </HStack>
   );
 }

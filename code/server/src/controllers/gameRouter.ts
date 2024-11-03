@@ -1,4 +1,4 @@
-import { publicProcedure, router } from '@/trpc';
+import { publicProcedure, router } from '@/trpc/trpc.ts';
 import { ZodProfile } from '@core/model/game/Player';
 import { ZodCard } from '@core/model/game/card';
 import { ZodGameInput, ZodGameProfileInput } from '@core/model/game/inputs';
@@ -15,9 +15,7 @@ const playCardProcedure = gameOpProcedure.input(z.object({ card: ZodCard }));
 export const gameRouter = router({
   createGame: profileProcedure.output(ZodID).mutation(async ({ ctx, input }) => {
     const { services } = ctx.injection;
-    const result = await services.game.createGame(input);
-
-    return result;
+    return await services.game.createGame(input);
   }),
 
   joinGame: gameProfileProcedure.output(z.void()).mutation(async ({ ctx, input }) => {
