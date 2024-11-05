@@ -1,7 +1,7 @@
 import type { Profile } from '@core/model/game/player.ts';
 import { dylan } from '@dicebear/collection';
 import Cookies from 'js-cookie';
-import { type ReactElement, useState } from 'react';
+import { type ReactElement, useEffect, useState } from 'react';
 import { ProfileContext } from './ProfileContext';
 
 type ProfileProviderProps = {
@@ -18,6 +18,10 @@ export const ProfileProvider = ({ children }: ProfileProviderProps) => {
     const cookieData = Cookies.get('avatarOptions');
     return cookieData ? (JSON.parse(cookieData) as dylan.Options) : {};
   });
+
+  useEffect(() => {
+    console.log('Avatar options: ', avatarOptions);
+  }, [avatarOptions]);
 
   return (
     <ProfileContext.Provider

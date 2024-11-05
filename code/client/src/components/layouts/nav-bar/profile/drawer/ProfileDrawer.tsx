@@ -14,40 +14,43 @@ import { ProfileDrawerNameAndAvatar } from '@components/layouts/nav-bar/profile/
 import { ProfileSettings } from '@components/layouts/nav-bar/profile/drawer/settings/ProfileSettings.tsx';
 import type { Profile } from '@core/model/game/player.ts';
 import type { dylan } from '@dicebear/collection';
+import { useProfileContext } from '@hooks/useProfileContext.tsx';
 import { MutableRefObject, useEffect, useRef, useState } from 'react';
 
 export type ProfileDrawerProps = {
   isOpen: boolean;
   onClose: () => void;
   btnRef: MutableRefObject<HTMLButtonElement | null>;
-  onSave: (tempProfile: Profile) => void;
+  onSave: (tempProfile: Profile, avatarOptions: dylan.Options) => void;
   profile: Profile;
 };
 
-export const ProfileDrawer = ({ isOpen, onClose, btnRef, onSave, profile }: ProfileDrawerProps) => {
+export const ProfileDrawer = ({ isOpen, onClose, btnRef, onSave }: ProfileDrawerProps) => {
   // State for temporary profile changes
+
+  const { profile, avatarOptions } = useProfileContext();
   const profileNameRef = useRef<HTMLInputElement>(null);
-  const [profilePicOptions, setProfilePicOptions] = useState<dylan.Options>({});
+  const [tempProfilePicOptions, setTempProfilePicOptions] = useState<dylan.Options>(avatarOptions);
   const [tempProfile, setTempProfile] = useState<Profile>(profile);
 
   useEffect(() => {
     if (isOpen) setTempProfile(profile);
-  }, [isOpen]);
+  }, [isOpen, profile]);
 
-  // Handle updating tempProfile asynchronously when profilePicOptions changes
   useEffect(() => {
-    console.log('Updating tempProfile with new profilePicOptions', profilePicOptions);
-
     const fetchNewProfile = async () => {
       const profileName = profileNameRef.current?.value || '';
-      const newProfile = await newUser(profileName, profilePicOptions);
-      setTempProfile(newProfile);
+      const { profile: newProfile } = await newUser(profileName, tempProfilePicOptions);
+      setTempProfile(prevState => ({
+        ...prevState,
+        picture: newProfile.picture,
+      }));
     };
     fetchNewProfile();
-  }, [profilePicOptions]);
+  }, [tempProfilePicOptions]);
 
   const _onSave = () => {
-    onSave(tempProfile);
+    onSave(tempProfile, tempProfilePicOptions);
   };
 
   return (
@@ -63,8 +66,8 @@ export const ProfileDrawer = ({ isOpen, onClose, btnRef, onSave, profile }: Prof
           <ProfileSettings
             tempProfile={tempProfile}
             setTempProfile={setTempProfile}
-            tempPicOptions={profilePicOptions}
-            setTempPicOptions={setProfilePicOptions}
+            tempPicOptions={tempProfilePicOptions}
+            setTempPicOptions={setTempProfilePicOptions}
           />
         </DrawerBody>
 

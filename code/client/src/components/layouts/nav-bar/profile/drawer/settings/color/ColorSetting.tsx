@@ -7,17 +7,15 @@ import {
   PopoverContent,
   PopoverTrigger,
 } from '@chakra-ui/react';
-import { Sketch } from '@uiw/react-color';
-import { useState } from 'react';
+import { Github } from '@uiw/react-color';
 
 export type ColorSettingProps = {
+  colors: string[];
   color: string;
   setColor: (color: string) => void;
 };
 
-export const ColorSetting = ({ color, setColor }: ColorSettingProps) => {
-  const [tempColor, setTempColor] = useState(color);
-
+export const ColorSetting = ({ colors, color, setColor }: ColorSettingProps) => {
   return (
     <Popover>
       <PopoverTrigger>
@@ -27,11 +25,13 @@ export const ColorSetting = ({ color, setColor }: ColorSettingProps) => {
         <PopoverArrow />
         <PopoverCloseButton />
         <PopoverBody>
-          <Sketch
-            style={{ marginLeft: 20 }}
+          <Github
+            colors={colors}
+            style={{
+              marginLeft: 20,
+            }}
             color={color}
-            onChange={color => setTempColor(color.hex)}
-            onMouseUp={() => setColor(tempColor)}
+            onChange={color => setColor(color.hex.split('#')[1])}
           />
         </PopoverBody>
       </PopoverContent>

@@ -13,6 +13,7 @@ type ProfileAvatar = {
 };
 
 export const getAvatar = async (opts: Partial<dylan.Options | Options>): Promise<ProfileAvatar> => {
+  console.log('Creating an avatar with options:', opts);
   const avatar = createAvatar(dylan, opts).toString();
   const png = toPng(avatar);
   const image = await png.toDataUri();

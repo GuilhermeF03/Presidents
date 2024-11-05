@@ -3,19 +3,21 @@ import { Button, type ButtonProps, useDisclosure } from '@chakra-ui/react';
 import { ProfilePortrait } from '@components/ProfilePortrait.tsx';
 import { ProfileDrawer } from '@components/layouts/nav-bar/profile/drawer/ProfileDrawer.tsx';
 import type { Profile } from '@core/model/game/player.ts';
+import { dylan } from '@dicebear/collection';
 import { useProfileContext } from '@hooks/useProfileContext.tsx';
 import { forwardRef, useRef } from 'react';
 
 export type ProfileMenuProps = ButtonProps;
 export const ProfileMenu = forwardRef<HTMLButtonElement, ProfileMenuProps>((props, ref) => {
   // State and context
-  const { profile, setProfile } = useProfileContext();
+  const { profile, setProfile, setAvatarOptions } = useProfileContext();
   const { isOpen, onOpen, onClose } = useDisclosure();
   const btnRef = useRef<HTMLButtonElement | null>(null);
 
   // Save tempProfile to context's profile and close the drawer
-  const onSave = (tempProfile: Profile) => {
+  const onSave = (tempProfile: Profile, avatarOptions: dylan.Options) => {
     setProfile(tempProfile); // Persist tempProfile to context
+    setAvatarOptions(avatarOptions);
     onClose();
   };
 
