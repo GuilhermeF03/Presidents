@@ -18,20 +18,20 @@ export const ProfileSettings = ({
   tempPicOptions,
   setTempPicOptions,
 }: ProfileSettingsProps) => {
-  const setBackgroundColor = (color: any) => {
+  const setBackgroundColor = (hex: string) => {
+    console.log('New color', hex);
     setTempPicOptions(prev => ({
       ...prev,
-      backgroundColor: color.hex,
+      backgroundColor: [hex],
     }));
   };
 
-  const setHairColor = (color: any) => {
+  const setHairColor = (hex: string) => {
     setTempPicOptions(prev => ({
       ...prev,
-      hairColor: color.hex,
+      hairColor: [hex],
     }));
   };
-
   return (
     <VStack alignItems={'start'}>
       <HStack>

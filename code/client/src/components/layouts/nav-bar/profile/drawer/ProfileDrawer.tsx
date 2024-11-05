@@ -36,6 +36,8 @@ export const ProfileDrawer = ({ isOpen, onClose, btnRef, onSave, profile }: Prof
 
   // Handle updating tempProfile asynchronously when profilePicOptions changes
   useEffect(() => {
+    console.log('Updating tempProfile with new profilePicOptions', profilePicOptions);
+
     const fetchNewProfile = async () => {
       const profileName = profileNameRef.current?.value || '';
       const newProfile = await newUser(profileName, profilePicOptions);
@@ -49,7 +51,7 @@ export const ProfileDrawer = ({ isOpen, onClose, btnRef, onSave, profile }: Prof
   };
 
   return (
-    <Drawer isOpen={isOpen} placement="right" onClose={onClose} finalFocusRef={btnRef}>
+    <Drawer isOpen={isOpen} onClose={onClose} finalFocusRef={btnRef}>
       <DrawerOverlay />
       <DrawerContent height={'fit-content'} width={'fit-content'} className={'rounded-3xl gap-3.5'}>
         <DrawerCloseButton />

@@ -10,7 +10,7 @@ export const ProfileSetting = ({ setting, children }: ProfileSettingProps) => {
   return (
     <HStack>
       <Text className={'font-bold text-sm'}> {setting} </Text>
-      <div>{children}</div>
+      {children}
     </HStack>
   );
 };
