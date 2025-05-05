@@ -3,7 +3,7 @@ import autoprefixer from 'autoprefixer';
 import tailwind from 'tailwindcss';
 import { defineConfig } from 'vite';
 import tsconfigPaths from 'vite-tsconfig-paths';
-import config from './src/config';
+import config from './src/main/config.ts';
 
 // https://vitejs.dev/config/
 export default defineConfig({

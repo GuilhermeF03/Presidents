@@ -28,7 +28,8 @@
 
     "paths": {
       "@/*": ["./src/*"],
-      "@core/*": ["../core/*"]
+      "@core/*": ["../core/*"],
+      "@library/*": ["../library/*"]
     }
   }
 }
