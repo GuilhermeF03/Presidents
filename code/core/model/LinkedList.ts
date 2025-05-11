@@ -61,4 +61,51 @@ export class LinkedList<T> {
     }
     return null;
   }
+
+  remove(value: LinkedListNode<T>) {
+    if (value.prev) {
+      value.prev.next = value.next;
+    } else {
+      this.head = value.next;
+    }
+
+    if (value.next) {
+      value.next.prev = value.prev;
+    } else {
+      this.tail = value.prev;
+    }
+
+    this.length--;
+  }
+
+  removeWhere(predicate: (value: T) => boolean) {
+    let current = this.head;
+
+    while (current) {
+      const next = current.next; // Store next node before removing current
+      if (predicate(current.value)) {
+        this.remove(current);
+      }
+      current = next;
+    }
+  }
+
+  asList() {
+    const list = [];
+    let current = this.head;
+    while (current) {
+      list.push(current.value);
+      current = current.next;
+    }
+    return list;
+  }
+
+  static fromList<T>(list: T[]) {
+    const linkedList = new LinkedList<T>();
+
+    for (const value of list){
+      linkedList.append(new LinkedListNode(value));
+    }
+    return linkedList;
+  }
 }

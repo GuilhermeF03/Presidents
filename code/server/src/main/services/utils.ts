@@ -1,7 +1,8 @@
-import type { GameState } from '@core/model/game/State.ts';
+import type { ActiveGameState, GameState } from '@core/model/game/State.ts';
+import type { Card } from '@core/model/game/card.ts';
 
 function playerCount(game: GameState) {
-  return Object.keys(game.players).length;
+  return game.players.length
 }
 
 export { playerCount };

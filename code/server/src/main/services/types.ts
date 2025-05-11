@@ -4,8 +4,7 @@ import type { ID } from '@core/model/game/misc.ts';
 import type { GamePlayerInfo, Profile } from '@core/model/game/player.ts';
 import type { StreamEvent } from '@core/model/stream/events.ts';
 import type { TRPCError } from '@trpc/server';
-import type { Observable } from '@trpc/server/observable';
-import type { StreamServices } from './streamServices.ts';
+import type { Observable, Observer } from '@trpc/server/observable';
 
 export type CoreServices = {
   game: GameServices;
@@ -37,7 +36,13 @@ export type PlayerServices = {
   getPlayerDetails: (userId: string) => Promise<Profile>;
 };
 export type CardServices = {
-  // Deals a card to the player
-  dealCards: (input: GamePlayerTuple) => Promise<void>;
   playCards: (input: GamePlayerTuple, ...cards: Card[]) => Promise<void>;
 };
+
+export type StreamServices = {
+  getStream: (userId: string) => Observer<StreamEvent, TRPCError>;
+  registerStream:(userId: string) => Observable<StreamEvent, TRPCError>;
+  sendEvent: <T extends StreamEvent>(userId: string, event: T) => void;
+  sendError: (userId: string, error: TRPCError) => void;
+  sendComplete: (userId: string) => void;
+}

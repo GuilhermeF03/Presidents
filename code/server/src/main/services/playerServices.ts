@@ -1,5 +1,5 @@
-import type { CoreRepo } from '@/main/repos/types.ts';
-import type { PlayerServices } from '@/main/services/types.ts';
+import type { CoreRepo } from '@data/repos/types.ts';
+import type { PlayerServices } from '@services//types.ts';
 import type { GamePlayerInfo } from '@core/model/game/player.ts';
 
 export function playerServices(repos: CoreRepo): PlayerServices {

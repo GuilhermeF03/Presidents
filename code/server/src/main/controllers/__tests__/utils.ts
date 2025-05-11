@@ -1,4 +1,4 @@
-import type { CoreServices, GameServices } from '@/main/services/types.ts';
+import type { CoreServices, GameServices } from '@services//types.ts';
 import { createInjectedContext } from '@/main/trpc/trpc.ts';
 import { TRPCError } from '@trpc/server';
 import type { FetchCreateContextFnOptions } from '@trpc/server/adapters/fetch';

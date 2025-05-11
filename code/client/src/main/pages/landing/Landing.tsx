@@ -7,6 +7,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { useProfileContext } from '@hooks/useProfileContext';
 import { useServicesContext } from '@hooks/useServiceContext';
 import { useCallback, useRef } from 'react';
+import { Observable } from '@trpc/server/observable';
+import { StreamEvent } from '@core/model/stream/events.ts';
+import { TRPCError } from '@trpc/server';
 
 export function Landing() {
   // Hooks
@@ -15,13 +18,13 @@ export function Landing() {
   const joinGameCode = useRef<HTMLInputElement>(null);
 
   // TRPC procedures
-  const createGameMutation = landing.useCreateGame(profile);
+  const createGameMutation = landing.useCreateGame();
   //const joinGameMutation = landing.useJoinGame(profile);
 
   const handleNewGame = useCallback(async () => {
     console.log('Creating new game...');
-    const code: string = await createGameMutation?.mutate();
-    console.log('Game code: ', code);
+    const resp: {gameId: string, stream : Observable<StreamEvent, TRPCError>} = await createGameMutation?.mutate(profile)
+    console.log('Game code: ', resp.gameId);
 
     // navigate('/game/new');
   }, [createGameMutation]);

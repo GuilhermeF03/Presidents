@@ -1,4 +1,4 @@
-import type { CoreServices } from '@/main/services/types.ts';
+import type { CoreServices } from '@services//types.ts';
 import { initTRPC } from '@trpc/server';
 import type { FetchCreateContextFnOptions } from '@trpc/server/adapters/fetch';
 import type { Context } from 'hono';

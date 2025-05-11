@@ -1,4 +1,4 @@
-import memUtils from '@/main/repos/memory/memUtils.ts';
+import memUtils from '@data/repos/memory/memUtils.ts';
 import type { PendingGameState } from '@core/model/game/State.ts';
 import type { Profile } from '@core/model/game/player.ts';
 import type { Logger } from 'winston';
@@ -10,11 +10,9 @@ import { memData } from './data.ts';
 export const memPlayerRepo = (logger: Logger): PlayerRepo => {
   const { games } = memData;
 
-  const addPlayer: PlayerRepo['addPlayer'] = async input => {
-    const { gameId, playerId } = input;
+  const addPlayer: PlayerRepo['addPlayer'] = async (gameId, profile) => {
     const game = (await memUtils.getGame(gameId)) as PendingGameState;
-
-    game.players[playerId] = newPlayer(input);
+    game.players.append(newPlayer(profile))
   };
 
   const getPlayerDetails: PlayerRepo['getPlayerDetails'] = async userId => {

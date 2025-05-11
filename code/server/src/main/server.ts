@@ -5,11 +5,11 @@ import { cors } from 'hono/cors';
 import { config } from './config.ts';
 import { rootRouter } from './controllers/rootRouter.ts';
 import { getLogger } from './library/logging/logger.ts';
-import { memCore } from './repos/memory/memCoreRepo.ts';
-import type { CoreRepo } from './repos/types.ts';
 import { coreServices } from './services/coreServices.ts';
 import type { CoreServices } from './services/types.ts';
 import { trpcContext } from './trpc/trpc.ts';
+import { bootstrapDb } from '@data/bootstrap-db.ts';
+import { MikroORM } from '@mikro-orm/core';
 
 // Import logger
 const logger = getLogger(LOG_MODULE.SERVER);
@@ -19,9 +19,13 @@ logger.info('Bootstrapping server...');
 // const args = Bun.argv;
 
 // Setup services
-logger.info('Setting up modules...');
-const db: CoreRepo = memCore();
-const services: CoreServices = coreServices(db);
+logger.info('Setting up services...');
+const services: CoreServices = coreServices();
+logger.info('Services setup');
+// Setup database
+logger.info('Bootstrapping database...');
+//bootstrapDb()
+logger.info('Database bootstrapped');
 
 // Override console logs
 const overrideConsoleLogs = () => {

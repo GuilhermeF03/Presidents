@@ -17,29 +17,26 @@ class BaseGameState {
   constructor(
     public id: ID,
     public host: ID,
-    public players: LinkedList<GamePlayerInfo>
+    public players: LinkedList<GamePlayerInfo>,
+    public roles: GameRoleMap = {
+      [Role.President]: "",
+      [Role.VicePresident]: "",
+      [Role.ViceScum]: "",
+      [Role.Scum]: "",
+    },
   ) {}
 }
 
 /**
  * Represents the state of the game when it is pending.
  */
-export class PendingGameState extends BaseGameState {
-  constructor(
-    public id: ID,
-    public host: ID,
-    public players: LinkedList<GamePlayerInfo>,
-    public roles: GameRoleMap
-  ) {
-    super(id, host, players);
-  }
-}
+export class PendingGameState extends BaseGameState {}
 
-type GameRoleMap = {
-  [Role.President]?: ID;
-  [Role.VicePresident]?: ID;
-  [Role.ViceScum]?: ID;
-  [Role.Scum]?: ID;
+export type GameRoleMap = {
+  [Role.President]: ID | undefined;
+  [Role.VicePresident]: ID | undefined;
+  [Role.ViceScum]: ID | undefined;
+  [Role.Scum]: ID | undefined;
 };
 
 /**
@@ -50,10 +47,10 @@ export class ActiveGameState extends BaseGameState {
     id: ID,
     host: ID,
     players: LinkedList<GamePlayerInfo>,
+    roles: GameRoleMap,
     public pile: Card[],
-    public roles: GameRoleMap
   ) {
-    super(id, host, players);
+    super(id, host, players, roles);
   }
 }
 
@@ -64,10 +61,10 @@ export class FinishedGameState extends BaseGameState {
   constructor(
     id: ID,
     host: ID,
+    roles: GameRoleMap,
     players: LinkedList<GamePlayerInfo>,
-    public rolesMap: GameRoleMap
   ) {
-    super(id, host, players);
+    super(id, host, players, roles);
   }
 }
 
@@ -75,3 +72,15 @@ export class FinishedGameState extends BaseGameState {
  * Represents the state of the game.
  */
 export type GameState = PendingGameState | ActiveGameState | FinishedGameState;
+export const toGameStateString = (gameState: GameState): 'pending' | 'active' | 'finished' => {
+  if (gameState instanceof PendingGameState) {
+    return 'pending';
+  }
+  if (gameState instanceof ActiveGameState) {
+    return 'active';
+  }
+  if (gameState instanceof FinishedGameState) {
+    return 'finished';
+  }
+  throw new Error('Unknown game state');
+}

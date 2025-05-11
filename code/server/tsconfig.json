@@ -1,35 +1,47 @@
 {
   "compilerOptions": {
-    "strict": true,
-    "jsx": "react-jsx",
-    "jsxImportSource": "hono/jsx",
-    // Enable latest features
-    "lib": ["ESNext", "DOM"],
+    // Core compiler behavior
     "target": "ESNext",
     "module": "ESNext",
-    "moduleDetection": "force",
-    "allowJs": true,
+    "lib": ["ESNext", "DOM"],
 
-    // Bundler mode
+    // JSX support for Hono
+    "jsx": "react-jsx",
+    "jsxImportSource": "hono/jsx",
+
+    // Module resolution and bundler compatibility
     "moduleResolution": "bundler",
     "allowImportingTsExtensions": true,
     "verbatimModuleSyntax": true,
     "noEmit": true,
+    "allowJs": true,
+    "esModuleInterop": true,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strictPropertyInitialization": false,
+    "outDir": "./dist",
+    "declaration": true,
 
-    // Best practices
+    // Strict type checks
+    "strict": true,
     "strictNullChecks": true,
     "skipLibCheck": true,
     "noFallthroughCasesInSwitch": true,
 
-    // Some stricter flags (disabled by default)
+    // Optional stricter flags
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "noPropertyAccessFromIndexSignature": false,
 
+    // Path aliases
     "paths": {
       "@/*": ["./src/*"],
+      "@controllers/*": ["./src/main/controllers/*"],
+      "@services/*": ["./src/main/services/*"],
+      "@data/*": ["./src/main/data/*"],
       "@core/*": ["../core/*"],
       "@library/*": ["../library/*"]
     }
-  }
+  },
+  "include": ["src/**/*"]
 }

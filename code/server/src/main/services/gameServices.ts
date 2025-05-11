@@ -1,9 +1,9 @@
 import { GAME_CONSTANTS } from '@/main/domain/GameConstants.ts';
-import type { CoreRepo } from '@/main/repos/types.ts';
-import * as BadRequestErrors from '@/main/services/errors/bad.ts';
-import { PlayerAlreadyInGameError } from '@/main/services/errors/conflict.ts';
-import type { GameServices } from '@/main/services/types.ts';
-import { LinkedListNode } from '@core/model/LinkedList.ts';
+import type { CoreRepo } from '@data/repos/types.ts';
+import * as BadRequestErrors from '@services//errors/bad.ts';
+import { PlayerAlreadyInGameError } from '@services//errors/conflict.ts';
+import type { GameServices } from '@services//types.ts';
+import type { LinkedList } from '@core/model/LinkedList.ts';
 import { Deck } from '@core/model/game/Deck.ts';
 import { Hand } from '@core/model/game/Hand.ts';
 import { PendingGameState, Role } from '@core/model/game/State.ts';
@@ -21,11 +21,14 @@ export function gameServices(repos: CoreRepo): GameServices {
    */
   const createGame: GameServices['createGame'] = async input => {
     const { playerId } = input;
-    const { playerRepo, gameRepo } = repos;
+    const { gameRepo } = repos;
 
-    if (await playerRepo.playerInAnyGame(playerId)) throw new PlayerAlreadyInGameError();
+    if (await gameRepo.playerInAnyGame(playerId)) throw new PlayerAlreadyInGameError();
 
-    return await gameRepo.createGame(input);
+    return {
+      id: await gameRepo.createGame(input),
+      stream: streamServices.registerStream(playerId),
+    }
   };
 
   /**
@@ -34,26 +37,22 @@ export function gameServices(repos: CoreRepo): GameServices {
    */
   const joinGame: GameServices['joinGame'] = async input => {
     const { gameId, playerId, name, picture } = input;
-    const { gameRepo, playerRepo } = repos;
+    const { gameRepo } = repos;
 
-    if (await playerRepo.playerInGame(input)) throw new PlayerAlreadyInGameError(gameId);
+    if (await gameRepo.playerInGame(gameId, playerId))
+      throw new PlayerAlreadyInGameError(gameId);
 
     const game = await gameRepo.getGame(gameId);
 
-    if (!(game instanceof PendingGameState)) throw new BadRequestErrors.InvalidGameStateError('PENDING');
+    if (!(game instanceof PendingGameState))
+      throw new BadRequestErrors.InvalidGameStateError('PENDING');
 
     const playerNumber = playerCount(game);
-    if (playerNumber === GAME_CONSTANTS.MAX_PLAYERS) throw new BadRequestErrors.GameFullError();
+    if (playerNumber === GAME_CONSTANTS.MAX_PLAYERS)
+      throw new BadRequestErrors.GameFullError();
 
-    const newPlayerNode: LinkedListNode<GamePlayerInfo> = new LinkedListNode({
-      playerId,
-      name,
-      picture,
-      hand: new Hand(),
-    });
-
-    game.players.append(newPlayerNode);
-
+    // DB operations
+    await gameRepo.addPlayer(gameId, {playerId, name, picture});
     await gameRepo.updateGame(gameId, game); //TODO: Implement this method in the gameRepo
 
     return streamServices.registerStream(playerId);
@@ -65,13 +64,14 @@ export function gameServices(repos: CoreRepo): GameServices {
    */
   const startGame: GameServices['startGame'] = async input => {
     const { gameId, playerId } = input;
-    const { gameRepo, playerRepo } = repos;
+    const { gameRepo } = repos;
 
     const game = await gameRepo.getGame(gameId);
 
     if (!(game instanceof PendingGameState)) throw new BadRequestErrors.InvalidGameStateError('PENDING');
 
-    if (!(await playerRepo.isPlayerHost(input))) throw new PlayerNotHostError(playerId, gameId);
+    if (!(await gameRepo.isGameHost(gameId, playerId)))
+      throw new PlayerNotHostError(playerId, gameId);
 
     const nPlayers = playerCount(game);
     if (nPlayers < GAME_CONSTANTS.MIN_PLAYERS)
@@ -81,8 +81,20 @@ export function gameServices(repos: CoreRepo): GameServices {
     deck.shuffle();
 
     // Deal cards to players
-    const players = game.players;
+    dealCards(deck, game.players);
+    swapCards(game);
 
+
+    await gameRepo.updateGame(gameId, game);
+    await gameRepo.startGame(input.gameId);
+  };
+
+  const leaveGame: GameServices['leaveGame'] = async input => {
+    const { gameRepo } = repos;
+    await gameRepo.leaveGame(input);
+  };
+
+  const dealCards: (deck: Deck, players: LinkedList<GamePlayerInfo>) => void = (deck, players) => {
     for (const i of range(0, deck.cards.length)) {
       const card = deck.draw();
       if (!card) break;
@@ -95,14 +107,16 @@ export function gameServices(repos: CoreRepo): GameServices {
       // Update the player's hand
       currPlayer.value.hand = hand;
     }
+  }
 
-    // Set up the game - Get IDs of the players with the roles
+  const swapCards: (game : PendingGameState) => void = (game) => {
     const presidentId = game.roles[Role.President];
     const scumId = game.roles[Role.Scum];
     const vicePresidentId = game.roles[Role.VicePresident];
     const viceScumId = game.roles[Role.ViceScum];
 
-    // Swap cards between the president and scum
+    const players = game.players;
+
     if (presidentId && scumId) {
       const president = players.find(player => player.playerId === presidentId);
       const scum = players.find(player => player.playerId === scumId);
@@ -115,7 +129,6 @@ export function gameServices(repos: CoreRepo): GameServices {
       }
     }
 
-    // Swap cards between the vice president and vice scum
     if (vicePresidentId && viceScumId) {
       const vicePresident = players.find(player => player.playerId === vicePresidentId);
       const viceScum = players.find(player => player.playerId === viceScumId);
@@ -127,16 +140,7 @@ export function gameServices(repos: CoreRepo): GameServices {
         Hand.swapCards(vicePresident.value.hand, viceScum.value.hand, worstVicePresidentCards, topViceScumCards);
       }
     }
-
-    gameRepo.updateGame(gameId, game); //TODO: Implement this method in the gameRepo
-    await gameRepo.startGame(input);
-  };
-
-  const leaveGame: GameServices['leaveGame'] = async input => {
-    const { gameRepo } = repos;
-    await gameRepo.leaveGame(input);
-    // TODO: Finish this method
-  };
+  }
 
   return {
     createGame,

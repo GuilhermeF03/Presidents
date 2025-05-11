@@ -1,5 +1,4 @@
-import type { ActiveGameState, PendingGameState } from '@core/model/game/State.ts';
-import type { Hand } from '@core/model/game/player.ts';
+import type { PendingGameState } from '@core/model/game/State.ts';
 import { v4 as uuid } from 'uuid';
 import type { Logger } from 'winston';
 import { GameNotFoundError } from '../errors/notFound.ts';
@@ -25,26 +24,38 @@ export const memGameRepo = (logger: Logger): GameRepo => {
   };
 
   const joinGame: GameRepo['joinGame'] = async input => {
-    const { gameId, playerId } = input;
+    const { gameId, ...profile } = input;
     const game = (await getGame(gameId)) as PendingGameState;
-    game.players[playerId] = newPlayer(input);
+
+    const newPlayerNode = newPlayer(profile)
+
+    game.players.append(newPlayerNode)
   };
 
-  const leaveGame: GameRepo['leaveGame'] = async input => {
-    const { gameId, playerId } = input;
+  const updateGame: GameRepo['updateGame'] = async (gameId, gameState) => {
     const game = await getGame(gameId);
-    delete game.players[playerId];
+    Object.assign(game, gameState);
+  }
+
+  const leaveGame: GameRepo['leaveGame'] = async ({gameId, playerId}) => {
+    const game = await getGame(gameId);
+    const node = game.players.find(player => player.playerId === playerId);
+    if (node) {
+      game.players.remove(node);
+    } else {
+      logger.warn(`Player ${playerId} not found in game ${gameId}`);
+    }
   };
 
-  const startGame: GameRepo['startGame'] = async input => {
-    const { gameId } = input;
+  const startGame: GameRepo['startGame'] = async (gameId) => {
     const game = (await getGame(gameId)) as PendingGameState;
-    games[gameId] = newActiveGame(game);
+    Object.assign(game, newActiveGame(game));
   };
 
   return {
     getGame,
     createGame,
+    updateGame,
     joinGame,
     leaveGame,
     startGame,

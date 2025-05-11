@@ -1,6 +1,6 @@
-import { GameNotFoundError } from '@/main/repos/errors/notFound.ts';
-import { memData } from '@/main/repos/memory/data.ts';
-import type { GameRepo } from '@/main/repos/types.ts';
+import { GameNotFoundError } from '@data/repos/errors/notFound.ts';
+import { memData } from '@data/repos/memory/data.ts';
+import type { GameRepo } from '@data/repos/types.ts';
 
 const getGame: GameRepo['getGame'] = async (gameId: string) => {
   const { games } = memData;
