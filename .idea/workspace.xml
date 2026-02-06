@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="0d7dc132-3bc8-4fd1-aa81-e42e96f07a3f" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Game of the Eye.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/easycode.ignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/sqldialects.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/biome.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/bun.lockb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/index.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/public/vite.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/App.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/App.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/ace_of_spades.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/back.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/c_10.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/c_2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/c_3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/c_4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/c_5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/c_6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/c_7.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/c_8.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/c_9.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/c_a.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/c_j.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/c_k.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/c_q.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/d_10.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/d_2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/d_3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/d_4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/d_5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/d_6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/d_7.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/d_8.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/d_9.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/d_a.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/d_j.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/d_k.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/d_q.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/h_10.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/h_2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/h_3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/h_4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/h_5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/h_6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/h_7.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/h_8.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/h_9.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/h_a.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/h_j.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/h_k.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/h_q.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/jk_b.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/jk_r.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/s_10.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/s_2.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/s_3.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/s_4.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/s_5.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/s_6.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/s_7.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/s_8.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/s_9.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/s_a.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/s_j.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/s_k.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/cards/s_q.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/assets/react.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/ProfilePortrait.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/cards/Buttons.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/cards/Card.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/cards/InteractiveCard.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/inputs/BaseInput.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/inputs/IconInput.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/inputs/InputIcon.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/layouts/Footer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/layouts/nav-bar/NavBar.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/layouts/nav-bar/profile/ProfileMenu.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/layouts/nav-bar/profile/drawer/ProfileDrawer.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/layouts/nav-bar/profile/drawer/ProfileFrame.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/layouts/nav-bar/profile/drawer/settings/ProfileSetting.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/layouts/nav-bar/profile/drawer/settings/ProfileSettings.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/layouts/nav-bar/profile/drawer/settings/color/ColorSetting.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/styles/colors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/components/styles/styles.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/contexts/AppProvider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/contexts/profile/ProfileContext.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/contexts/profile/ProfileProvider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/contexts/services/ServicesContext.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/contexts/services/ServicesProvider.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/hooks/useProfileContext.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/hooks/useServiceContext.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/library/logging/logger.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/library/profile-creation/defaults.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/library/profile-creation/profileCreation.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/main.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/pages/game/Game.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/pages/game/gameServices.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/pages/landing/Landing.module.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/pages/landing/Landing.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/pages/landing/landingServices.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/trpc.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/src/main/vite-env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/tailwind.config.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/template.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/tsconfig.app.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/tsconfig.node.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/client/vite.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/biome.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/bun.lockb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/model/LinkedList.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/model/game/Deck.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/model/game/Hand.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/model/game/State.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/model/game/card.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/model/game/events.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/model/game/game.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/model/game/misc.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/model/game/player.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/model/stream/events.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/core/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/biome.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/bun.lockb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/docker/Dockerfile-db" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/docker/docker-compose.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/drizzle.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/controllers/__tests__/gameRouter.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/controllers/__tests__/rootRouter.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/controllers/__tests__/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/controllers/cardRouter.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/controllers/gameRouter.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/controllers/rootRouter.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/controllers/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/data/bootstrap-db.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/data/repos/GameRepo.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/data/repos/errors/notFound.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/data/repos/memory/data.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/data/repos/memory/memCardRepo.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/data/repos/memory/memCoreRepo.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/data/repos/memory/memGameRepo.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/data/repos/memory/memPlayerRepo.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/data/repos/memory/memUtils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/data/repos/orm.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/data/repos/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/data/repos/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/data/schema.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/domain/GameConstants.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/domain/errors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/library/logging/logger.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/server.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/services/cardServices.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/services/coreServices.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/services/errors/auth.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/services/errors/bad.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/services/errors/conflict.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/services/errors/notFound.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/services/gameServices.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/services/playerServices.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/services/streamServices.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/services/types.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/services/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/trpc/errorFormatter.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/main/trpc/trpc.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/tests/services/gameServices.test.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/src/tests/services/utils.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/template.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/server/vitest.config.ts" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
+  <component name="ProjectId" id="39CnQKDxDa9jQkxQeopAbYP3k4N" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "javascript.preferred.runtime.type.id": "bun",
+    "last_opened_file_path": "C:/Users/guilherme.f.ferreira/Downloads/git/Presidents",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "bun",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "ts.external.directory.path": "C:\\Users\\guilherme.f.ferreira\\Downloads\\git\\Presidents\\code\\presidents\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents\src\app\pages\landing\components" />
+      <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents\src\app\components" />
+      <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents\src\app\pages" />
+      <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code" />
+    </key>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-WS-253.30387.83" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0d7dc132-3bc8-4fd1-aa81-e42e96f07a3f" name="Changes" comment="" />
+      <created>1770208902762</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1770208902762</updated>
+      <workItem from="1770208904610" duration="578000" />
+      <workItem from="1770214551771" duration="1860000" />
+      <workItem from="1770216622875" duration="4708000" />
+      <workItem from="1770230807153" duration="160000" />
+      <workItem from="1770230988781" duration="2315000" />
+      <workItem from="1770285641783" duration="881000" />
+      <workItem from="1770286598639" duration="2957000" />
+      <workItem from="1770289631496" duration="14457000" />
+      <workItem from="1770316897492" duration="1917000" />
+      <workItem from="1770318870122" duration="5607000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/code" />
+    </ignored-roots>
+  </component>
+</project>
