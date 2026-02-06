@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+.join-game-card {
+  @apply
+  rounded-lg shadow-lg overflow-hidden mx-auto
+  h-full max-w-full
+  flex flex-col align-middle items-center justify-center
+
+  bg-blue-300
+  border-0
+
+    /* Transition */
+  transition-transform transition-shadow duration-300 ease-in-out
+  hover:scale-105
+  hover:shadow-2xl
+}

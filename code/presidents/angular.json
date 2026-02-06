@@ -31,7 +31,6 @@
             ],
             "styles": [
               "src/theme.less",
-              "src/material-theme.scss",
               "src/styles.css"
             ]
           },

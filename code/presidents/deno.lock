@@ -1,23 +1,30 @@
 {
   "version": "5",
   "specifiers": {
-    "npm:@angular/build@^21.1.2": "21.1.2_@angular+compiler@21.1.3_@angular+compiler-cli@21.1.3__@angular+compiler@21.1.3__typescript@5.9.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_@angular+platform-browser@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_postcss@8.5.6_tailwindcss@4.1.18_tslib@2.8.1_typescript@5.9.3_vitest@4.0.18__jsdom@27.4.0__vite@7.3.0___sass@1.97.1___picomatch@4.0.3_rxjs@7.8.2_@angular+common@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_vite@7.3.0__sass@1.97.1__picomatch@4.0.3_sass@1.97.1_jsdom@27.4.0",
-    "npm:@angular/cli@^21.1.2": "21.1.2_@inquirer+prompts@7.10.1_listr2@9.0.5_zod@4.3.5",
+    "npm:@angular/build@^21.1.2": "21.1.3_@angular+compiler@21.1.3_@angular+compiler-cli@21.1.3__@angular+compiler@21.1.3__typescript@5.9.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_@angular+platform-browser@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_less@4.5.1_postcss@8.5.6_tailwindcss@4.1.18_tslib@2.8.1_typescript@5.9.3_vitest@4.0.18__jsdom@27.4.0__vite@7.3.0___less@4.5.1___sass@1.97.1___picomatch@4.0.3__less@4.5.1_rxjs@7.8.2_@angular+common@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_vite@7.3.0__less@4.5.1__sass@1.97.1__picomatch@4.0.3_sass@1.97.1_jsdom@27.4.0",
+    "npm:@angular/cdk@^21.1.3": "21.1.3_@angular+common@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_@angular+platform-browser@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_rxjs@7.8.2_@angular+compiler@21.1.3",
+    "npm:@angular/cli@^21.1.2": "21.1.3_@inquirer+prompts@7.10.1_listr2@9.0.5_zod@4.3.5",
     "npm:@angular/common@^21.1.0": "21.1.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_rxjs@7.8.2_@angular+compiler@21.1.3",
     "npm:@angular/compiler-cli@^21.1.0": "21.1.3_@angular+compiler@21.1.3_typescript@5.9.3",
     "npm:@angular/compiler@^21.1.0": "21.1.3",
     "npm:@angular/core@^21.1.0": "21.1.3_@angular+compiler@21.1.3_rxjs@7.8.2",
     "npm:@angular/forms@^21.1.0": "21.1.3_@angular+common@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_@angular+platform-browser@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_rxjs@7.8.2_@angular+compiler@21.1.3",
+    "npm:@angular/material@^21.1.3": "21.1.3_@angular+cdk@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__@angular+platform-browser@21.1.3___@angular+common@21.1.3____@angular+core@21.1.3_____@angular+compiler@21.1.3_____rxjs@7.8.2____rxjs@7.8.2____@angular+compiler@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+common@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_@angular+forms@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__@angular+platform-browser@21.1.3___@angular+common@21.1.3____@angular+core@21.1.3_____@angular+compiler@21.1.3_____rxjs@7.8.2____rxjs@7.8.2____@angular+compiler@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+platform-browser@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_rxjs@7.8.2_@angular+compiler@21.1.3",
     "npm:@angular/platform-browser@^21.1.0": "21.1.3_@angular+common@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_rxjs@7.8.2_@angular+compiler@21.1.3",
     "npm:@angular/router@^21.1.0": "21.1.3_@angular+common@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_@angular+platform-browser@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_rxjs@7.8.2_@angular+compiler@21.1.3",
+    "npm:@ant-design/icons-angular@21": "21.0.0_@angular+common@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_@angular+platform-browser@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_rxjs@7.8.2_@angular+compiler@21.1.3",
+    "npm:@tailwindcss/cli@^4.1.18": "4.1.18",
     "npm:@tailwindcss/postcss@^4.1.12": "4.1.18",
+    "npm:autoprefixer@^10.4.24": "10.4.24_postcss@8.5.6",
     "npm:jsdom@^27.1.0": "27.4.0",
-    "npm:postcss@^8.5.3": "8.5.6",
+    "npm:less@^4.2.0": "4.5.1",
+    "npm:ng-zorro-antd@^21.1.0": "21.1.0_@angular+common@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_@angular+forms@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__@angular+platform-browser@21.1.3___@angular+common@21.1.3____@angular+core@21.1.3_____@angular+compiler@21.1.3_____rxjs@7.8.2____rxjs@7.8.2____@angular+compiler@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+platform-browser@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+router@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__@angular+platform-browser@21.1.3___@angular+common@21.1.3____@angular+core@21.1.3_____@angular+compiler@21.1.3_____rxjs@7.8.2____rxjs@7.8.2____@angular+compiler@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__rxjs@7.8.2__@angular+compiler@21.1.3_rxjs@7.8.2_@angular+compiler@21.1.3",
+    "npm:postcss@^8.5.6": "8.5.6",
     "npm:rxjs@7.8": "7.8.2",
-    "npm:tailwindcss@^4.1.12": "4.1.18",
+    "npm:tailwindcss@^4.1.18": "4.1.18",
     "npm:tslib@^2.3.0": "2.8.1",
     "npm:typescript@~5.9.2": "5.9.3",
-    "npm:vitest@^4.0.8": "4.0.18_jsdom@27.4.0_vite@7.3.0__sass@1.97.1__picomatch@4.0.3"
+    "npm:vitest@^4.0.8": "4.0.18_jsdom@27.4.0_vite@7.3.0__less@4.5.1__sass@1.97.1__picomatch@4.0.3_less@4.5.1"
   },
   "npm": {
     "@acemir/cssom@0.9.31": {
@@ -144,16 +151,16 @@
         "@jridgewell/trace-mapping"
       ]
     },
-    "@angular-devkit/architect@0.2101.2": {
-      "integrity": "sha512-pV2onJgp16xO0vAqEfRWVynRPPLVHydYLANNa3UX3l5T39JcYdMIoOHSIIl8tWrxVeOwiWd1ajub0VsFTUok4Q==",
+    "@angular-devkit/architect@0.2101.3": {
+      "integrity": "sha512-vKz8aPA62W+e9+pF6ct4CRDG/MjlIH7sWFGYkxPPRst2g46ZQsRkrzfMZAWv/wnt6OZ1OwyRuO3RW83EMhag8g==",
       "dependencies": [
         "@angular-devkit/core",
         "rxjs"
       ],
       "bin": true
     },
-    "@angular-devkit/core@21.1.2_ajv@8.17.1": {
-      "integrity": "sha512-0wl5nJlFWsbwfUB2CQeTSmnVQ8AtqqwM3bYPYtXSc+vA8+hzsOAjjDuRnBxZS9zTnqtXKXB1e7M3Iy7KUwh7LA==",
+    "@angular-devkit/core@21.1.3_ajv@8.17.1": {
+      "integrity": "sha512-huEXd1tWQHwwN+0VGRT+vSVplV0KNrGFUGJzkIW6iJE1SQElxn6etMai+pSd5DJcePkx6+SuscVsxbfwf70hnA==",
       "dependencies": [
         "ajv",
         "ajv-formats",
@@ -163,8 +170,8 @@
         "source-map@0.7.6"
       ]
     },
-    "@angular-devkit/schematics@21.1.2": {
-      "integrity": "sha512-PA3gkiFhHUuXd2XuP7yzKg/9N++bjw+uOl473KwIsMuZwMPhncKa4+mUYBaffDoPqaujZvjfo6mjtCBuiBv05w==",
+    "@angular-devkit/schematics@21.1.3": {
+      "integrity": "sha512-Ps7bRl5uOcM7WpNJHbSls/jz5/wAI0ldkTlKyiBFA7RtNeQIABAV+hvlw5DJuEb1Lo5hnK0hXj90AyZdOxzY+w==",
       "dependencies": [
         "@angular-devkit/core",
         "jsonc-parser",
@@ -173,8 +180,8 @@
         "rxjs"
       ]
     },
-    "@angular/build@21.1.2_@angular+compiler@21.1.3_@angular+compiler-cli@21.1.3__@angular+compiler@21.1.3__typescript@5.9.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_@angular+platform-browser@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_postcss@8.5.6_tailwindcss@4.1.18_tslib@2.8.1_typescript@5.9.3_vitest@4.0.18__jsdom@27.4.0__vite@7.3.0___sass@1.97.1___picomatch@4.0.3_rxjs@7.8.2_@angular+common@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_vite@7.3.0__sass@1.97.1__picomatch@4.0.3_sass@1.97.1_jsdom@27.4.0": {
-      "integrity": "sha512-5hl7OTZeQcdkr/3LXSijLuUCwlcqGyYJYOb8GbFqSifSR03JFI3tLQtyQ0LX2CXv3MOx1qFUQbYVfcjW5M36QQ==",
+    "@angular/build@21.1.3_@angular+compiler@21.1.3_@angular+compiler-cli@21.1.3__@angular+compiler@21.1.3__typescript@5.9.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_@angular+platform-browser@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_less@4.5.1_postcss@8.5.6_tailwindcss@4.1.18_tslib@2.8.1_typescript@5.9.3_vitest@4.0.18__jsdom@27.4.0__vite@7.3.0___less@4.5.1___sass@1.97.1___picomatch@4.0.3__less@4.5.1_rxjs@7.8.2_@angular+common@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_vite@7.3.0__less@4.5.1__sass@1.97.1__picomatch@4.0.3_sass@1.97.1_jsdom@27.4.0": {
+      "integrity": "sha512-RXVRuamfrSPwsFCLJgsO2ucp+dwWDbGbhXrQnMrGXm0qdgYpI8bAsBMd8wOeUA6vn4fRmjaRFQZbL/rcIVrkzw==",
       "dependencies": [
         "@ampproject/remapping",
         "@angular-devkit/architect",
@@ -193,6 +200,7 @@
         "https-proxy-agent",
         "istanbul-lib-instrument",
         "jsonc-parser",
+        "less",
         "listr2",
         "magic-string",
         "mrmime",
@@ -210,7 +218,7 @@
         "typescript",
         "undici",
         "vite",
-        "vitest@4.0.18_jsdom@27.4.0_vite@7.3.0__sass@1.97.1__picomatch@4.0.3_sass@1.97.1",
+        "vitest@4.0.18_jsdom@27.4.0_vite@7.3.0__less@4.5.1__sass@1.97.1__picomatch@4.0.3_less@4.5.1_sass@1.97.1",
         "watchpack"
       ],
       "optionalDependencies": [
@@ -219,9 +227,10 @@
       "optionalPeers": [
         "@angular/core",
         "@angular/platform-browser",
+        "less",
         "postcss",
         "tailwindcss",
-        "vitest@4.0.18_jsdom@27.4.0_vite@7.3.0__sass@1.97.1__picomatch@4.0.3_sass@1.97.1"
+        "vitest@4.0.18_jsdom@27.4.0_vite@7.3.0__less@4.5.1__sass@1.97.1__picomatch@4.0.3_less@4.5.1_sass@1.97.1"
       ]
     },
     "@angular/cdk@21.1.3_@angular+common@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_@angular+platform-browser@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_rxjs@7.8.2_@angular+compiler@21.1.3": {
@@ -235,8 +244,8 @@
         "tslib"
       ]
     },
-    "@angular/cli@21.1.2_@inquirer+prompts@7.10.1_listr2@9.0.5_zod@4.3.5": {
-      "integrity": "sha512-AHjXCBl2PEilMJct6DX3ih5Fl5PiKpNDIj0ViTyVh1YcfpYjt6NzhVlV2o++8VNPNH/vMcmf2551LZIDProXXA==",
+    "@angular/cli@21.1.3_@inquirer+prompts@7.10.1_listr2@9.0.5_zod@4.3.5": {
+      "integrity": "sha512-UPtDcpKyrKZRPfym9gTovcibPzl2O/Woy7B8sm45sAnjDH+jDUCcCvuIak7GpH47shQkC2J4yvnHZbD4c6XxcQ==",
       "dependencies": [
         "@angular-devkit/architect",
         "@angular-devkit/core",
@@ -345,8 +354,31 @@
         "tslib"
       ]
     },
-    "@asamuzakjp/css-color@4.1.1_@csstools+css-parser-algorithms@3.0.5__@csstools+css-tokenizer@3.0.4_@csstools+css-tokenizer@3.0.4": {
-      "integrity": "sha512-B0Hv6G3gWGMn0xKJ0txEi/jM5iFpT3MfDxmhZFb4W047GvytCf1DHQ1D69W3zHI4yWe2aTZAA0JnbMZ7Xc8DuQ==",
+    "@ant-design/colors@7.2.1": {
+      "integrity": "sha512-lCHDcEzieu4GA3n8ELeZ5VQ8pKQAWcGGLRTQ50aQM2iqPpq2evTxER84jfdPvsPAtEcZ7m44NI45edFMo8oOYQ==",
+      "dependencies": [
+        "@ant-design/fast-color"
+      ]
+    },
+    "@ant-design/fast-color@2.0.6": {
+      "integrity": "sha512-y2217gk4NqL35giHl72o6Zzqji9O7vHh9YmhUVkPtAOpoTCH4uWxo/pr4VE8t0+ChEPs0qo4eJRC5Q1eXWo3vA==",
+      "dependencies": [
+        "@babel/runtime"
+      ]
+    },
+    "@ant-design/icons-angular@21.0.0_@angular+common@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_@angular+platform-browser@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_rxjs@7.8.2_@angular+compiler@21.1.3": {
+      "integrity": "sha512-Io1DSg0JyzsxQtF2T9LfQSZL22d7zSYyNz0RiUCOhtMoDnnGis1oU6mPs5JzZTRtVdgpuLUhS6GVTlT+dmP1nA==",
+      "dependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@ant-design/colors",
+        "rxjs",
+        "tslib"
+      ]
+    },
+    "@asamuzakjp/css-color@4.1.2_@csstools+css-parser-algorithms@4.0.0__@csstools+css-tokenizer@4.0.0_@csstools+css-tokenizer@4.0.0": {
+      "integrity": "sha512-NfBUvBaYgKIuq6E/RBLY1m0IohzNHAYyaJGuTK79Z23uNwmz2jl1mPsC5ZxCCxylinKhT1Amn5oNTlx1wN8cQg==",
       "dependencies": [
         "@csstools/css-calc",
         "@csstools/css-color-parser",
@@ -355,8 +387,8 @@
         "lru-cache@11.2.5"
       ]
     },
-    "@asamuzakjp/dom-selector@6.7.7": {
-      "integrity": "sha512-8CO/UQ4tzDd7ula+/CVimJIVWez99UJlbMyIgk8xOnhAVPKLnBZmUFYVgugS441v2ZqUq5EnSh6B0Ua0liSFAA==",
+    "@asamuzakjp/dom-selector@6.7.8": {
+      "integrity": "sha512-stisC1nULNc9oH5lakAj8MH88ZxeGxzyWNDfbdCxvJSJIvDsHNZqYvscGTgy/ysgXWLJPt6K/4t0/GjvtKcFJQ==",
       "dependencies": [
         "@asamuzakjp/nwsapi",
         "bidi-js",
@@ -473,6 +505,9 @@
       ],
       "bin": true
     },
+    "@babel/runtime@7.28.6": {
+      "integrity": "sha512-05WQkdpL9COIMz4LjTxGpPNCdlpyimKppYNoJ5Di5EUObifl8t4tuLuUBBZEpoLYOmfvIWrsp9fCl0HoPRVTdA=="
+    },
     "@babel/template@7.28.6": {
       "integrity": "sha512-YA6Ma2KsCdGb+WC6UpBVFJGXL58MDA6oyONbjyF/+5sBgxY/dwkhLogbMT2GXXyU84/IhRw/2D1Os1B/giz+BQ==",
       "dependencies": [
@@ -500,18 +535,18 @@
         "@babel/helper-validator-identifier"
       ]
     },
-    "@csstools/color-helpers@5.1.0": {
-      "integrity": "sha512-S11EXWJyy0Mz5SYvRmY8nJYTFFd1LCNV+7cXyAgQtOOuzb4EsgfqDufL+9esx72/eLhsRdGZwaldu/h+E4t4BA=="
+    "@csstools/color-helpers@6.0.1": {
+      "integrity": "sha512-NmXRccUJMk2AWA5A7e5a//3bCIMyOu2hAtdRYrhPPHjDxINuCwX1w6rnIZ4xjLcp0ayv6h8Pc3X0eJUGiAAXHQ=="
     },
-    "@csstools/css-calc@2.1.4_@csstools+css-parser-algorithms@3.0.5__@csstools+css-tokenizer@3.0.4_@csstools+css-tokenizer@3.0.4": {
-      "integrity": "sha512-3N8oaj+0juUw/1H3YwmDDJXCgTB1gKU6Hc/bB502u9zR0q2vd786XJH9QfrKIEgFlZmhZiq6epXl4rHqhzsIgQ==",
+    "@csstools/css-calc@3.0.0_@csstools+css-parser-algorithms@4.0.0__@csstools+css-tokenizer@4.0.0_@csstools+css-tokenizer@4.0.0": {
+      "integrity": "sha512-q4d82GTl8BIlh/dTnVsWmxnbWJeb3kiU8eUH71UxlxnS+WIaALmtzTL8gR15PkYOexMQYVk0CO4qIG93C1IvPA==",
       "dependencies": [
         "@csstools/css-parser-algorithms",
         "@csstools/css-tokenizer"
       ]
     },
-    "@csstools/css-color-parser@3.1.0_@csstools+css-parser-algorithms@3.0.5__@csstools+css-tokenizer@3.0.4_@csstools+css-tokenizer@3.0.4": {
-      "integrity": "sha512-nbtKwh3a6xNVIp/VRuXV64yTKnb1IjTAEEh3irzS+HkKjAOYLTGNb9pmVNntZ8iVBHcWDA2Dof0QtPgFI1BaTA==",
+    "@csstools/css-color-parser@4.0.1_@csstools+css-parser-algorithms@4.0.0__@csstools+css-tokenizer@4.0.0_@csstools+css-tokenizer@4.0.0": {
+      "integrity": "sha512-vYwO15eRBEkeF6xjAno/KQ61HacNhfQuuU/eGwH67DplL0zD5ZixUa563phQvUelA07yDczIXdtmYojCphKJcw==",
       "dependencies": [
         "@csstools/color-helpers",
         "@csstools/css-calc",
@@ -519,8 +554,8 @@
         "@csstools/css-tokenizer"
       ]
     },
-    "@csstools/css-parser-algorithms@3.0.5_@csstools+css-tokenizer@3.0.4": {
-      "integrity": "sha512-DaDeUkXZKjdGhgYaHNJTV9pV7Y9B3b644jCLs9Upc3VeNGg6LWARAT6O+Q+/COo+2gg/bM5rhpMAtf70WqfBdQ==",
+    "@csstools/css-parser-algorithms@4.0.0_@csstools+css-tokenizer@4.0.0": {
+      "integrity": "sha512-+B87qS7fIG3L5h3qwJ/IFbjoVoOe/bpOdh9hAjXbvx0o8ImEmUsGXN0inFOnk2ChCFgqkkGFQ+TpM5rbhkKe4w==",
       "dependencies": [
         "@csstools/css-tokenizer"
       ]
@@ -528,8 +563,11 @@
     "@csstools/css-syntax-patches-for-csstree@1.0.26": {
       "integrity": "sha512-6boXK0KkzT5u5xOgF6TKB+CLq9SOpEGmkZw0g5n9/7yg85wab3UzSxB8TxhLJ31L4SGJ6BCFRw/iftTha1CJXA=="
     },
-    "@csstools/css-tokenizer@3.0.4": {
-      "integrity": "sha512-Vd/9EVDiu6PPJt9yAh6roZP6El1xHrdvIVGjyBsHR0RYwNHgL7FJPyIIW4fANJNG6FtyZfvlRPpFI4ZM/lubvw=="
+    "@csstools/css-tokenizer@4.0.0": {
+      "integrity": "sha512-QxULHAm7cNu72w97JUNCBFODFaXpbDg+dP8b/oWFAZ2MTRppA3U00Y2L1HqaS4J6yBqxwa/Y3nMBaxVKbB/NsA=="
+    },
+    "@ctrl/tinycolor@3.6.1": {
+      "integrity": "sha512-SITSV6aIXsuVNV3f3O0f2n/cgyEDWoSqtZMYiAmcsYHydcKrOz3gUxB/iXd/Qf08+IZX4KpgNbvUdMBmWz+kcA=="
     },
     "@emnapi/core@1.8.1": {
       "integrity": "sha512-AvT9QFpxK0Zd8J0jopedNm+w/2fIzvtPKPjqyw9jwvBaReTTqPBk9Hixaz7KbjimP+QNz605/XnjFcDAL2pqBg==",
@@ -683,7 +721,7 @@
     "@exodus/bytes@1.11.0": {
       "integrity": "sha512-wO3vd8nsEHdumsXrjGO/v4p6irbg7hy9kvIeR6i2AwylZSk4HJdWgL0FNaVquW1+AweJcdvU1IEpuIWk/WaPnA=="
     },
-    "@hono/node-server@1.19.9_hono@4.11.7": {
+    "@hono/node-server@1.19.9_hono@4.11.8": {
       "integrity": "sha512-vHL6w3ecZsky+8P5MD+eFfaGTyCeOHUIFYMGpQGbrBTSmNNoxv0if69rEZ5giu36weC5saFuznL411gRX7bJDw==",
       "dependencies": [
         "hono"
@@ -903,8 +941,8 @@
       "os": ["win32"],
       "cpu": ["x64"]
     },
-    "@modelcontextprotocol/sdk@1.25.2_zod@4.3.5_ajv@8.17.1_express@5.2.1": {
-      "integrity": "sha512-LZFeo4F9M5qOhC/Uc1aQSrBHxMrvxett+9KLHt7OhcExtoiRN9DKgbZffMP/nxjutWDQpfMDfP3nkHI4X9ijww==",
+    "@modelcontextprotocol/sdk@1.26.0_zod@4.3.5_hono@4.11.8_ajv@8.17.1_express@5.2.1": {
+      "integrity": "sha512-Y5RmPncpiDtTXDbLKswIJzTqu2hyBKxTNsgKqKclDbhIgg1wgtf1fRuvxgTnRfcnxtvvgbIEcqUOzZrJ6iSReg==",
       "dependencies": [
         "@hono/node-server",
         "ajv",
@@ -916,6 +954,7 @@
         "eventsource-parser",
         "express",
         "express-rate-limit",
+        "hono",
         "jose",
         "json-schema-typed",
         "pkce-challenge",
@@ -1429,8 +1468,8 @@
       "os": ["win32"],
       "cpu": ["x64"]
     },
-    "@schematics/angular@21.1.2": {
-      "integrity": "sha512-kxwxhCIUrj7DfzEtDSs/pi/w+aII/WQLpPfLgoQCWE8/95v60WnTfd1afmsXsFoxikKPxkwoPWtU2YbhSoX9MQ==",
+    "@schematics/angular@21.1.3": {
+      "integrity": "sha512-obJvWBhzRdsYL2msM4+8bQD21vFl3VxaVsuiq6iIfYsxhU5i2Iar2wM9NaRaIIqAYhZ8ehQQ/moB9BEbWvDCTw==",
       "dependencies": [
         "@angular-devkit/core",
         "@angular-devkit/schematics",
@@ -1477,6 +1516,19 @@
     },
     "@standard-schema/spec@1.1.0": {
       "integrity": "sha512-l2aFy5jALhniG5HgqrD6jXLi/rUWrKvqN/qJx6yoJsgKhblVd+iqqU4RCXavm/jPityDo5TCvKMnpjKnOriy0w=="
+    },
+    "@tailwindcss/cli@4.1.18": {
+      "integrity": "sha512-sMZ+lZbDyxwjD2E0L7oRUjJ01Ffjtme5OtjvvnC+cV4CEDcbqzbp25TCpxHj6kWLU9+DlqJOiNgSOgctC2aZmg==",
+      "dependencies": [
+        "@parcel/watcher",
+        "@tailwindcss/node",
+        "@tailwindcss/oxide",
+        "enhanced-resolve",
+        "mri",
+        "picocolors",
+        "tailwindcss"
+      ],
+      "bin": true
     },
     "@tailwindcss/node@4.1.18": {
       "integrity": "sha512-DoR7U1P7iYhw16qJ49fgXUlry1t4CpXeErJHnQ44JgTSKMaZUdf17cfn5mHchfJ4KRBZRFA/Coo+MUF5+gOaCQ==",
@@ -1605,7 +1657,7 @@
     "@types/estree@1.0.8": {
       "integrity": "sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w=="
     },
-    "@vitejs/plugin-basic-ssl@2.1.0_vite@7.3.0__sass@1.97.1__picomatch@4.0.3_sass@1.97.1": {
+    "@vitejs/plugin-basic-ssl@2.1.0_vite@7.3.0__less@4.5.1__sass@1.97.1__picomatch@4.0.3_less@4.5.1_sass@1.97.1": {
       "integrity": "sha512-dOxxrhgyDIEUADhb/8OlV9JIqYLgos03YorAueTIeOUskLJSEsfwCByjbu98ctXitUN3znXKp0bYD/WHSudCeA==",
       "dependencies": [
         "vite"
@@ -1622,7 +1674,7 @@
         "tinyrainbow"
       ]
     },
-    "@vitest/mocker@4.0.18_vite@7.3.0__sass@1.97.1__picomatch@4.0.3": {
+    "@vitest/mocker@4.0.18_vite@7.3.0__less@4.5.1__sass@1.97.1__picomatch@4.0.3_less@4.5.1": {
       "integrity": "sha512-HhVd0MDnzzsgevnOWCBj5Otnzobjy5wLBe4EdeeFGv8luMsGcYqDuFRMcttKWZA5vVO8RFjexVovXvAM4JoJDQ==",
       "dependencies": [
         "@vitest/spy",
@@ -1634,7 +1686,7 @@
         "vite"
       ]
     },
-    "@vitest/mocker@4.0.18_vite@7.3.0__sass@1.97.1__picomatch@4.0.3_sass@1.97.1": {
+    "@vitest/mocker@4.0.18_vite@7.3.0__less@4.5.1__sass@1.97.1__picomatch@4.0.3_less@4.5.1_sass@1.97.1": {
       "integrity": "sha512-HhVd0MDnzzsgevnOWCBj5Otnzobjy5wLBe4EdeeFGv8luMsGcYqDuFRMcttKWZA5vVO8RFjexVovXvAM4JoJDQ==",
       "dependencies": [
         "@vitest/spy",
@@ -1754,6 +1806,18 @@
     "assertion-error@2.0.1": {
       "integrity": "sha512-Izi8RQcffqCeNVgFigKli1ssklIbpHnCYc6AknXGYoB6grJqyeby7jv12JUQgmTAnIDnbck1uxksT4dzN3PWBA=="
     },
+    "autoprefixer@10.4.24_postcss@8.5.6": {
+      "integrity": "sha512-uHZg7N9ULTVbutaIsDRoUkoS8/h3bdsmVJYZ5l3wv8Cp/6UIIoRDm90hZ+BwxUj/hGBEzLxdHNSKuFpn8WOyZw==",
+      "dependencies": [
+        "browserslist",
+        "caniuse-lite",
+        "fraction.js",
+        "picocolors",
+        "postcss",
+        "postcss-value-parser"
+      ],
+      "bin": true
+    },
     "baseline-browser-mapping@2.9.19": {
       "integrity": "sha512-ipDqC8FrAl/76p2SSWKSI+H9tFwm7vYqXQrItCuiVPt26Km0jS+NzSsBWAaBusvSbQcfJG+JitdMm+wZAgTYqg==",
       "bin": true
@@ -1841,8 +1905,8 @@
         "get-intrinsic"
       ]
     },
-    "caniuse-lite@1.0.30001768": {
-      "integrity": "sha512-qY3aDRZC5nWPgHUgIB84WL+nySuo19wk0VJpp/XI9T34lrvkyhRvNVOFJOp2kxClQhiFBu+TaUSudf6oa3vkSA=="
+    "caniuse-lite@1.0.30001769": {
+      "integrity": "sha512-BCfFL1sHijQlBGWBMuJyhZUhzo7wer5sVj9hqekB/7xn0Ypy+pER/edCYQm4exbXj4WiySGp40P8UuTh6w1srg=="
     },
     "chai@6.2.2": {
       "integrity": "sha512-NUPRluOfOiTKBKvWPtSD4PhFvWCqOi0BGStNWs57X9js7XGTprSmFoz5F0tWhR4WPjNeR9jXqdC7/UpSJTnlRg=="
@@ -1925,6 +1989,12 @@
     "cookie@0.7.2": {
       "integrity": "sha512-yki5XnKuf750l50uGTllt6kKILY4nQ1eNIQatoXEByZ5dWgnKqbnqmTrBE5B4N7lrMJKQ2ytWMiTO2o0v6Ew/w=="
     },
+    "copy-anything@2.0.6": {
+      "integrity": "sha512-1j20GZTsvKNkc4BY3NpMOM8tt///wY3FpIzozTOFO2ffuZcV61nojHXVKIy3WM+7ADCy5FVhdZYHYDdgTU0yJw==",
+      "dependencies": [
+        "is-what"
+      ]
+    },
     "cors@2.8.6": {
       "integrity": "sha512-tJtZBBHA6vjIAaF6EnIaq6laBBP9aq/Y3ouVJjEfoHbRBcHBAHYcMh/w8LDrk2PvIMMq8gmopa5D4V8RmbrxGw==",
       "dependencies": [
@@ -1974,6 +2044,12 @@
       "dependencies": [
         "whatwg-mimetype@5.0.0",
         "whatwg-url"
+      ]
+    },
+    "date-fns@2.30.0": {
+      "integrity": "sha512-fnULvOpxnC5/Vg3NCiWelDsLiUc9bRwAPs/+LfTLNvetFCtCTN+yQz15C/fs4AwX1R9K5GLtLfn8QW+dWisaAw==",
+      "dependencies": [
+        "@babel/runtime"
       ]
     },
     "debug@4.4.3": {
@@ -2070,6 +2146,13 @@
     "err-code@2.0.3": {
       "integrity": "sha512-2bmlRpNKBxT/CRmPOlyISQpNj+qSeYvcym/uT0Jx2bMOlKLtSy1ZmLuVxSEKKyor/N5yhvp/ZiG1oE3DEYMSFA=="
     },
+    "errno@0.1.8": {
+      "integrity": "sha512-dJ6oBr5SQ1VSd9qkk7ByRgb/1SH4JZjCHSW/mr63/QcXO9zLVxvJ6Oy13nio03rxpSnVDDjFor75SjVeZWPW/A==",
+      "dependencies": [
+        "prr"
+      ],
+      "bin": true
+    },
     "es-define-property@1.0.1": {
       "integrity": "sha512-e3nRfgfUZ4rNGL232gUgX06QNyyez04KdjFrF+LTRoOXmrOgFKDg4BCdsjW8EnT69eqdYGmRpJwiPVYNrCaW3g=="
     },
@@ -2151,10 +2234,11 @@
     "exponential-backoff@3.1.3": {
       "integrity": "sha512-ZgEeZXj30q+I0EN+CbSSpIyPaJ5HVQD18Z1m+u1FXbAeT94mr1zw50q4q6jiiC447Nl/YTcIYSAftiGqetwXCA=="
     },
-    "express-rate-limit@7.5.1_express@5.2.1": {
-      "integrity": "sha512-7iN8iPMDzOMHPUYllBEsQdWVB6fPDMPqwjBaFrgr4Jgr/+okjvzAy+UHlYYL/Vs0OsOrMkwS6PJDkFlJwoxUnw==",
+    "express-rate-limit@8.2.1_express@5.2.1": {
+      "integrity": "sha512-PCZEIEIxqwhzw4KF0n7QF4QqruVTcF73O5kFKUnGOyjbCCgizBBiFaYpd/fnBLUMPw/BWw9OsiN7GgrNYr7j6g==",
       "dependencies": [
-        "express"
+        "express",
+        "ip-address"
       ]
     },
     "express@5.2.1": {
@@ -2218,6 +2302,9 @@
     },
     "forwarded@0.2.0": {
       "integrity": "sha512-buRG0fpBtRHSTCOASe6hD258tEubFoRLb4ZNA6NxMVHNw2gOcwHo9wyablzMzOA5z9xA9L1KNjk/Nt6MT9aYow=="
+    },
+    "fraction.js@5.3.4": {
+      "integrity": "sha512-1X1NTtiJphryn/uLQz3whtY6jK3fTqoE3ohKs0tT+Ujr1W59oopxmoEh7Lu5p6vBaPbgoM0bzveAW4Qi5RyWDQ=="
     },
     "fresh@2.0.0": {
       "integrity": "sha512-Rx/WycZ60HOaqLKAi6cHRKKI7zxWbJ31MhntmtwMoaTeF7XFH9hhBp8vITaMidfljRQ6eYWCKkaTK+ykVJHP2A=="
@@ -2293,8 +2380,8 @@
         "function-bind"
       ]
     },
-    "hono@4.11.7": {
-      "integrity": "sha512-l7qMiNee7t82bH3SeyUCt9UF15EVmaBvsppY2zQtrbIhl/yzBTny+YUxsVjSjQ6gaqaeVtZmGocom8TzBlA4Yw=="
+    "hono@4.11.8": {
+      "integrity": "sha512-eVkB/CYCCei7K2WElZW9yYQFWssG0DhaDhVvr7wy5jJ22K+ck8fWW0EsLpB0sITUTvPnc97+rrbQqIr5iqiy9Q=="
     },
     "hosted-git-info@9.0.2": {
       "integrity": "sha512-M422h7o/BR3rmCQ8UHi7cyyMqKltdP9Uo+J2fXK+RSAY+wTcKOIRyhTuKv4qn+DJf3g+PL890AzId5KZpX+CBg==",
@@ -2362,6 +2449,10 @@
         "minimatch"
       ]
     },
+    "image-size@0.5.5": {
+      "integrity": "sha512-6TDAlDPZxUFCv+fuOkIoXT/V/f3Qbq8e37p+YOiYrUv3v9cc3/6x78VdfPgFVaB9dZYeLUfKgHRebpkm/oP2VQ==",
+      "bin": true
+    },
     "immutable@5.1.4": {
       "integrity": "sha512-p6u1bG3YSnINT5RQmx/yRZBpenIl30kVxkTLDyHLIMk0gict704Q9n+thfDI7lTRm9vXdDYutVzXhzcThxTnXA=="
     },
@@ -2374,8 +2465,8 @@
     "ini@6.0.0": {
       "integrity": "sha512-IBTdIkzZNOpqm7q3dRqJvMaldXjDHWkEDfrwGEQTs5eaQMWV+djAhR+wahyNNMAa+qpbDUhBMVt4ZKNwpPm7xQ=="
     },
-    "ip-address@10.1.0": {
-      "integrity": "sha512-XXADHxXmvT9+CRxhXg56LJovE+bmWnEWB78LB83VZTprKTmaC5QfruXocxzTZ2Kl0DNwKuBdlIhjL8LeY8Sf8Q=="
+    "ip-address@10.0.1": {
+      "integrity": "sha512-NWv9YLW4PoW2B7xtzaS3NCot75m6nK7Icdv0o3lfMceJVRfSoQwqD4wEH5rLwoKJwUiZ/rfpiVBhnaF0FK4HoA=="
     },
     "ipaddr.js@1.9.1": {
       "integrity": "sha512-0KI/607xoxSToH7GjN1FfSbLoU0+btTicjsQSWQlh/hZykN8KpmMf7uYwPW3R+akZ6R/w18ZlXSHBYXiYUPO3g=="
@@ -2416,11 +2507,14 @@
     "is-unicode-supported@2.1.0": {
       "integrity": "sha512-mE00Gnza5EEB3Ds0HfMyllZzbBrmLOX3vfWoj9A9PEnTfratQ/BcaJOuMhnkhjXvb2+FkY3VuHqtAGpTPmglFQ=="
     },
+    "is-what@3.14.1": {
+      "integrity": "sha512-sNxgpk9793nzSs7bA6JQJGeIuRBQhAaNGG77kzYQgMkrID+lS6SlK07K5LaptscDlSaIgH+GPFzf+d75FVxozA=="
+    },
     "isexe@2.0.0": {
       "integrity": "sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw=="
     },
-    "isexe@3.1.1": {
-      "integrity": "sha512-LpB/54B+/2J5hqQ7imZHfdU31OlgQqx7ZicVlkm9kzg9/w8GKLEcFfJl/t7DCEDueOyBAD6zCCwTO6Fzs0NoEQ=="
+    "isexe@3.1.2": {
+      "integrity": "sha512-mIcis6w+JiQf3P7t7mg/35GKB4T1FQsBOtMIvuKw4YErj5RjtbhcTd5/I30fmkmGMwvI0WlzSNN+27K0QCMkAw=="
     },
     "istanbul-lib-coverage@3.2.2": {
       "integrity": "sha512-O8dpsF+r0WV/8MNRKfnmrtCWhuKjxrq2w+jpzBL5UZKTi2LeVWnWOmWRxFlesJONmc+wLAGvKQZEOanko0LFTg=="
@@ -2492,6 +2586,25 @@
     },
     "jsonparse@1.3.1": {
       "integrity": "sha512-POQXvpdL69+CluYsillJ7SUhKvytYjW9vG/GKpnf+xP8UWgYEM/RaMzHHofbALDiKbbP1W8UEYmgGl39WkPZsg=="
+    },
+    "less@4.5.1": {
+      "integrity": "sha512-UKgI3/KON4u6ngSsnDADsUERqhZknsVZbnuzlRZXLQCmfC/MDld42fTydUE9B+Mla1AL6SJ/Pp6SlEFi/AVGfw==",
+      "dependencies": [
+        "copy-anything",
+        "parse-node-version",
+        "tslib"
+      ],
+      "optionalDependencies": [
+        "errno",
+        "graceful-fs",
+        "image-size",
+        "make-dir",
+        "mime",
+        "needle",
+        "source-map@0.6.1"
+      ],
+      "scripts": true,
+      "bin": true
     },
     "lightningcss-android-arm64@1.30.2": {
       "integrity": "sha512-BH9sEdOCahSgmkVhBLeU7Hc9DWeZ1Eb6wNS6Da8igvUwAe0sqROHddIlvU06q3WyXVEOYDZ6ykBZQnjTbmo4+A==",
@@ -2631,6 +2744,13 @@
         "@jridgewell/sourcemap-codec"
       ]
     },
+    "make-dir@2.1.0": {
+      "integrity": "sha512-LS9X+dc8KLxXCb8dni79fLIIUA5VyZoyjSMCwTluaXA0o27cCK0bhXkpgw+sTXVpPy/lSO57ilRixqk0vDmtRA==",
+      "dependencies": [
+        "pify",
+        "semver@5.7.2"
+      ]
+    },
     "make-fetch-happen@15.0.3": {
       "integrity": "sha512-iyyEpDty1mwW3dGlYXAJqC/azFn5PPvgKVwXayOGBSmKLxhKZ9fg4qIan2ePpp1vJIwfFiO34LAPZgq9SZW9Aw==",
       "dependencies": [
@@ -2667,6 +2787,10 @@
       "dependencies": [
         "mime-db"
       ]
+    },
+    "mime@1.6.0": {
+      "integrity": "sha512-x0Vn8spI+wuJ1O6S7gnbaQg8Pxh4NNHb7KSINmEWKiPE4RKOplvijn+NkmYmmRgP68mc70j2EbeTFRsrswaQeg==",
+      "bin": true
     },
     "mimic-function@5.0.1": {
       "integrity": "sha512-VP79XUPxV2CigYP3jWwAUFSku2aKqBH7uTAapFWCBqutsbmDo96KY5o8uh6U+/YSIn5OxJnXp73beVkpqMIGhA=="
@@ -2727,6 +2851,9 @@
         "minipass@7.1.2"
       ]
     },
+    "mri@1.2.0": {
+      "integrity": "sha512-tzzskb3bG8LvYGFF/mDTpq3jpI6Q9wc3LEmBaghu+DdCssd1FakN7Bc0hVNmEyGq1bq3RgfkCb3cmQLpNPOroA=="
+    },
     "mrmime@2.0.1": {
       "integrity": "sha512-Y3wQdFg2Va6etvQ5I82yUhGdsKrcYox6p7FfL1LbK2J4V01F9TGlepTIhnK24t7koZibmg82KGglhA1XK5IsLQ=="
     },
@@ -2762,8 +2889,31 @@
       "integrity": "sha512-N8SpfPUnUp1bK+PMYW8qSWdl9U+wwNWI4QKxOYDy9JAro3WMX7p2OeVRF9v+347pnakNevPmiHhNmZ2HbFA76w==",
       "bin": true
     },
+    "needle@3.3.1": {
+      "integrity": "sha512-6k0YULvhpw+RoLNiQCRKOl09Rv1dPLr8hHnVjHqdolKwDrdNyk+Hmrthi4lIGPPz3r39dLx0hsF5s40sZ3Us4Q==",
+      "dependencies": [
+        "iconv-lite@0.6.3",
+        "sax"
+      ],
+      "bin": true
+    },
     "negotiator@1.0.0": {
       "integrity": "sha512-8Ofs/AUQh8MaEcrlq5xOX0CQ9ypTF5dl78mjlMNfOK08fzpgTHQRQPBxcPlEtIw0yRpws+Zo/3r+5WRby7u3Gg=="
+    },
+    "ng-zorro-antd@21.1.0_@angular+common@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+core@21.1.3__@angular+compiler@21.1.3__rxjs@7.8.2_@angular+forms@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__@angular+platform-browser@21.1.3___@angular+common@21.1.3____@angular+core@21.1.3_____@angular+compiler@21.1.3_____rxjs@7.8.2____rxjs@7.8.2____@angular+compiler@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+platform-browser@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__rxjs@7.8.2__@angular+compiler@21.1.3_@angular+router@21.1.3__@angular+common@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__@angular+core@21.1.3___@angular+compiler@21.1.3___rxjs@7.8.2__@angular+platform-browser@21.1.3___@angular+common@21.1.3____@angular+core@21.1.3_____@angular+compiler@21.1.3_____rxjs@7.8.2____rxjs@7.8.2____@angular+compiler@21.1.3___@angular+core@21.1.3____@angular+compiler@21.1.3____rxjs@7.8.2___rxjs@7.8.2___@angular+compiler@21.1.3__rxjs@7.8.2__@angular+compiler@21.1.3_rxjs@7.8.2_@angular+compiler@21.1.3": {
+      "integrity": "sha512-iaIJjwn7M8FOp3Xq33/EVksQLeFtiWq+DGajFBOx+6tTqP7tkKw2aHm8ZAtyuKckLmm6Q5WZ70CYH+4pZjY5Iw==",
+      "dependencies": [
+        "@angular/cdk",
+        "@angular/common",
+        "@angular/core",
+        "@angular/forms",
+        "@angular/platform-browser",
+        "@angular/router",
+        "@ant-design/icons-angular",
+        "@ctrl/tinycolor",
+        "date-fns",
+        "tslib"
+      ]
     },
     "node-addon-api@6.1.0": {
       "integrity": "sha512-+eawOlIgy680F0kBzPUNFhMZGtJ1YmqM6l4+Crf4IkImjYrO/mqPwRMh352g23uIaQKFItcQ64I7KMaJxHgAVA=="
@@ -2933,6 +3083,9 @@
       ],
       "bin": true
     },
+    "parse-node-version@1.0.1": {
+      "integrity": "sha512-3YHlOa/JgH6Mnpr05jP9eDG254US9ek25LyIxZlDItp2iJtwyaXQb57lBYLdT3MowkUFYEV2XXNAYIPlESvJlA=="
+    },
     "parse5-html-rewriting-stream@8.0.0": {
       "integrity": "sha512-wzh11mj8KKkno1pZEu+l2EVeWsuKDfR5KNWZOTsslfUX8lPDZx77m9T0kIoAVkFtD1nx6YF8oh4BnPHvxMtNMw==",
       "dependencies": [
@@ -2981,6 +3134,9 @@
     "picomatch@4.0.3": {
       "integrity": "sha512-5gTmgEY/sqK6gFXLIsQNH19lWb4ebPDLA4SdLP7dsWkIXHWlG66oPuVvXSGFPppYZz8ZDZq0dYYrbHfBCVUb1Q=="
     },
+    "pify@4.0.1": {
+      "integrity": "sha512-uB80kBFb/tfd68bVleG9T5GGsGPjJrLAUpR5PZIrhBnIaRTQRjqdJSsIKkOP6OAIFbj7GOrcudc5pNjZ+geV2g=="
+    },
     "piscina@5.1.4": {
       "integrity": "sha512-7uU4ZnKeQq22t9AsmHGD2w4OYQGonwFnTypDypaWi7Qr2EvQIFVtG8J5D/3bE7W123Wdc9+v4CZDu5hJXVCtBg==",
       "optionalDependencies": [
@@ -2992,6 +3148,9 @@
     },
     "postcss-media-query-parser@0.2.3": {
       "integrity": "sha512-3sOlxmbKcSHMjlUXQZKQ06jOswE7oVkXPxmZdoB1r5l0q6gTFTQSHxNxOrCccElbW7dxNytifNEo8qidX2Vsig=="
+    },
+    "postcss-value-parser@4.2.0": {
+      "integrity": "sha512-1NNCs6uurfkVbeXG4S8JFT9t19m45ICnif8zWLd5oPSZ50QnwMfK+H3jv408d4jw/7Bttv5axS5IiHoLaVNHeQ=="
     },
     "postcss@8.5.6": {
       "integrity": "sha512-3Ybi1tAuwAP9s0r1UQ2J4n5Y0G05bJkpUIO0/bI9MhwmD70S5aTWbXGBwxHrelT+XM1k6dM0pk+SwNkpTRN7Pg==",
@@ -3017,6 +3176,9 @@
         "forwarded",
         "ipaddr.js"
       ]
+    },
+    "prr@1.0.1": {
+      "integrity": "sha512-yPw4Sng1gWghHQWj0B3ZggWUm4qVbPwPFcRG8KyxiU7J2OHFSoEHKS+EZ3fv5l1t9CyCiop6l/ZYeWbrgoQejw=="
     },
     "punycode@2.3.1": {
       "integrity": "sha512-vYt7UD1U9Wg6138shLtLOvdAu+8DsC/ilFtEVHcH+wydcSpNE20AfSOduf6MkRFahL5FY7X1oU7nKVZFtfq8Fg=="
@@ -3162,11 +3324,18 @@
       ],
       "bin": true
     },
+    "sax@1.4.4": {
+      "integrity": "sha512-1n3r/tGXO6b6VXMdFT54SHzT9ytu9yr7TaELowdYpMqY/Ao7EnlQGmAQ1+RatX7Tkkdm6hONI2owqNx2aZj5Sw=="
+    },
     "saxes@6.0.0": {
       "integrity": "sha512-xAg7SOnEhrm5zI3puOOKyy1OMcMlIJZYNJY7xLBwSze0UjhPLnWfj2GF2EpT0jmzaJKIWKHLsaSSajf35bcYnA==",
       "dependencies": [
         "xmlchars"
       ]
+    },
+    "semver@5.7.2": {
+      "integrity": "sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==",
+      "bin": true
     },
     "semver@6.3.1": {
       "integrity": "sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==",
@@ -3466,8 +3635,8 @@
       "integrity": "sha512-jl1vZzPDinLr9eUt3J/t7V6FgNEw9QjvBPdysz9KfQDD41fQrC2Y4vKQdiaUpFT4bXlb1RHhLpp8wtm6M5TgSw==",
       "bin": true
     },
-    "undici@7.18.2": {
-      "integrity": "sha512-y+8YjDFzWdQlSE9N5nzKMT3g4a5UBX1HKowfdXh0uvAnTaqqwqB92Jt4UXBAeKekDs5IaDKyJFR4X1gYVCgXcw=="
+    "undici@7.20.0": {
+      "integrity": "sha512-MJZrkjyd7DeC+uPZh+5/YaMDxFiiEEaDgbUSVMXayofAkDWF1088CDo+2RPg7B1BuS1qf1vgNE7xqwPxE0DuSQ=="
     },
     "unique-filename@5.0.0": {
       "integrity": "sha512-2RaJTAvAb4owyjllTfXzFClJ7WsGxlykkPvCr9pA//LD9goVq+m4PPAeBgNodGZ7nSrntT/auWpJ6Y5IFXcfjg==",
@@ -3506,11 +3675,12 @@
     "vary@1.1.2": {
       "integrity": "sha512-BNGbWLfd0eUPabhkXUVm0j8uuvREyTh5ovRa/dyow/BqAbZJyC+5fU+IzQOzmAKzYqYRAISoRhdQr3eIZ/PXqg=="
     },
-    "vite@7.3.0_sass@1.97.1_picomatch@4.0.3": {
+    "vite@7.3.0_less@4.5.1_sass@1.97.1_picomatch@4.0.3": {
       "integrity": "sha512-dZwN5L1VlUBewiP6H9s2+B3e3Jg96D0vzN+Ry73sOefebhYr9f94wwkMNN/9ouoU8pV1BqA1d1zGk8928cx0rg==",
       "dependencies": [
         "esbuild",
         "fdir",
+        "less",
         "picomatch",
         "postcss",
         "rollup",
@@ -3521,15 +3691,16 @@
         "fsevents"
       ],
       "optionalPeers": [
+        "less",
         "sass"
       ],
       "bin": true
     },
-    "vitest@4.0.18_jsdom@27.4.0_vite@7.3.0__sass@1.97.1__picomatch@4.0.3": {
+    "vitest@4.0.18_jsdom@27.4.0_vite@7.3.0__less@4.5.1__sass@1.97.1__picomatch@4.0.3_less@4.5.1": {
       "integrity": "sha512-hOQuK7h0FGKgBAas7v0mSAsnvrIgAvWmRFjmzpJ7SwFHH3g1k2u37JtYwOwmEKhK6ZO3v9ggDBBm0La1LCK4uQ==",
       "dependencies": [
         "@vitest/expect",
-        "@vitest/mocker@4.0.18_vite@7.3.0__sass@1.97.1__picomatch@4.0.3",
+        "@vitest/mocker@4.0.18_vite@7.3.0__less@4.5.1__sass@1.97.1__picomatch@4.0.3_less@4.5.1",
         "@vitest/pretty-format",
         "@vitest/runner",
         "@vitest/snapshot",
@@ -3555,11 +3726,11 @@
       ],
       "bin": true
     },
-    "vitest@4.0.18_jsdom@27.4.0_vite@7.3.0__sass@1.97.1__picomatch@4.0.3_sass@1.97.1": {
+    "vitest@4.0.18_jsdom@27.4.0_vite@7.3.0__less@4.5.1__sass@1.97.1__picomatch@4.0.3_less@4.5.1_sass@1.97.1": {
       "integrity": "sha512-hOQuK7h0FGKgBAas7v0mSAsnvrIgAvWmRFjmzpJ7SwFHH3g1k2u37JtYwOwmEKhK6ZO3v9ggDBBm0La1LCK4uQ==",
       "dependencies": [
         "@vitest/expect",
-        "@vitest/mocker@4.0.18_vite@7.3.0__sass@1.97.1__picomatch@4.0.3_sass@1.97.1",
+        "@vitest/mocker@4.0.18_vite@7.3.0__less@4.5.1__sass@1.97.1__picomatch@4.0.3_less@4.5.1_sass@1.97.1",
         "@vitest/pretty-format",
         "@vitest/runner",
         "@vitest/snapshot",
@@ -3627,7 +3798,7 @@
     "which@6.0.0": {
       "integrity": "sha512-f+gEpIKMR9faW/JgAgPK1D7mekkFoqbmiwvNzuhsHetni20QSgzg9Vhn0g2JSJkkfehQnqdUAx7/e15qS1lPxg==",
       "dependencies": [
-        "isexe@3.1.1"
+        "isexe@3.1.2"
       ],
       "bin": true
     },
@@ -3713,21 +3884,26 @@
     "packageJson": {
       "dependencies": [
         "npm:@angular/build@^21.1.2",
+        "npm:@angular/cdk@^21.1.3",
         "npm:@angular/cli@^21.1.2",
         "npm:@angular/common@^21.1.0",
         "npm:@angular/compiler-cli@^21.1.0",
         "npm:@angular/compiler@^21.1.0",
         "npm:@angular/core@^21.1.0",
         "npm:@angular/forms@^21.1.0",
+        "npm:@angular/material@^21.1.3",
         "npm:@angular/platform-browser@^21.1.0",
         "npm:@angular/router@^21.1.0",
+        "npm:@ant-design/icons-angular@21",
+        "npm:@tailwindcss/cli@^4.1.18",
         "npm:@tailwindcss/postcss@^4.1.12",
+        "npm:autoprefixer@^10.4.24",
         "npm:jsdom@^27.1.0",
         "npm:less@^4.2.0",
         "npm:ng-zorro-antd@^21.1.0",
-        "npm:postcss@^8.5.3",
+        "npm:postcss@^8.5.6",
         "npm:rxjs@7.8",
-        "npm:tailwindcss@^4.1.12",
+        "npm:tailwindcss@^4.1.18",
         "npm:tslib@^2.3.0",
         "npm:typescript@~5.9.2",
         "npm:vitest@^4.0.8"
