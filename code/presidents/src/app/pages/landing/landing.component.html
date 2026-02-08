@@ -1,0 +1,32 @@
+<!-- Center panel -->
+<div class="w-fit h-[70%] m-6 flex flex-row items-stretch justify-center gap-2">
+
+    <!-- New Game Card -->
+    <nz-card class="new-game-card flex-1" nzHoverable (click)="router.navigate(['/new-game'])">
+      <nz-card-meta nzTitle="New Game"></nz-card-meta>
+    </nz-card>
+
+    <!-- Join Game Card -->
+    <nz-card class="join-game-card flex-1" nzHoverable>
+      <nz-card-meta [nzTitle]="joinGameCardTitle" ]></nz-card-meta>
+
+      <ng-template #joinGameCardTitle>
+        <span class="join-game-card-title">Join Game</span>
+      </ng-template>
+
+      <!-- Game Id Form -->
+      <form [formGroup]="joinForm" (ngSubmit)="joinGame()" class="mt-4 flex flex-col gap-2">
+
+        @if (joinForm.get('gameId')?.invalid && joinForm.get('gameId')?.touched){
+          <nz-input-wrapper>
+            <input nz-input formControlName="gameId" placeholder="Game ID" />
+          </nz-input-wrapper>
+        } @else {
+          <input nz-input formControlName="gameId" placeholder="Game ID" class="w-full mb-2"/>
+        }
+
+        <button nz-button nzType="primary" type="submit" class="w-full">Join Game</button>
+      </form>
+    </nz-card>
+
+</div>

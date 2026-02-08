@@ -5,21 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d7dc132-3bc8-4fd1-aa81-e42e96f07a3f" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/watcherTasks.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/watcherTasks.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/presidents/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/deno.json" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/deno.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/deno.lock" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/package-lock.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/presidents/src/app/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/app.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/presidents/src/app/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/app.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/app.routes.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/code/presidents/src/app/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/components/new-game-card/new-game-card.css" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/components/new-game-card/new-game-card.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/components/new-game-card/new-game-card.html" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/components/new-game-card/new-game-card.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/components/new-game-card/new-game-card.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/components/new-game-card/new-game-card.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.html" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/components/join-game-card/join-game-card.css" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/components/join-game-card/join-game-card.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/components/join-game-card/join-game-card.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/components/join-game-card/join-game-card.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/components/new-game-card/new-game-card.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/components/new-game-card/new-game-card.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/components/new-game-card/new-game-card.spec.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/components/new-game-card/new-game-card.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.component.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/code/presidents/src/theme.less" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/theme.less" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,31 +44,32 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;javascript.preferred.runtime.type.id&quot;: &quot;bun&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/guilherme.f.ferreira/Downloads/git/Presidents&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;bun&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\guilherme.f.ferreira\\Downloads\\git\\Presidents\\code\\presidents\\node_modules\\typescript\\lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "RunOnceActivity.typescript.service.memoryLimit.init": "true",
+    "git-widget-placeholder": "main",
+    "javascript.preferred.runtime.type.id": "bun",
+    "last_opened_file_path": "C:/Users/ASUS/Documents/Home/SoftwareDev/Presidents",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "bun",
+    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
+    "ts.external.directory.path": "C:\\Users\\ASUS\\Documents\\Home\\SoftwareDev\\Presidents\\code\\presidents\\node_modules\\typescript\\lib",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\ASUS\Documents\Home\SoftwareDev\Presidents\code\presidents\src\assets" />
+      <recent name="C:\Users\ASUS\Documents\Home\SoftwareDev\Presidents\code\presidents\src\app\services\new-game" />
+      <recent name="C:\Users\ASUS\Documents\Home\SoftwareDev\Presidents\code\presidents\src\app\services\join-game" />
       <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents\src\app\pages\landing\components" />
       <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents\src\app\components" />
-      <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents\src\app\pages" />
-      <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -89,6 +97,8 @@
       <workItem from="1770316897492" duration="1917000" />
       <workItem from="1770318870122" duration="16647000" />
       <workItem from="1770389996641" duration="1248000" />
+      <workItem from="1770557762680" duration="193000" />
+      <workItem from="1770557999186" duration="8736000" />
     </task>
     <servers />
   </component>

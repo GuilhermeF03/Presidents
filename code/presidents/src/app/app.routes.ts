@@ -9,6 +9,16 @@ export const routes: Routes = [
   {
     path: 'landing',
     loadComponent: () =>
-      import('./pages/landing/landing').then(m => m.Landing)
+      import('./pages/landing/landing.component').then(m => m.Landing)
+  },
+  {
+    path: 'new',
+    loadComponent: () =>
+      import('./pages/new-game/new-game-page.component').then(m => m.NewGamePage)
+  },
+  {
+    path: 'join/:gameId',
+    loadComponent: () =>
+      import('./pages/join-game/join-game-page.component').then(m => m.JoinGamePage)
   }
 ];

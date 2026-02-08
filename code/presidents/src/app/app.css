@@ -1,3 +1,5 @@
+@import "tailwindcss";
+
 :host {
   display: flex;
   text-rendering: optimizeLegibility;
@@ -34,4 +36,59 @@ nz-header {
   width: 100vw;
   z-index: 2;
   height: 48px;
+}
+
+.app-bg {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Blurred background layer */
+.app-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+
+  background-image: url('/assets/background.png');
+  background-size: cover;
+  background-position: center;
+
+  filter: blur(3px);
+  transform: scale(1.08); /* avoid edges */
+
+  /* Gradient mask: strong blur top → none bottom */
+  mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,1) 0%,
+    rgba(0,0,0,0.8) 50%,
+    rgba(0,0,0,0.3) 85%,
+    rgba(0,0,0,1) 100%
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to bottom,
+    rgba(0,0,0,0.7) 0%,
+    rgba(0,0,0,1) 50%,
+    rgba(0,0,0,1) 75%,
+    rgba(0,0,0,1) 100%
+  );
+
+  z-index: 0;
+}
+
+/* Optional dark overlay */
+.app-bg::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.25);
+  z-index: 1;
+}
+
+/* Content stays sharp */
+.app-bg > * {
+  position: relative;
+  z-index: 2;
 }

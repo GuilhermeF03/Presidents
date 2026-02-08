@@ -1,26 +1,19 @@
-<nz-layout class="app-layout">
+<nz-layout class="app-layout app-bg">
 
   <!-- Nav Bar -->
-  <nz-header class="bg-red-900" >
+  <nz-header class="bg-transparent h-fit" >
     <div class="m-2 p-4 h-12 relative flex items-center justify-start">
       <span>
 
-<!--        <nz-image-->
-<!--          nzWidth="40px"-->
-<!--          nzHeight="80px"-->
-<!--          nzSrc="/logo-white.png"-->
-<!--          nzAlt="logo"-->
-<!--        />-->
-
-        <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
+        <nz-image nzWidth="40px" nzHeight="80px" nzSrc="/logo-white.png" nzAlt="logo"/>
 
       </span>
-      <span class="text-xl m-6 text-gray-200">Presidents</span>
+      <span class="text-2xl m-6 text-gray-100">Presidents</span>
     </div>
   </nz-header>
 
   <!-- Content -->
-  <nz-content class="h-full">
+  <nz-content class="w-screen h-screen flex items-center justify-center">
     <router-outlet></router-outlet> <!-- Renders each page here -->
   </nz-content>
 
