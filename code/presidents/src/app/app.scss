@@ -1,0 +1,104 @@
+@use "tailwindcss";
+
+@forward "ui/styles/ui-directives";
+
+/* ---------- Root / Host ---------- */
+:host {
+  display: flex;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* ---------- Layout ---------- */
+.app-layout {
+  height: 100vh;
+  width: 100vw;
+}
+
+nz-header {
+  padding: 0;
+  width: 100vw;
+  z-index: 2;
+  height: 48px;
+}
+
+/* ---------- Sidebar ---------- */
+.menu-sidebar {
+  position: relative;
+  z-index: 10;
+  min-height: 100vh;
+  box-shadow: 2px 0 6px rgba(0, 21, 41, 0.35);
+}
+
+/* ---------- Header trigger ---------- */
+.header-trigger {
+  height: 64px;
+  padding: 20px 24px;
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.3s, padding 0s;
+
+  &:hover {
+    color: #1890ff;
+  }
+}
+
+/* ---------- App background ---------- */
+$app-bg-blur: 3px;
+$app-bg-scale: 1.08;
+$app-bg-overlay: rgba(0, 0, 0, 0.25);
+
+.app-bg {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  /* Blurred background layer */
+  &::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+
+    background-image: url('/assets/background.png');
+    background-size: cover;
+    background-position: center;
+
+    filter: blur($app-bg-blur);
+    transform: scale($app-bg-scale); // avoid edges
+
+    mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 1) 0%,
+        rgba(0, 0, 0, 0.8) 50%,
+        rgba(0, 0, 0, 0.3) 85%,
+        rgba(0, 0, 0, 1) 100%
+    );
+
+    -webkit-mask-image: linear-gradient(
+        to bottom,
+        rgba(0, 0, 0, 0.7) 0%,
+        rgba(0, 0, 0, 1) 50%,
+        rgba(0, 0, 0, 1) 75%,
+        rgba(0, 0, 0, 1) 100%
+    );
+
+    z-index: 0;
+  }
+
+  /* Dark overlay */
+  &::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: $app-bg-overlay;
+    z-index: 1;
+  }
+
+  /* Content stays sharp */
+  > * {
+    position: relative;
+    z-index: 2;
+  }
+}

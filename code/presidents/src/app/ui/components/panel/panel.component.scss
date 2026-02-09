@@ -1,0 +1,12 @@
+
+@use "tailwindcss";
+
+:host {
+  display: flex;
+  gap: 1rem;
+
+  &.panel-container {
+    @apply
+    bg-gray-100 rounded-lg shadow-lg border-0
+  }
+}

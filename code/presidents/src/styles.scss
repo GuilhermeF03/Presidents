@@ -1,5 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 
-@import "tailwindcss" important;
+@use "app/ui/styles/ui-directives";
 
-@tailwind utilities;
+@import "tailwindcss" important;

@@ -1,0 +1,17 @@
+@use "tailwindcss";
+
+.new-game-card,
+.join-game-card {
+  @apply
+  flex flex-col items-center justify-center;
+
+  .ant-card-body {
+    @apply bg-transparent h-full flex flex-col items-center justify-center;
+  }
+}
+
+.new-game-card{
+  @apply
+    transition-transform duration-300 ease-in-out
+    hover:scale-105 hover:shadow-2xl;
+}

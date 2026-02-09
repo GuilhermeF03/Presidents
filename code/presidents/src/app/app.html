@@ -1,11 +1,11 @@
 <nz-layout class="app-layout app-bg">
 
   <!-- Nav Bar -->
-  <nz-header class="bg-transparent h-fit" >
-    <div class="m-2 p-4 h-12 relative flex items-center justify-start">
+  <nz-header class="bg-transparent h-fit">
+    <div clickable class="m-2 p-4 h-12 relative flex items-center justify-start" (click)="router.navigate(['/'])" >
       <span>
 
-        <nz-image nzWidth="40px" nzHeight="80px" nzSrc="/logo-white.png" nzAlt="logo"/>
+        <nz-image nzDisablePreview nzWidth="40px" nzHeight="80px" nzSrc="/logo-white.png" nzAlt="logo"/>
 
       </span>
       <span class="text-2xl m-6 text-gray-100">Presidents</span>

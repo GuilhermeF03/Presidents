@@ -9,7 +9,14 @@
   "projects": {
     "presidents": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        "@schematics/angular:component": {
+          "style": "scss"
+        },
+        "@schematics/angular:application": {
+          "style": "scss"
+        }
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -38,7 +45,7 @@
             ],
             "styles": [
               "src/theme.less",
-              "src/styles.css"
+              "src/styles.scss"
             ]
           },
           "configurations": {

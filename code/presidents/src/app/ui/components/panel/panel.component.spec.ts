@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { NewGamePage } from './new-game-page.component';
+import { PanelComponent } from './panel.component';
 
-describe('NewGame', () => {
-  let component: NewGamePage;
-  let fixture: ComponentFixture<NewGamePage>;
+describe('PanelComponent', () => {
+  let component: PanelComponent;
+  let fixture: ComponentFixture<PanelComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [NewGamePage]
+      imports: [PanelComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(NewGamePage);
+    fixture = TestBed.createComponent(PanelComponent);
     component = fixture.componentInstance;
     await fixture.whenStable();
   });
