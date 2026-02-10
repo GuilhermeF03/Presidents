@@ -1,0 +1,48 @@
+{
+  "name": "presidents-react",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite dev --port 3000",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "lint": "eslint",
+    "format": "prettier",
+    "check": "prettier --write . && eslint --fix"
+  },
+  "dependencies": {
+    "@chakra-ui/react": "^3.32.0",
+    "@preact/signals-react": "^3.8.0",
+    "@tailwindcss/vite": "^4.1.18",
+    "@tanstack/react-devtools": "^0.9.5",
+    "@tanstack/react-router": "^1.159.5",
+    "@tanstack/react-router-devtools": "^1.159.5",
+    "@tanstack/react-router-ssr-query": "^1.159.5",
+    "@tanstack/react-start": "^1.159.5",
+    "@tanstack/router-plugin": "^1.159.5",
+    "lucide-react": "^0.563.0",
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4",
+    "react-if": "^4.1.6",
+    "tailwindcss": "^4.1.18",
+    "vite-tsconfig-paths": "^6.1.0"
+  },
+  "devDependencies": {
+    "@tanstack/devtools-vite": "^0.5.1",
+    "@tanstack/eslint-config": "^0.3.4",
+    "@testing-library/dom": "^10.4.1",
+    "@testing-library/react": "^16.3.2",
+    "@types/node": "^25.2.3",
+    "@types/react": "^19.2.13",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.4",
+    "depcheck": "^1.4.7",
+    "jsdom": "^28.0.0",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.3.1",
+    "vitest": "^4.0.18",
+    "web-vitals": "^5.1.0"
+  }
+}

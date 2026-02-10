@@ -4,35 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d7dc132-3bc8-4fd1-aa81-e42e96f07a3f" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/code/presidents/src/app/ui/pages/new-game/new-game.component.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/presidents/src/app/ui/styles/ui-directives.scss" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/code/presidents/tailwind.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/angular.json" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/angular.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/app.html" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/app.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/app.routes.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/app.routes.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/app.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/app.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/join-game/join-game-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/postcss.config.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/join-game/join-game-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/ui/pages/join-game/join-game-page.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/join-game/join-game-page.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/ui/pages/join-game/join-game-page.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/join-game/join-game-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/ui/pages/join-game/join-game-page.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/ui/pages/landing/landing.component.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/ui/pages/landing/landing.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/ui/pages/landing/landing.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/landing/landing.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/ui/pages/landing/landing.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/new-game/new-game-page.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/ui/pages/join-game/join-game-page.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/new-game/new-game-page.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/ui/pages/new-game/new-game.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/new-game/new-game-page.component.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/ui/pages/new-game/new-game.component.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/pages/new-game/new-game-page.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/ui/pages/new-game/new-game.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/services/join-game/join-game.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/core/services/join-game/join-game.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/services/join-game/join-game.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/core/services/join-game/join-game.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/services/new-game/new-game.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/core/services/new-game/new-game.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/app/services/new-game/new-game.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/app/core/services/new-game/new-game.spec.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/src/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/src/styles.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/code/presidents/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/code/presidents/tsconfig.json" afterDir="false" />
-    </list>
+    <list default="true" id="0d7dc132-3bc8-4fd1-aa81-e42e96f07a3f" name="Changes" comment="[TEST] Tanstack + React" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -67,29 +39,31 @@
     &quot;javascript.nodejs.core.library.configured.version&quot;: &quot;24.13.0&quot;,
     &quot;javascript.nodejs.core.library.typings.version&quot;: &quot;24.10.12&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/guilherme.f.ferreira/Downloads/git/Presidents/code/presidents/src/app/core&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/guilherme.f.ferreira/Downloads/git/Presidents/code/presidents-react/public&quot;,
     &quot;list.type.of.created.stylesheet&quot;: &quot;SCSS&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;configurable.tailwindcss&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;project.propVCSSupport.DirectoryMappings&quot;,
     &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\guilherme.f.ferreira\\Downloads\\git\\Presidents\\code\\presidents\\node_modules\\typescript\\lib&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents-react\public" />
+      <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents-react\src\ui" />
       <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents\src\app\core" />
       <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents\src\app\ui" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents-react\src\routing" />
+      <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents-react\src\core" />
+      <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents-react\src\ui" />
       <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents\src\app\ui" />
       <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents\src\app\ui\directives\clickable" />
-      <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents\src\app\core" />
-      <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents\src\app\ui\directives" />
-      <recent name="C:\Users\guilherme.f.ferreira\Downloads\git\Presidents\code\presidents\src\app\directives\ui\panel" />
     </key>
   </component>
   <component name="SharedIndexes">
@@ -124,8 +98,28 @@
       <workItem from="1770640693470" duration="13000" />
       <workItem from="1770641028127" duration="8057000" />
       <workItem from="1770659728352" duration="328000" />
-      <workItem from="1770660089616" duration="810000" />
+      <workItem from="1770660089616" duration="1406000" />
+      <workItem from="1770714981675" duration="4847000" />
+      <workItem from="1770719966495" duration="453000" />
+      <workItem from="1770720491855" duration="15346000" />
     </task>
+    <task id="LOCAL-00001" summary="[TEST] Tanstack + React">
+      <option name="closed" value="true" />
+      <created>1770747971557</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1770747971557</updated>
+    </task>
+    <task id="LOCAL-00002" summary="[TEST] Tanstack + React">
+      <option name="closed" value="true" />
+      <created>1770749305000</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1770749305000</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -134,6 +128,9 @@
   <component name="VcsManagerConfiguration">
     <ignored-roots>
       <path value="$PROJECT_DIR$/code" />
+      <path value="$PROJECT_DIR$/code/presidents-react" />
     </ignored-roots>
+    <MESSAGE value="[TEST] Tanstack + React" />
+    <option name="LAST_COMMIT_MESSAGE" value="[TEST] Tanstack + React" />
   </component>
 </project>

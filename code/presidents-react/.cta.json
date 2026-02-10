@@ -1,0 +1,15 @@
+{
+  "projectName": "presidents-react",
+  "mode": "file-router",
+  "typescript": true,
+  "packageManager": "deno",
+  "tailwind": true,
+  "addOnOptions": {},
+  "git": true,
+  "version": 1,
+  "framework": "react-cra",
+  "chosenAddOns": [
+    "eslint",
+    "start"
+  ]
+}
